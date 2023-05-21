@@ -1,0 +1,60 @@
+@import "../../scss/variables";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+.section-testimonials {
+  background-color: $color-light-background;
+  margin-bottom: 5rem;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2.4rem;
+  padding: 0 1.6rem;
+  cursor: grab;
+
+  &__user {
+    padding: 0 17rem;
+  }
+
+  &__photo {
+    width: 100%;
+    border-radius: 100%;
+  }
+
+  &__user-name {
+    font-size: 2.4rem;
+    color: $color-primary-dark;
+  }
+
+  &__text {
+    font-family: $font-secondary;
+    color: $color-content-base;
+    font-size: 1.8rem;
+    line-height: 1.6;
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    color: $color-white;
+    padding: 0.8rem 1.2rem;
+    background-color: $color-primary-main;
+    border: 1px solid $color-primary-main;
+
+    align-self: center;
+
+    transition: all 0.3s;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-primary-light;
+    }
+  }
+}

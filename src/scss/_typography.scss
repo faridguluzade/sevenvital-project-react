@@ -1,0 +1,17 @@
+@import "./variables";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-primary;
+  font-weight: $font-regular;
+}
+
+p,
+a,
+li {
+  font-family: $font-secondary;
+}

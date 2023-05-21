@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@import "./variables";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: $font-primary;
+  font-weight: $font-regular;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+a {
+  font-family: $font-secondary;
+}
+
+p {
+  margin-bottom: 0;
+  color: $color-content-base;
+  line-height: 1.6;
+}
+
+ul {
+  padding-left: 0;
+}

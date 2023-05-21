@@ -1,0 +1,57 @@
+@import "../../scss/variables";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+.section-about {
+  background-image: url(https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/art4.svg);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 4.8rem 0;
+  margin-bottom: 4rem;
+
+  border-bottom: 1px solid #e9ecef;
+}
+
+.about {
+  &__main-photo {
+    width: 44.8rem;
+    position: relative;
+  }
+
+  &__secondary-photo {
+    width: 28rem;
+    position: absolute;
+    transform: translate(-50%, 95%);
+  }
+
+  &__text-box {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 4rem;
+  }
+
+  &__paragraph {
+    color: $color-content-base;
+  }
+
+  &__details {
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    color: $color-primary-dark;
+    letter-spacing: 0.8px;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+}
