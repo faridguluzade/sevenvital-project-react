@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
 
+import { Link } from "react-router-dom";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-// import "swiper/css/navigation";
+
+import Button from "../UI/Button/Button";
+
 import "./Testimonials.styles.scss";
 
 const DUMMY_TESTIMONIALS = [
@@ -59,11 +66,11 @@ const DUMMY_TESTIMONIALS = [
 
 const Testimonials = () => {
   return (
-    <div className="container-fluid p-5">
-      <Swiper spaceBetween={50} slidesPerView={3} loop={true} navigation={true}>
-        <div className="row">
+    <Container fluid className="py-5">
+      <Swiper spaceBetween={50} slidesPerView={3} loop={true}>
+        <Row>
           {DUMMY_TESTIMONIALS.map(({ id, userName, imgUrl, text, link }) => (
-            <div key={id} className="col-4">
+            <Col xs={4} key={id}>
               <SwiperSlide>
                 <figure className="testimonial">
                   <figcaption className="testimonial__user">
@@ -73,14 +80,16 @@ const Testimonials = () => {
                   <blockquote className="testimonial__text">
                     "{text}"
                   </blockquote>
-                  <Link className="testimonial__link">{link}</Link>
+                  <Button filled={true} className="testimonial__link">
+                    {link}
+                  </Button>
                 </figure>
               </SwiperSlide>
-            </div>
+            </Col>
           ))}
-        </div>
+        </Row>
       </Swiper>
-    </div>
+    </Container>
   );
 };
 

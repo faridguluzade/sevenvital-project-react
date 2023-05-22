@@ -1,12 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SectionHeader from "../UI/SectionHeader";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import SectionHeader from "../UI/SectionHeader/SectionHeader";
+import Button from "../UI/Button/Button";
+
 import { UilFlask } from "@iconscout/react-unicons";
 import { UilProcess } from "@iconscout/react-unicons";
 import { UilCheckCircle } from "@iconscout/react-unicons";
 import { UilBullseye } from "@iconscout/react-unicons";
 import { UilFlower } from "@iconscout/react-unicons";
 import { UilTemperatureEmpty } from "@iconscout/react-unicons";
+
 import "./Future.styles.scss";
 
 const Future = () => {
@@ -18,9 +26,9 @@ const Future = () => {
           "Nam vitae sapien dapibus, condimentum ipsum non, porttitor purus. Cras et diam ac – nunc urna magna, porttitor eu laoreet aliquam velit. Suspendisse potenti!"
         }
       />
-      <div className="future container">
-        <div className="row">
-          <div className="col-4 ">
+      <Container className="future">
+        <Row>
+          <Col xs={4}>
             <div className="future__box">
               <UilFlask className="future__icon" />
               <h3 className="future__title">100% Natural Ingredients</h3>
@@ -30,8 +38,8 @@ const Future = () => {
                 ullamcorper mattis, pulvinar dapibus leo.
               </p>
             </div>
-          </div>
-          <div className="col-4 ">
+          </Col>
+          <Col xs={4}>
             <div className="future__box">
               <UilProcess className="future__icon" />
               <h3 className="future__title">Recyclable Materials</h3>
@@ -40,8 +48,8 @@ const Future = () => {
                 luctus nec ullamcorper mattis, pulvinar dapibus leo.
               </p>
             </div>
-          </div>
-          <div className="col-4 ">
+          </Col>
+          <Col xs={4}>
             <div className="future__box">
               <UilCheckCircle className="future__icon" />
               <h3 className="future__title">FDA Approved</h3>
@@ -51,8 +59,8 @@ const Future = () => {
                 consectetur adipiscing lorem dolor ipsum.
               </p>
             </div>
-          </div>
-          <div className="col-4 ">
+          </Col>
+          <Col xs={4}>
             <div className="future__box">
               <UilBullseye className="future__icon" />
               <h3 className="future__title">Unique Technology</h3>
@@ -61,8 +69,8 @@ const Future = () => {
                 luctus nec ullamcorper mattis, pulvinar dapibus leo.
               </p>
             </div>
-          </div>
-          <div className="col-4 ">
+          </Col>
+          <Col xs={4}>
             <div className="future__box">
               <UilFlower className="future__icon" />
               <h3 className="future__title">Organic Production</h3>
@@ -72,8 +80,8 @@ const Future = () => {
                 ullamcorper mattis, pulvinar dapibus leo.
               </p>
             </div>
-          </div>
-          <div className="col-4 ">
+          </Col>
+          <Col xs={4}>
             <div className="future__box">
               <UilTemperatureEmpty className="future__icon" />
               <h3 className="future__title">Multiple Level Control</h3>
@@ -82,12 +90,14 @@ const Future = () => {
                 luctus nec ullamcorper mattis, pulvinar dapibus leo.
               </p>
             </div>
-          </div>
-          <div className="col-12">
-            <Link className="future__link">Browse Popular Products</Link>
-          </div>
-        </div>
-      </div>
+          </Col>
+          <Row>
+            <Col xs={12}>
+              <Button className="future__link">Browse Popular Products</Button>
+            </Col>
+          </Row>
+        </Row>
+      </Container>
     </>
   );
 };

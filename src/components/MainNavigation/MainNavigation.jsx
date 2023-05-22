@@ -1,4 +1,9 @@
 import React from "react";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { UilEstate } from "@iconscout/react-unicons";
@@ -15,78 +20,80 @@ const MainNavigation = () => {
   };
 
   return (
-    <nav className="main-nav container">
-      <div className="row align-items-center">
-        <div className="col-4">
-          <ul className="main-nav__list">
-            <li>
-              <Link to="#" className="main-nav__link">
-                <UilEstate size="20" />
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="main-nav__link">
-                Shop
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="main-nav__link">
-                Account
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="main-nav__link">
-                Magazine
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="main-nav__link">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
+    <Container>
+      <nav className="main-nav">
+        <Row className="align-items-end">
+          <Col xs={4}>
+            <ul className="main-nav__list">
+              <li>
+                <Link to="#" className="main-nav__link">
+                  <UilEstate size="20" />
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="main-nav__link">
+                  Shop
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="main-nav__link">
+                  Account
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="main-nav__link">
+                  Magazine
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="main-nav__link">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </Col>
 
-        <div className="col-4">
-          <div className="main-nav__logo">
-            <img
-              src="https://the7.io/cbd/wp-content/uploads/sites/104/2021/05/vital-logo-seven.svg"
-              alt="#"
-            />
-          </div>
-        </div>
-
-        <div className="col-4">
-          <div className="main-nav__icon-container">
-            <div className={`main-nav__icon-bar  ${!show ? "d-none" : ""}`}>
-              <UilShoppingBag className="main-nav__icon" />
-              <UilSearch
-                className="main-nav__icon"
-                onClick={toggleIconHandler}
+          <Col xs={4}>
+            <div className="main-nav__logo">
+              <img
+                src="https://the7.io/cbd/wp-content/uploads/sites/104/2021/05/vital-logo-seven.svg"
+                alt="#"
               />
             </div>
+          </Col>
 
-            <div
-              className={`main-nav__search-container ${show ? "d-none" : ""}`}
-            >
-              <form className="main-nav__search-form">
-                <UilSearch className="main-nav__icon" />
-                <input
-                  className="main-nav__search-input "
-                  type="text"
-                  placeholder="Search..."
+          <Col xs={4}>
+            <div className="main-nav__icon-container">
+              <div className={`main-nav__icon-bar  ${!show ? "d-none" : ""}`}>
+                <UilShoppingBag className="main-nav__icon" />
+                <UilSearch
+                  className="main-nav__icon"
+                  onClick={toggleIconHandler}
                 />
-              </form>
+              </div>
 
-              <UilTimes
-                className="main-nav__icon"
-                onClick={toggleIconHandler}
-              />
+              <div
+                className={`main-nav__search-container ${show ? "d-none" : ""}`}
+              >
+                <form className="main-nav__search-form">
+                  <UilSearch className="main-nav__icon" />
+                  <input
+                    className="main-nav__search-input "
+                    type="text"
+                    placeholder="Search..."
+                  />
+                </form>
+
+                <UilTimes
+                  className="main-nav__icon"
+                  onClick={toggleIconHandler}
+                />
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+          </Col>
+        </Row>
+      </nav>
+    </Container>
   );
 };
 

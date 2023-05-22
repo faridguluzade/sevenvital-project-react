@@ -1,5 +1,6 @@
 @import "../../scss/variables";
 @import "../../scss/animations";
+@import "../../scss/mixins";
 
 // -Font sizes (px):
 // 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
@@ -38,24 +39,11 @@
   }
 
   &__link {
-    display: inline-block;
-    text-decoration: none;
-    color: $color-white;
-    font-size: 1.8rem;
-    background-color: $color-primary-main;
-    padding: 2.2rem 3.8rem;
-
-    margin-top: 4.8rem;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-      rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    @include main-btn-size;
 
     animation: smoothScale 1.5s;
-    transition: all 0.3s;
-
-    &:hover {
-      color: $color-white;
-      background-color: $color-primary-light;
-    }
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
   }
 
   &__future-box {

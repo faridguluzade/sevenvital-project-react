@@ -1,5 +1,10 @@
 import React from "react";
-import SectionHeader from "../UI/SectionHeader";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import SectionHeader from "../UI/SectionHeader/SectionHeader";
 import { UisCheckCircle } from "@iconscout/react-unicons-solid";
 import "./About.styles.scss";
 
@@ -7,9 +12,9 @@ const About = () => {
   return (
     <>
       <SectionHeader title="What is Seven Vital CBD?" />
-      <div className="about container">
-        <div className="row py-5">
-          <div className="col-6">
+      <Container className="about">
+        <Row className="py-5">
+          <Col xs={6}>
             <figure className="about__img-box">
               <img
                 className="about__main-photo"
@@ -22,8 +27,8 @@ const About = () => {
                 alt=""
               />
             </figure>
-          </div>
-          <div className="col-6 p-5 ">
+          </Col>
+          <Col xs={6} className="p-5">
             <div className="about__text-box">
               <p className="about__paragraph">
                 Seven Vital – Vestibulum posuere felis vestibulum pharetra
@@ -56,9 +61,9 @@ const About = () => {
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

@@ -1,0 +1,28 @@
+@import "../../../scss/variables";
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.button--filled {
+  background-color: $color-primary-main;
+  color: $color-white;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-primary-light;
+  }
+}
+
+.button--outline {
+  color: $color-primary-main;
+  background-color: $color-white;
+  border: 1px solid $color-primary-main;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-primary-main;
+  }
+}

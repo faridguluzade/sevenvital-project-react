@@ -4,6 +4,7 @@
 // 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
 
 @import "../../scss//variables";
+@import "../../scss/mixins";
 
 .section-future {
   padding: 3.2rem 0;
@@ -34,21 +35,6 @@
   }
 
   &__link {
-    display: inline-block;
-    text-decoration: none;
-    color: $color-primary-dark;
-    font-size: 1.8rem;
-    background-color: $color-white;
-    padding: 2rem 3rem;
-    border: 1px solid $color-primary-dark;
-
-    margin-top: 4.8rem;
-
-    transition: all 0.3s;
-
-    &:hover {
-      color: $color-white;
-      background-color: $color-primary-dark;
-    }
+    @include main-btn-size;
   }
 }

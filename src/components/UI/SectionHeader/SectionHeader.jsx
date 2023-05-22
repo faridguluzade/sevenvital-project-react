@@ -1,9 +1,11 @@
 import React from "react";
+import Container from "react-bootstrap/Container";
+
 import "./SectionHeader.styles.scss";
 
 const SectionHeader = ({ title, subheading }) => {
   return (
-    <div className="container">
+    <Container>
       <div className="section-header">
         <img
           src="https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/art-floral.svg"
@@ -15,7 +17,7 @@ const SectionHeader = ({ title, subheading }) => {
           <p className="section-header__subheading">{subheading}</p>
         )}
       </div>
-    </div>
+    </Container>
   );
 };
 

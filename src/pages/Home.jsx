@@ -1,9 +1,12 @@
 import React from "react";
+
 import MainNavigation from "../components/MainNavigation/MainNavigation";
 import MainHero from "../components/MainHero/MainHero";
 import About from "../components/About/About";
 import Future from "../components/Future/Future";
 import Testimonials from "../components/Testimonials/Testimonials";
+import Products from "../components/Products/Products";
+import Guarantee from "../components/Guarantee/Guarantee";
 
 function Home() {
   return (
@@ -20,6 +23,12 @@ function Home() {
       </section>
       <section className="section-testimonials py-5">
         <Testimonials />
+      </section>
+      <section className="section-products">
+        <Products />
+      </section>
+      <section className="section-guarantee">
+        <Guarantee />
       </section>
     </>
   );
