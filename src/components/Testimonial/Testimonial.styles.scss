@@ -1,0 +1,54 @@
+@import "../../scss/variables";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+.section-testimonial {
+  padding: 3.2rem 0;
+  margin-bottom: 2rem;
+  background-color: $color-light-background;
+}
+
+.testimonial {
+  &__content-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  &__user-name {
+    font-size: 4.8rem;
+    color: $color-title;
+  }
+
+  &__user-job {
+    font-size: 3rem;
+    font-family: "Alegreya", sans-serif;
+    color: $color-primary-main;
+  }
+
+  &__text {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  &__icon-box {
+    display: flex;
+    align-items: center;
+
+    gap: 2.4rem;
+    color: $color-primary-main;
+    margin-top: 1.6rem;
+  }
+
+  &__img-box {
+    padding: 3.2rem;
+  }
+
+  &__photo {
+    width: 100%;
+    border-radius: 100%;
+  }
+}

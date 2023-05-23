@@ -13,9 +13,9 @@ const About = () => {
     <>
       <SectionHeader title="What is Seven Vital CBD?" />
       <Container className="about">
-        <Row className="py-5">
+        <Row className="align-items-center">
           <Col xs={6}>
-            <figure className="about__img-box">
+            <figure className="about__pictures">
               <img
                 className="about__main-photo"
                 src="https://the7.io/cbd/wp-content/uploads/sites/104/elementor/thumbs/vprod014-pyh7zwt3z20bix5km8stpsp86wb92o11esdi9ky694.jpg"
@@ -40,7 +40,7 @@ const About = () => {
               </p>
               <ul className="about__details">
                 <li>
-                  <UisCheckCircle />{" "}
+                  <UisCheckCircle />
                   <span> Sustainable organic production</span>
                 </li>
                 <li>

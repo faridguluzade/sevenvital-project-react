@@ -1,0 +1,28 @@
+@import "../../scss/variables";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+.benefits {
+  padding: 4.8rem;
+
+  &__box {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    row-gap: 1.6rem;
+    column-gap: 2.4rem;
+  }
+
+  &__icon {
+    grid-row: 1 / span 2;
+    color: $color-primary-main;
+  }
+
+  &__title {
+    font-family: "Alegreya", sans-serif;
+    font-size: 3rem;
+    color: $color-title;
+  }
+}

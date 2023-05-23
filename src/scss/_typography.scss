@@ -6,13 +6,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-primary;
+  font-family: $font-alegreya-sc;
   font-weight: $font-regular;
 }
 
 p,
 a,
 li,
-span {
-  font-family: $font-secondary;
+span,
+blockquote {
+  font-family: $font-inters;
 }

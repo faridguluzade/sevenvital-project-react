@@ -5,12 +5,12 @@
 // Spacing system (px)
 // 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
 
-.section-testimonials {
+.section-testimonials-slider {
   background-color: $color-light-background;
   margin-bottom: 5rem;
 }
 
-.testimonial {
+.testimonial-slider {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -33,7 +33,6 @@
   }
 
   &__text {
-    font-family: $font-secondary;
     color: $color-content-base;
     font-size: 1.8rem;
     line-height: 1.6;

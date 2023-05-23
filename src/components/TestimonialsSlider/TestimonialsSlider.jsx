@@ -11,7 +11,7 @@ import "swiper/css";
 
 import Button from "../UI/Button/Button";
 
-import "./Testimonials.styles.scss";
+import "./TestimonialsSlider.styles.scss";
 
 const DUMMY_TESTIMONIALS = [
   {
@@ -64,7 +64,7 @@ const DUMMY_TESTIMONIALS = [
   },
 ];
 
-const Testimonials = () => {
+const TestimonialsSlider = () => {
   return (
     <Container fluid className="py-5">
       <Swiper spaceBetween={50} slidesPerView={3} loop={true}>
@@ -72,15 +72,19 @@ const Testimonials = () => {
           {DUMMY_TESTIMONIALS.map(({ id, userName, imgUrl, text, link }) => (
             <Col xs={4} key={id}>
               <SwiperSlide>
-                <figure className="testimonial">
-                  <figcaption className="testimonial__user">
-                    <img className="testimonial__photo" src={imgUrl} alt="" />
+                <figure className="testimonial-slider">
+                  <figcaption className="testimonial-slider__user">
+                    <img
+                      className="testimonial-slider__photo"
+                      src={imgUrl}
+                      alt=""
+                    />
                   </figcaption>
-                  <h3 className="testimonial__user-name">{userName}</h3>
-                  <blockquote className="testimonial__text">
+                  <h3 className="testimonial-slider__user-name">{userName}</h3>
+                  <blockquote className="testimonial-slider__text">
                     "{text}"
                   </blockquote>
-                  <Button filled={true} className="testimonial__link">
+                  <Button filled={true} className="testimonial-slider__link">
                     {link}
                   </Button>
                 </figure>
@@ -93,7 +97,7 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default TestimonialsSlider;
 
 {
   /* 

@@ -1,0 +1,59 @@
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+@import "../../scss/variables";
+
+.section-facts {
+  background-image: url("https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/art6.svg");
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 3.2rem;
+}
+
+.facts {
+  margin-top: -9.6rem;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+    color: $color-title;
+    font-size: 1.8rem;
+
+    span {
+      font-size: 4.8rem;
+      color: $color-primary-main;
+    }
+  }
+
+  &__pictures {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  &__main-photo {
+    width: 105%;
+    grid-column: 3/7;
+    grid-row: 2/6;
+    box-shadow: 0 2rem 5rem rgba(#000, 0.1);
+  }
+
+  &__secondary-photo {
+    width: 120%;
+    grid-column: 2/4;
+    grid-row: 4/6;
+    z-index: 20;
+    box-shadow: 0 2rem 5rem rgba(#000, 0.2);
+  }
+}

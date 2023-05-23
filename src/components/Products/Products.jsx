@@ -127,7 +127,7 @@ const Products = () => {
       <Container className="product">
         <Row>
           {DUMMY_PRODUCTS.map((product) => (
-            <Col xs={3}>
+            <Col key={product.id} xs={3}>
               <figure className="product__card">
                 <div className="product__photo-box">
                   <img
