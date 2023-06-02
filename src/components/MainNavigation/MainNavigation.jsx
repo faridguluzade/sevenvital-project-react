@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { useState } from "react";
+import { SidebarContext } from "../../context/sidebar-context";
+
 import { Link } from "react-router-dom";
 import { UilEstate } from "@iconscout/react-unicons";
 import { UilSearch } from "@iconscout/react-unicons";
@@ -14,6 +15,7 @@ import { UilAlignLeft } from "@iconscout/react-unicons";
 import "./MainNavigation.styles.scss";
 
 const MainNavigation = () => {
+  const { setIsSidebarOpen } = useContext(SidebarContext);
   const [show, setShow] = useState(true);
   const [stickyClass, setStickyClass] = useState("");
 
@@ -67,7 +69,14 @@ const MainNavigation = () => {
           </Col>
 
           <Col xs={6} lg={3} className="d-flex align-items-center gap-4">
-            {/* <UilAlignLeft size="35" /> */}
+            <div>
+              <UilAlignLeft
+                onClick={setIsSidebarOpen}
+                className="d-block d-lg-none "
+                size="35"
+              />
+            </div>
+
             <figure className="main-nav__logo ">
               <img
                 src="https://the7.io/cbd/wp-content/uploads/sites/104/2021/05/vital-logo-seven.svg"

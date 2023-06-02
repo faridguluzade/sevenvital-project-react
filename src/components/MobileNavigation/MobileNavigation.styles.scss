@@ -1,0 +1,119 @@
+@import "../../scss/variables";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+// ACTIVE CLASS
+
+.side-nav--open {
+  transform: translateX(-100%);
+}
+
+.side-nav--open ~ body {
+  overflow: hidden;
+}
+
+.side-nav {
+  width: 40vw;
+  height: 100vh;
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  color: $color-primary-light;
+  background-color: $color-white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  transition: all 0.4s;
+  z-index: 100;
+
+  @media (max-width: $md) {
+    width: 80vw;
+  }
+
+  &__logo {
+    align-self: flex-start;
+    padding-right: 3.2rem;
+    padding-bottom: 3.2rem;
+    padding-left: 2.4rem;
+
+    img {
+      width: 80%;
+    }
+  }
+
+  &__close {
+    align-self: flex-end;
+    height: 3rem;
+    width: 3rem;
+    margin: 1.5rem 1.2rem 0 0;
+    color: $color-content-secondary;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-content-base;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8rem;
+  }
+
+  &__item {
+    position: relative;
+    padding: 2.4rem 2.5rem;
+    width: 100%;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  &__item:first-child {
+    border-top: 1px solid #e9ecef;
+  }
+
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: $color-primary-light;
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
+  }
+
+  &__item:hover::before {
+    transform: scaleY(1);
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-primary-main;
+
+    &:hover {
+      color: $color-primary-main;
+    }
+  }
+
+  &__content-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 2.4rem;
+  }
+
+  &__icons {
+    padding: 2.4rem;
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+  }
+}

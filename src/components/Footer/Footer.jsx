@@ -20,7 +20,6 @@ import "./Footer.styles.scss";
 const Footer = () => {
   return (
     <Container fluid="lg" className="footer__container p-5">
-      {/* className="d-sm-flex flex-sm-column flex-md-row align-items-center gap-5 mt-5" */}
       <Row>
         <Col
           xs={12}
