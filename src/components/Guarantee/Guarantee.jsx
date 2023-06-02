@@ -16,7 +16,7 @@ const Guarantee = () => {
   return (
     <Container className="guarantee">
       <Row>
-        <Col xs={3}>
+        <Col xs={12} md={6} lg={3}>
           <div className="guarantee__box">
             <UilUsdCircle size="30" />
             <span className="guarantee__text">
@@ -25,7 +25,7 @@ const Guarantee = () => {
           </div>
         </Col>
 
-        <Col xs={3}>
+        <Col xs={12} md={6} lg={3}>
           <div className="guarantee__box">
             <UilCommentHeart size="30" />
             <span className="guarantee__text">
@@ -33,7 +33,7 @@ const Guarantee = () => {
             </span>
           </div>
         </Col>
-        <Col xs={3}>
+        <Col xs={12} md={6} lg={3}>
           <div className="guarantee__box">
             <UilTruck size="30" />
             <span className="guarantee__text">
@@ -41,7 +41,7 @@ const Guarantee = () => {
             </span>
           </div>
         </Col>
-        <Col xs={3}>
+        <Col xs={12} md={6} lg={3}>
           <div className="guarantee__box">
             <UilHeadphones size="30" />
             <span className="guarantee__text">

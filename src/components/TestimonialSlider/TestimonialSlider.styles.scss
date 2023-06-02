@@ -1,29 +1,19 @@
 @import "../../scss/variables";
 
-// -Font sizes (px):
-// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
-// Spacing system (px)
-// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
-
-.section-testimonials-slider {
-  background-color: $color-light-background;
-  margin-bottom: 5rem;
-}
-
 .testimonial-slider {
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 2.4rem;
-  padding: 0 1.6rem;
+  padding: 2.4rem;
   cursor: grab;
 
   &__user {
-    padding: 0 17rem;
+    //
   }
 
   &__photo {
-    width: 100%;
+    width: 15rem;
     border-radius: 100%;
   }
 

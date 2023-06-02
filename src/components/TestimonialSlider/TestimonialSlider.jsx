@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,7 +9,7 @@ import "swiper/css";
 
 import Button from "../UI/Button/Button";
 
-import "./TestimonialsSlider.styles.scss";
+import "./TestimonialSlider.styles.scss";
 
 const DUMMY_TESTIMONIALS = [
   {
@@ -64,40 +62,51 @@ const DUMMY_TESTIMONIALS = [
   },
 ];
 
-const TestimonialsSlider = () => {
+const TestimonialSlider = () => {
   return (
     <Container fluid className="py-5">
-      <Swiper spaceBetween={50} slidesPerView={3} loop={true}>
-        <Row>
-          {DUMMY_TESTIMONIALS.map(({ id, userName, imgUrl, text, link }) => (
-            <Col xs={4} key={id}>
-              <SwiperSlide>
-                <figure className="testimonial-slider">
-                  <figcaption className="testimonial-slider__user">
-                    <img
-                      className="testimonial-slider__photo"
-                      src={imgUrl}
-                      alt=""
-                    />
-                  </figcaption>
-                  <h3 className="testimonial-slider__user-name">{userName}</h3>
-                  <blockquote className="testimonial-slider__text">
-                    "{text}"
-                  </blockquote>
-                  <Button filled={true} className="testimonial-slider__link">
-                    {link}
-                  </Button>
-                </figure>
-              </SwiperSlide>
-            </Col>
-          ))}
-        </Row>
+      <Swiper
+        loop={true}
+        breakpoints={{
+          750: {
+            slidesPerView: 1,
+          },
+          830: {
+            slidesPerView: 2,
+          },
+          1200: {
+            slidesPerView: 3,
+          },
+        }}
+      >
+        {DUMMY_TESTIMONIALS.map(({ id, userName, imgUrl, text, link }) => (
+          <Col xs={12} md={6} xl={4} key={id}>
+            <SwiperSlide>
+              <figure className="testimonial-slider">
+                <figcaption className="testimonial-slider__user">
+                  <img
+                    className="testimonial-slider__photo"
+                    src={imgUrl}
+                    alt=""
+                  />
+                </figcaption>
+                <h3 className="testimonial-slider__user-name">{userName}</h3>
+                <blockquote className="testimonial-slider__text">
+                  "{text}"
+                </blockquote>
+                <Button filled={true} className="testimonial-slider__link">
+                  {link}
+                </Button>
+              </figure>
+            </SwiperSlide>
+          </Col>
+        ))}
       </Swiper>
     </Container>
   );
 };
 
-export default TestimonialsSlider;
+export default TestimonialSlider;
 
 {
   /* 

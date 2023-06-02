@@ -2,24 +2,9 @@
 @import "../../scss/animations";
 @import "../../scss/mixins";
 
-// -Font sizes (px):
-// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
-
-// Spacing system (px)
-// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
-
-.section-main-hero {
-  background-image: linear-gradient(rgba(black, 0.3), rgba(black, 0.4)),
-    url(https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/art-top-005.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
 .main-hero {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   gap: 9.6rem;
 
   &__text-box {
@@ -31,11 +16,18 @@
   &__heading {
     font-size: 10.2rem;
     animation: smoothFromBottom 0.8s ease-out;
+
+    @media (max-width: $lg) {
+      font-size: 8.2rem;
+    }
   }
 
   &__description {
     font-size: 5rem;
     animation: smoothFromBottom 1.5s ease-out;
+    @media (max-width: $lg) {
+      font-size: 4rem;
+    }
   }
 
   &__link {
@@ -52,9 +44,19 @@
     align-items: center;
     gap: 1.6rem;
     color: $color-white;
+
+    @media (max-width: $md) {
+      flex-direction: column;
+    }
   }
 
   &__future-title {
     font-size: 1.8rem;
+    line-height: 1.3;
+    text-align: center;
+
+    @media (max-width: $lg) {
+      font-size: 1.6rem;
+    }
   }
 }

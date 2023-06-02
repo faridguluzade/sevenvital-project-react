@@ -17,7 +17,15 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 62.5%; // 10px
+
+  @media (max-width: $xl) {
+    font-size: 56.25%; // 9px
+  }
+
+  @media (max-width: $md) {
+    font-size: 50%;
+  }
 }
 
 body {
@@ -40,4 +48,9 @@ p {
 
 ul {
   padding-left: 0;
+  margin-bottom: 0;
+}
+
+figure {
+  margin-bottom: 0;
 }

@@ -17,6 +17,15 @@ import { UilTemperatureEmpty } from "@iconscout/react-unicons";
 
 import "./Future.styles.scss";
 
+// const DUMMY_FUTURE = [
+//   {
+//     id: 1,
+//     icon: "",
+//     title: "",
+//     description: "",
+//   },
+// ];
+
 const Future = () => {
   return (
     <>
@@ -26,9 +35,9 @@ const Future = () => {
           "Nam vitae sapien dapibus, condimentum ipsum non, porttitor purus. Cras et diam ac – nunc urna magna, porttitor eu laoreet aliquam velit. Suspendisse potenti!"
         }
       />
-      <Container className="future">
+      <Container fluid="lg" className="future">
         <Row>
-          <Col xs={4}>
+          <Col xs={12} md={6} lg={4}>
             <div className="future__box">
               <UilFlask className="future__icon" />
               <h3 className="future__title">100% Natural Ingredients</h3>
@@ -39,7 +48,7 @@ const Future = () => {
               </p>
             </div>
           </Col>
-          <Col xs={4}>
+          <Col xs={12} md={6} lg={4}>
             <div className="future__box">
               <UilProcess className="future__icon" />
               <h3 className="future__title">Recyclable Materials</h3>
@@ -49,7 +58,7 @@ const Future = () => {
               </p>
             </div>
           </Col>
-          <Col xs={4}>
+          <Col xs={12} md={6} lg={4}>
             <div className="future__box">
               <UilCheckCircle className="future__icon" />
               <h3 className="future__title">FDA Approved</h3>
@@ -60,7 +69,7 @@ const Future = () => {
               </p>
             </div>
           </Col>
-          <Col xs={4}>
+          <Col xs={12} md={6} lg={4}>
             <div className="future__box">
               <UilBullseye className="future__icon" />
               <h3 className="future__title">Unique Technology</h3>
@@ -70,7 +79,7 @@ const Future = () => {
               </p>
             </div>
           </Col>
-          <Col xs={4}>
+          <Col md={6} lg={4}>
             <div className="future__box">
               <UilFlower className="future__icon" />
               <h3 className="future__title">Organic Production</h3>
@@ -81,7 +90,7 @@ const Future = () => {
               </p>
             </div>
           </Col>
-          <Col xs={4}>
+          <Col xs={12} md={6} lg={4}>
             <div className="future__box">
               <UilTemperatureEmpty className="future__icon" />
               <h3 className="future__title">Multiple Level Control</h3>

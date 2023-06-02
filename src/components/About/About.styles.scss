@@ -5,24 +5,25 @@
 // Spacing system (px)
 // 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
 
-.section-about {
-  background-image: url(https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/art4.svg);
-  background-position: bottom left;
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding-top: 4.8rem;
-  margin-bottom: 4rem;
-
-  border-bottom: 1px solid #e9ecef;
-}
-
 .about {
   margin-top: -9.6rem;
+
+  @media (max-width: $xl) {
+    margin-top: 0;
+  }
+
+  @media (max-width: $md) {
+    margin-top: 2.4rem;
+  }
 
   &__pictures {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
+
+    @media (max-width: $md) {
+      margin-top: -3.2rem;
+    }
   }
 
   &__main-photo {
@@ -30,6 +31,11 @@
     grid-column: 1/5;
     grid-row: 2/6;
     box-shadow: 0 2rem 5rem rgba(#000, 0.1);
+
+    @media (max-width: $md) {
+      width: 120%;
+      grid-column: 2/5;
+    }
   }
 
   &__secondary-photo {
@@ -38,6 +44,10 @@
     grid-row: 4/6;
     z-index: 20;
     box-shadow: 0 2rem 5rem rgba(#000, 0.2);
+
+    @media (max-width: $md) {
+      width: 110%;
+    }
   }
 
   &__text-box {
@@ -64,6 +74,10 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+
+      span {
+        line-height: 1.6;
+      }
     }
   }
 }

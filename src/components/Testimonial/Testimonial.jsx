@@ -13,9 +13,9 @@ import "./Testimonial.styles.scss";
 
 const Testimonial = () => {
   return (
-    <Container className="testimonial">
-      <Row className="align-items-center">
-        <Col xs={7}>
+    <Container fluid="lg" className="testimonial">
+      <Row className="align-items-center p-5">
+        <Col xs={{ span: 12, order: "last" }} md={{ span: 7, order: "first" }}>
           <div className="testimonial__content-box">
             <h3 className="testimonial__user-name">Salma Seven</h3>
             <h4 className="testimonial__user-job">
@@ -36,7 +36,7 @@ const Testimonial = () => {
             </div>
           </div>
         </Col>
-        <Col xs={5}>
+        <Col xs={{ span: 12, order: "first" }} md={{ span: 5, order: "last" }}>
           <figure className="testimonial__img-box">
             <img
               src="https://the7.io/cbd/wp-content/uploads/sites/104/elementor/thumbs/portr-pyfzedncdi5mkva2sqsn9g48ajryej6do53d7vhkbs.jpg"

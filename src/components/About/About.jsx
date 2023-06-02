@@ -12,9 +12,13 @@ const About = () => {
   return (
     <>
       <SectionHeader title="What is Seven Vital CBD?" />
-      <Container className="about">
+      <Container fluid="lg" className="about">
         <Row className="align-items-center">
-          <Col xs={6}>
+          <Col
+            xs={{ span: 12, order: "last" }}
+            md={{ span: 6, order: "first" }}
+            className="p-5"
+          >
             <figure className="about__pictures">
               <img
                 className="about__main-photo"
@@ -28,7 +32,11 @@ const About = () => {
               />
             </figure>
           </Col>
-          <Col xs={6} className="p-5">
+          <Col
+            xs={{ span: 12, order: "first" }}
+            md={{ span: 6, order: "last" }}
+            className="p-5"
+          >
             <div className="about__text-box">
               <p className="about__paragraph">
                 Seven Vital – Vestibulum posuere felis vestibulum pharetra

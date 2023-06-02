@@ -1,0 +1,53 @@
+@import "../../scss/variables";
+
+.accordion {
+  margin-top: 8rem;
+
+  &__item {
+    &:not(:last-child) {
+      border-bottom: 1px solid #e9ecef;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__select-box {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding-bottom: 2rem;
+
+    &:hover .accordion__text {
+      color: $color-sale;
+    }
+  }
+
+  &__text {
+    font-family: $font-alegreya;
+    color: $color-title;
+    font-size: 2.4rem;
+  }
+
+  &__icon--down {
+    color: $color-content-secondary;
+  }
+
+  &__icon--up {
+    color: #c8cfc1;
+  }
+
+  &__hidden-box {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.6s;
+  }
+
+  &__paragraph {
+    padding-bottom: 2rem;
+    cursor: context-menu;
+  }
+
+  // OPEN ACTIVE
+  .accordion__item--open {
+    color: $color-sale;
+  }
+}

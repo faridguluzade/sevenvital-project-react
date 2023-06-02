@@ -1,0 +1,114 @@
+@import "../../scss/variables";
+
+.footer {
+  background-color: $color-title;
+  color: $color-white;
+
+  background-image: url("https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/flart.svg");
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    padding: 3.2rem 0;
+  }
+
+  &__logo {
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__icon {
+    color: $color-white;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $color-primary-light;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+  }
+
+  &__heading {
+    font-family: $font-alegreya;
+    font-size: 2.4rem;
+  }
+
+  &__list {
+    font-size: 1.4rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-top: 2.4rem;
+  }
+
+  &__payment {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  &__payment-icons {
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  &__text {
+    color: $color-white;
+    font-size: 1.4rem;
+  }
+
+  &__newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @media (max-width: $lg) {
+      margin-top: 6rem;
+    }
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    @media (max-width: $xs) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    font-family: "Inter", sans-serif;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  &__input::placeholder {
+    color: $color-content-secondary;
+  }
+
+  &__btn {
+    font-size: 1.2rem;
+    padding: 1.1rem 2rem;
+    text-align: center;
+  }
+}
+
+.copyright {
+  font-size: 1.2rem;
+  color: $color-content-base;
+}

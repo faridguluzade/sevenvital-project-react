@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -10,59 +10,73 @@ import { UilEstate } from "@iconscout/react-unicons";
 import { UilSearch } from "@iconscout/react-unicons";
 import { UilShoppingBag } from "@iconscout/react-unicons";
 import { UilTimes } from "@iconscout/react-unicons";
+import { UilAlignLeft } from "@iconscout/react-unicons";
 import "./MainNavigation.styles.scss";
 
 const MainNavigation = () => {
   const [show, setShow] = useState(true);
+  const [stickyClass, setStickyClass] = useState("");
 
   const toggleIconHandler = () => {
     setShow(!show);
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window !== undefined) {
+        let windowHeight = window.scrollY;
+        windowHeight > 100 ? setStickyClass("sticky") : setStickyClass("");
+      }
+    });
+  }, []);
+
   return (
-    <Container>
-      <nav className="main-nav">
-        <Row className="align-items-end">
-          <Col xs={4}>
-            <ul className="main-nav__list">
-              <li>
-                <Link to="#" className="main-nav__link">
-                  <UilEstate size="20" />
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="main-nav__link">
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="main-nav__link">
-                  Account
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="main-nav__link">
-                  Magazine
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="main-nav__link">
-                  Contact
-                </Link>
-              </li>
-            </ul>
+    <header className={`header ${stickyClass}`}>
+      <Container fluid="lg" className="main-nav">
+        <Row className="align-items-center justify-content-between">
+          <Col className="d-none d-lg-block" lg={5}>
+            <nav>
+              <ul className="main-nav__list">
+                <li>
+                  <Link to="#" className="main-nav__link">
+                    <UilEstate size="20" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="main-nav__link">
+                    Shop
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="main-nav__link">
+                    Account
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="main-nav__link">
+                    Magazine
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="main-nav__link">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </nav>
           </Col>
 
-          <Col xs={4}>
-            <div className="main-nav__logo">
+          <Col xs={6} lg={3} className="d-flex align-items-center gap-4">
+            {/* <UilAlignLeft size="35" /> */}
+            <figure className="main-nav__logo ">
               <img
                 src="https://the7.io/cbd/wp-content/uploads/sites/104/2021/05/vital-logo-seven.svg"
                 alt="#"
               />
-            </div>
+            </figure>
           </Col>
 
-          <Col xs={4}>
+          <Col className="ml-auto" xs={6} lg={4}>
             <div className="main-nav__icon-container">
               <div className={`main-nav__icon-bar  ${!show ? "d-none" : ""}`}>
                 <UilShoppingBag className="main-nav__icon" />
@@ -92,8 +106,8 @@ const MainNavigation = () => {
             </div>
           </Col>
         </Row>
-      </nav>
-    </Container>
+      </Container>
+    </header>
   );
 };
 

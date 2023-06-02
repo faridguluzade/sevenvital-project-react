@@ -1,15 +1,4 @@
-// -Font sizes (px):
-// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
-// Spacing system (px)
-// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
-
 @import "../../scss/variables";
-
-.section-guarantee {
-  margin: 4.8rem 0;
-  padding: 0.8rem 0;
-  background-color: $color-light-background;
-}
 
 .guarantee {
   &__box {
@@ -18,7 +7,7 @@
     align-items: center;
     gap: 1.6rem;
     text-align: center;
-    padding: 3.2rem;
+    padding: 2.4rem;
     color: $color-primary-dark;
   }
 

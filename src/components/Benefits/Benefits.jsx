@@ -65,10 +65,10 @@ const Benefits = () => {
   return (
     <>
       <SectionHeader title="What Will You Get" />
-      <Container className="benefits">
+      <Container fluid="lg" className="benefits">
         <Row>
           {DUMMY_BENEFITS.map((benefitItem) => (
-            <Col key={benefitItem.id} xs={6} className="py-5">
+            <Col key={benefitItem.id} xs={12} md={6} className="py-5">
               <div className="benefits__box">
                 <div className="benefits__icon">{benefitItem.icon}</div>
                 <h3 className="benefits__title">{benefitItem.title}</h3>

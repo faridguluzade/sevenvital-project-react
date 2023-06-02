@@ -124,10 +124,10 @@ const Products = () => {
         }
       />
 
-      <Container className="product">
+      <Container fluid="lg" className="product px-3">
         <Row>
           {DUMMY_PRODUCTS.map((product) => (
-            <Col key={product.id} xs={3}>
+            <Col key={product.id} xs={12} sm={6} md={4} lg={3}>
               <figure className="product__card">
                 <div className="product__photo-box">
                   <img
