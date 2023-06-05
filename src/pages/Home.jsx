@@ -9,8 +9,8 @@ import MobileNavigation from "../components/MobileNavigation/MobileNavigation";
 function Home() {
   return (
     <>
-      <MobileNavigation />
       <MainNavigation />
+      {/* <MobileNavigation /> */}
 
       <MainLayout />
       <footer className="footer">

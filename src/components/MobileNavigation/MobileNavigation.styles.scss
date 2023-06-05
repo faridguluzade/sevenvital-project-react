@@ -8,18 +8,19 @@
 // ACTIVE CLASS
 
 .side-nav--open {
-  transform: translateX(-100%);
-}
-
-.side-nav--open ~ body {
+  transform: translateX(0) !important;
   overflow: hidden;
+  // transform: translateX(-100%);
 }
 
 .side-nav {
   width: 40vw;
   height: 100vh;
   position: absolute;
+  top: 0;
+  left: 0;
 
+  transform: translateX(-100%);
   display: flex;
   flex-direction: column;
   gap: 2.4rem;

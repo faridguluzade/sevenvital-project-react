@@ -15,6 +15,7 @@ import "./MobileNavigation.styles.scss";
 
 const MobileNavigation = () => {
   const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
+
   console.log(isSidebarOpen);
 
   return (
