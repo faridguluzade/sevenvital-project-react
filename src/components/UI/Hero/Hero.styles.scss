@@ -1,0 +1,17 @@
+@import "../../../scss/variables";
+
+.hero {
+  background-color: $color-primary-main;
+  padding: 6rem;
+  background-image: url("https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/flart.svg");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  margin-bottom: 6.4rem;
+
+  &__title {
+    font-size: 3.8rem;
+    text-align: center;
+    color: $color-white;
+    margin-top: 8.8rem;
+  }
+}

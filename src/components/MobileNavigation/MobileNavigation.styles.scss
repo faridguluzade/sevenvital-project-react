@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 // -Font sizes (px):
 // 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
@@ -21,9 +22,7 @@
   left: 0;
 
   transform: translateX(-100%);
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
+  @include flex-column(2.4rem);
 
   color: $color-primary-light;
   background-color: $color-white;
@@ -61,10 +60,8 @@
   }
 
   &__list {
+    @include flex-column(1.8rem);
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.8rem;
   }
 
   &__item {
@@ -105,9 +102,7 @@
   }
 
   &__content-box {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
+    @include flex-column(1.6rem);
     padding: 2.4rem;
   }
 

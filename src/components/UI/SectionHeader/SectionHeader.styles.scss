@@ -1,10 +1,9 @@
 @import "../../../scss/variables";
+@import "../../../scss/mixins";
 
 .section-header {
-  display: flex;
-  flex-direction: column;
+  @include flex-column(1.6rem);
   align-items: center;
-  gap: 1.6rem;
 
   &__picture {
     width: 10rem;

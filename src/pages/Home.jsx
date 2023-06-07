@@ -1,21 +1,15 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
-import MainLayout from "../components/MainLayout/MainLayout";
 import MainNavigation from "../components/MainNavigation/MainNavigation";
 import Footer from "../components/Footer/Footer";
-
-import MobileNavigation from "../components/MobileNavigation/MobileNavigation";
 
 function Home() {
   return (
     <>
       <MainNavigation />
-      {/* <MobileNavigation /> */}
-
-      <MainLayout />
-      <footer className="footer">
-        <Footer />
-      </footer>
+      <Outlet />
+      <Footer />
     </>
   );
 }

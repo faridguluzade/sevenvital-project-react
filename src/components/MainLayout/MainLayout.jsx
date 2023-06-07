@@ -10,7 +10,7 @@ import Facts from "../Facts/Facts";
 import Benefits from "../Benefits/Benefits";
 import Testimonial from "../Testimonial/Testimonial";
 import Accordion from "../Accordion/Accordion";
-import Magazine from "../Magazine/Magazine";
+import MagazineSlider from "../MagazineSlider/MagazineSlider";
 import Help from "../Help/Help";
 
 import "./MainLayout.styles.scss";
@@ -49,7 +49,7 @@ const MainLayout = () => {
         <Accordion />
       </section>
       <section className="section-magazine">
-        <Magazine />
+        <MagazineSlider />
       </section>
       <section className="section-help">
         <Help />

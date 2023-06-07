@@ -3,9 +3,7 @@
 @import "../../scss/mixins";
 
 .main-hero {
-  display: flex;
-  flex-direction: column;
-  gap: 9.6rem;
+  @include flex-column(9.6rem);
 
   &__text-box {
     color: $color-white;

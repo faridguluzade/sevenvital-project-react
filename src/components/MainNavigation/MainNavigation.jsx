@@ -16,16 +16,12 @@ import { UilAlignLeft } from "@iconscout/react-unicons";
 import "./MainNavigation.styles.scss";
 
 const MainNavigation = () => {
-  const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
+  const { setIsSidebarOpen } = useContext(SidebarContext);
   const [show, setShow] = useState(true);
   const [stickyClass, setStickyClass] = useState("");
 
   const toggleIconHandler = () => {
     setShow(!show);
-  };
-
-  const salam = () => {
-    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -37,9 +33,9 @@ const MainNavigation = () => {
     });
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflowY = isSidebarOpen ? "hidden" : "scroll";
-  }, [isSidebarOpen]);
+  // useEffect(() => {
+  //   document.body.style.overflowY = isSidebarOpen ? "hidden" : "scroll";
+  // }, [isSidebarOpen]);
 
   return (
     <header className={`header ${stickyClass}`}>
@@ -51,27 +47,27 @@ const MainNavigation = () => {
               <nav>
                 <ul className="main-nav__list">
                   <li>
-                    <Link to="#" className="main-nav__link">
+                    <Link to="/" className="main-nav__link">
                       <UilEstate size="20" />
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="main-nav__link">
+                    <Link to="shop" className="main-nav__link">
                       Shop
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="main-nav__link">
+                    <Link to="account" className="main-nav__link">
                       Account
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="main-nav__link">
+                    <Link to="magazine" className="main-nav__link">
                       Magazine
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="main-nav__link">
+                    <Link to="contact" className="main-nav__link">
                       Contact
                     </Link>
                   </li>
@@ -79,7 +75,7 @@ const MainNavigation = () => {
               </nav>
             </Col>
 
-            <Col xs={6} lg={3} className="d-flex align-items-center gap-4">
+            <Col xs={6} lg={3} className=" d-flex align-items-center gap-4">
               <div>
                 <UilAlignLeft
                   onClick={setIsSidebarOpen}

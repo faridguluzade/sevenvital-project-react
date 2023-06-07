@@ -1,0 +1,12 @@
+@import "../../../scss/mixins";
+
+.input-box {
+  @include flex-column(1.2rem);
+
+  input {
+    border: none;
+    outline: none;
+    padding: 1.2rem;
+    border: 0.1px solid rgba(208, 205, 205, 0.428);
+  }
+}

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { memo, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { SidebarContext } from "../../context/sidebar-context";
@@ -15,8 +15,6 @@ import "./MobileNavigation.styles.scss";
 
 const MobileNavigation = () => {
   const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
-
-  console.log(isSidebarOpen);
 
   return (
     <>
@@ -71,4 +69,4 @@ const MobileNavigation = () => {
   );
 };
 
-export default MobileNavigation;
+export default memo(MobileNavigation);

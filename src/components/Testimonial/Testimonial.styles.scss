@@ -1,10 +1,9 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .testimonial {
   &__content-box {
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem;
+    @include flex-column(2.4rem);
   }
 
   &__user-name {

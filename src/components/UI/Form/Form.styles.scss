@@ -1,0 +1,23 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.form {
+  padding: 2.5rem 3rem;
+  background-color: $color-light-background;
+
+  &__heading {
+    font-family: $font-alegreya;
+    font-size: 3rem;
+  }
+
+  &__box {
+    margin-top: 1.6rem;
+    @include flex-column(2.4rem);
+  }
+
+  &__btn {
+    align-self: flex-start;
+    padding: 1.6rem 2rem;
+    font-size: 1.4rem;
+  }
+}

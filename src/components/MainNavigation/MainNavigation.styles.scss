@@ -12,6 +12,10 @@
   width: 100%;
   padding: 3rem 0;
   transition: all 0.3s;
+
+  @media (max-width: $lg) {
+    padding: 2.4rem 0;
+  }
 }
 
 // STICKY NAV
@@ -78,26 +82,30 @@
   &__search-container {
     display: flex;
     align-items: center;
+    background-color: $color-white;
   }
 
   &__search-form {
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    padding: 0.8rem;
-
     color: $color-content-secondary;
-    border-left: 1px solid $color-content-secondary;
     animation: smoothFromRight 0.2s ease-out;
+
+    // padding: 0.8rem;
+    // border-left: 1px solid $color-content-secondary;
+    // @media (max-width: $md) {
+    //   padding: 0.6rem;
+    // }
   }
 
   &__search-input {
     border: none;
     outline: none;
-    font-family: "Inter", sans-serif;
-  }
+    z-index: 100;
 
-  &__search-input::placeholder {
-    color: $color-content-secondary;
+    @media (max-width: $md) {
+      width: 75 vw;
+    }
   }
 }

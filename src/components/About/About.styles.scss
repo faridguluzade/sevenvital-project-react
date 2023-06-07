@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 // -Font sizes (px):
 // 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
@@ -51,10 +52,8 @@
   }
 
   &__text-box {
-    display: flex;
-    flex-direction: column;
+    @include flex-column(4rem);
     align-content: center;
-    gap: 4rem;
   }
 
   &__paragraph {
@@ -62,13 +61,11 @@
   }
 
   &__details {
+    @include flex-column(3rem);
     font-size: 1.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    color: $color-primary-dark;
     letter-spacing: 0.8px;
     list-style: none;
+    color: $color-primary-dark;
 
     li {
       display: flex;

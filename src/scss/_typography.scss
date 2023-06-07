@@ -1,3 +1,5 @@
+@import "../scss/variables";
+
 h1,
 h2,
 h3,
@@ -14,4 +16,13 @@ li,
 span,
 blockquote {
   font-family: $font-inters;
+}
+
+input,
+label {
+  font-family: $font-inters;
+}
+
+input {
+  color: $color-content-base;
 }

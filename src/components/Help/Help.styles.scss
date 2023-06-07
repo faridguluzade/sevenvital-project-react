@@ -2,10 +2,8 @@
 @import "../../scss/mixins";
 
 .help {
-  display: flex;
-  flex-direction: column;
+  @include flex-column(1.6rem);
   align-items: center;
-  gap: 1.6rem;
   color: $color-white;
   padding: 8rem 0;
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -23,6 +24,12 @@ const DUMMY_PRODUCTS = [
     price: "260.00",
     salePrice: "149.90",
     onSale: true,
+    details: [
+      "Natural ingredients",
+      "  No preservatives",
+      "Moisturising & antibacterial effect",
+      " Fast & long-lasting results",
+    ],
   },
   {
     id: 2,
@@ -35,6 +42,12 @@ const DUMMY_PRODUCTS = [
     price: "200.00",
     salePrice: "149.90",
     onSale: true,
+    details: [
+      "Skin regeneration",
+      "Moisturising",
+      "Antioxidant",
+      "Anti-age effect",
+    ],
   },
   {
     id: 3,
@@ -47,6 +60,7 @@ const DUMMY_PRODUCTS = [
     price: "90.00",
     salePrice: null,
     onSale: false,
+    details: ["Moisturising", "Healing", "Long-lasting effect"],
   },
 
   {
@@ -60,6 +74,12 @@ const DUMMY_PRODUCTS = [
     price: "40.00",
     salePrice: null,
     onSale: false,
+    details: [
+      "Skin regeneration",
+      "Moisturising",
+      "Antioxidant",
+      "Anti-age effect",
+    ],
   },
   {
     id: 5,
@@ -72,6 +92,13 @@ const DUMMY_PRODUCTS = [
     price: "40.00",
     salePrice: null,
     onSale: false,
+    details: [
+      "CBD oil",
+      "CBD gummies",
+      "pain relieve cream",
+      "healing cream",
+      "moisturising balm",
+    ],
   },
 
   {
@@ -85,6 +112,12 @@ const DUMMY_PRODUCTS = [
     price: "45.00",
     salePrice: null,
     onSale: false,
+    details: [
+      "CBD oil",
+      "pain relieve cream",
+      "healing cream",
+      "100% vegan products",
+    ],
   },
 
   {
@@ -98,6 +131,12 @@ const DUMMY_PRODUCTS = [
     price: "120.00",
     salePrice: null,
     onSale: false,
+    details: [
+      "100% vegan product",
+      " Only natural ingredients",
+      "No preservatives",
+      "Raspberry, lemon or apple flavour",
+    ],
   },
 
   {
@@ -111,10 +150,20 @@ const DUMMY_PRODUCTS = [
     price: "35.00",
     salePrice: null,
     onSale: false,
+    details: [
+      "Natural ingredients",
+      "No preservatives",
+      "Moisturising effect",
+      "Long-lasting results",
+    ],
   },
 ];
 
 const Products = () => {
+  const { pathname } = useLocation();
+
+  const inShopPage = pathname === "/shop";
+
   return (
     <>
       <SectionHeader
@@ -146,7 +195,11 @@ const Products = () => {
                   )}
                 </div>
 
-                <figcaption className="product__content">
+                <figcaption
+                  className={`product__content ${
+                    inShopPage ? "align-items-start" : "align-items-center"
+                  }`}
+                >
                   <p className="product__title">{product.title}</p>
 
                   <div className="product__price-box">
@@ -163,6 +216,16 @@ const Products = () => {
                       </span>
                     )}
                   </div>
+
+                  {inShopPage && (
+                    <div className="product__details">
+                      <ul className="product__list">
+                        {product.details.map((detail) => (
+                          <li>{detail}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   <Button filled={true} className="product__card-btn">
                     <UilShoppingBag size="18" />

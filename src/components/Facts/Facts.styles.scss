@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .facts {
   margin-top: -9.6rem;
@@ -12,10 +13,8 @@
   }
 
   &__list {
+    @include flex-column(3.2rem);
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 3.2rem;
   }
 
   &__item {
