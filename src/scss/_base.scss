@@ -54,3 +54,15 @@ ul {
 figure {
   margin-bottom: 0;
 }
+
+input,
+textarea {
+  border: none;
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: $font-inters;
+  color: $color-content-secondary;
+}

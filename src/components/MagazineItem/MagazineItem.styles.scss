@@ -46,7 +46,7 @@
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: all 0.3s;
-    z-index: 50;
+    z-index: 20;
   }
 
   &__content {
@@ -54,7 +54,7 @@
     padding-right: 7rem;
     cursor: pointer;
 
-    z-index: 100;
+    z-index: 30;
   }
 
   &__title {

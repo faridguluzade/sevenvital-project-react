@@ -4,7 +4,7 @@ import MainHero from "../MainHero/MainHero";
 import About from "../About/About";
 import Future from "../Future/Future";
 import TestimonialSlider from "../TestimonialSlider/TestimonialSlider";
-import Products from "../Products/Products";
+import ProductSection from "../ProductSection/ProductSection";
 import Guarantee from "../Guarantee/Guarantee";
 import Facts from "../Facts/Facts";
 import Benefits from "../Benefits/Benefits";
@@ -31,7 +31,7 @@ const MainLayout = () => {
         <TestimonialSlider />
       </section>
       <section className="section-products">
-        <Products />
+        <ProductSection />
       </section>
       <section className="section-guarantee">
         <Guarantee />

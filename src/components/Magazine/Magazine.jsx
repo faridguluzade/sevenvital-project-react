@@ -13,8 +13,6 @@ const Magazine = () => {
     (magazineItem, index) => index < 6
   );
 
-  //   const loadMoreHandler = () => {};
-
   return (
     <Container fluid className="magazine px-5">
       <Row>
@@ -26,7 +24,7 @@ const Magazine = () => {
       </Row>
       <Row className="text-center">
         <Col xs={12}>
-          <Button className={"product__link"}>Load More articles...</Button>
+          <Button className="products__link">Load More articles...</Button>
         </Col>
       </Row>
     </Container>

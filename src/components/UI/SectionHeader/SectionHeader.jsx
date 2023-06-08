@@ -7,7 +7,7 @@ import "./SectionHeader.styles.scss";
 
 const SectionHeader = ({ title, subheading }) => {
   return (
-    <Container>
+    <Container className="mb-3">
       <Row className="justify-content-center text-center">
         <Col xs={12} lg={10}>
           <div className="section-header">

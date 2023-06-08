@@ -9,9 +9,9 @@ import "./Account.styles.scss";
 
 const Account = () => {
   return (
-    <Container className="account">
+    <Container fluid="md" className="account">
       <Row>
-        <Col xs={6} className="p-5">
+        <Col xs={12} lg={6} className="p-5">
           <Form headingText="Login" btnText="Login">
             <Input
               id="username"
@@ -21,7 +21,7 @@ const Account = () => {
             <Input id="password" label="Password" type="password" />
           </Form>
         </Col>
-        <Col xs={6} className="p-5">
+        <Col xs={12} lg={6} className="p-5">
           <Form headingText="Register" btnText="Register">
             <Input id="email" label="Email address" type="text" />
           </Form>

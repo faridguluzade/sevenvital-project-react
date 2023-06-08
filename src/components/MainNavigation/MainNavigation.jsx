@@ -16,7 +16,7 @@ import { UilAlignLeft } from "@iconscout/react-unicons";
 import "./MainNavigation.styles.scss";
 
 const MainNavigation = () => {
-  const { setIsSidebarOpen } = useContext(SidebarContext);
+  const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
   const [show, setShow] = useState(true);
   const [stickyClass, setStickyClass] = useState("");
 
@@ -33,9 +33,9 @@ const MainNavigation = () => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   document.body.style.overflowY = isSidebarOpen ? "hidden" : "scroll";
-  // }, [isSidebarOpen]);
+  useEffect(() => {
+    document.body.style.overflowY = isSidebarOpen ? "hidden" : "";
+  }, [isSidebarOpen]);
 
   return (
     <header className={`header ${stickyClass}`}>
@@ -85,10 +85,12 @@ const MainNavigation = () => {
               </div>
 
               <figure className="main-nav__logo ">
-                <img
-                  src="https://the7.io/cbd/wp-content/uploads/sites/104/2021/05/vital-logo-seven.svg"
-                  alt="#"
-                />
+                <Link to="/">
+                  <img
+                    src="https://the7.io/cbd/wp-content/uploads/sites/104/2021/05/vital-logo-seven.svg"
+                    alt="#"
+                  />
+                </Link>
               </figure>
             </Col>
 

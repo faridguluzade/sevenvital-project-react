@@ -22,24 +22,50 @@ const MobileNavigation = () => {
         <UilTimes onClick={setIsSidebarOpen} className="side-nav__close" />
 
         <figure className="side-nav__logo">
-          <img
-            src="https://the7.io/cbd/wp-content/uploads/sites/104/2021/05/vital-logo-seven.svg"
-            alt=""
-          />
+          <Link to="/" onClick={setIsSidebarOpen}>
+            <img
+              src="https://the7.io/cbd/wp-content/uploads/sites/104/2021/05/vital-logo-seven.svg"
+              alt=""
+            />
+          </Link>
         </figure>
         <nav className="sidebar">
           <ul className="side-nav__list">
             <li className="side-nav__item">
-              <Link className="side-nav__link">Shop</Link>
+              <Link
+                onClick={setIsSidebarOpen}
+                to="/shop"
+                className="side-nav__link"
+              >
+                Shop
+              </Link>
             </li>
             <li className="side-nav__item">
-              <Link className="side-nav__link">Account</Link>
+              <Link
+                onClick={setIsSidebarOpen}
+                to="/account"
+                className="side-nav__link"
+              >
+                Account
+              </Link>
             </li>
             <li className="side-nav__item">
-              <Link className="side-nav__link">Magazine</Link>
+              <Link
+                onClick={setIsSidebarOpen}
+                to="/magazine"
+                className="side-nav__link"
+              >
+                Magazine
+              </Link>
             </li>
             <li className="side-nav__item">
-              <Link className="side-nav__link">Contact</Link>
+              <Link
+                onClick={setIsSidebarOpen}
+                to="/contact"
+                className="side-nav__link"
+              >
+                Contact
+              </Link>
             </li>
           </ul>
         </nav>

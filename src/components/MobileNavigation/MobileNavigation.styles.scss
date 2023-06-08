@@ -29,7 +29,7 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
     rgba(0, 0, 0, 0.05) 0px 5px 10px;
   transition: all 0.4s;
-  z-index: 100;
+  z-index: 9999;
 
   @media (max-width: $md) {
     width: 80vw;
@@ -48,8 +48,8 @@
 
   &__close {
     align-self: flex-end;
-    height: 3rem;
-    width: 3rem;
+    height: 3.2rem;
+    width: 3.2rem;
     margin: 1.5rem 1.2rem 0 0;
     color: $color-content-secondary;
     cursor: pointer;
@@ -81,7 +81,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 3px;
+    width: 5px;
     background-color: $color-primary-light;
     transform: scaleY(0);
     transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
