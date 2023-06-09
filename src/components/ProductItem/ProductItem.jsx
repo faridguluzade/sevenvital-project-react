@@ -33,7 +33,7 @@ function ProductItem({
           inShopPage ? "align-items-start" : "align-items-center"
         }`}
       >
-        <p className="product__title">{title}</p>
+        <p className="product__name">{title}</p>
 
         <div className="product__price-box">
           <span

@@ -6,10 +6,12 @@ import MagazinePage from "../pages/MagazinePage";
 import ShopPage from "../pages/ShopPage";
 import ContactPage from "../pages/ContactPage";
 
+import CartSidebar from "../components/CartSidebar/CartSidebar";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <CartSidebar />,
     children: [
       {
         index: true,

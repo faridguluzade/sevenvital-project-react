@@ -14,7 +14,7 @@ const Magazine = () => {
   );
 
   return (
-    <Container fluid="lg" className="magazine px-5">
+    <Container fluid className="magazine px-5">
       <Row>
         {filteredMagazine.map((magazineItem) => (
           <Col key={magazineItem.id} className="mb-5" xs={12} sm={6} xl={4}>

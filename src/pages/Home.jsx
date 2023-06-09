@@ -7,6 +7,7 @@ import { useScroll } from "../hooks/useScroll";
 
 function Home() {
   useScroll();
+
   return (
     <>
       <MainNavigation />
