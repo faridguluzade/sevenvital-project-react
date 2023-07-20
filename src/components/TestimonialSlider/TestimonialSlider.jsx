@@ -9,58 +9,9 @@ import "swiper/css";
 
 import Button from "../UI/Button/Button";
 
-import "./TestimonialSlider.styles.scss";
+import { DUMMY_TESTIMONIALS } from "../../constants";
 
-const DUMMY_TESTIMONIALS = [
-  {
-    id: 1,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2021/06/sales0041.jpg",
-    userName: "Miriam J. Anderson",
-    text: "Pellentesque condimentum velit tortor. Cras at ornare ex,quis fringilla tortor. Ut tempus metus dui, non tristique turpis euismod sed. Nunc fermentum quam et tortor euismod, vel maximus metus tristique.",
-    link: "mjanderson",
-  },
-  {
-    id: 2,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2021/06/sales0062.jpg",
-    userName: "Alexa Blackwod",
-    text: "I am impressed! Cras at ornare ex, quis fringilla tortor quam et tortor euismod, vel maximus metus tristique. Highly recommend!",
-    link: "alexabw",
-  },
-  {
-    id: 3,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2021/06/sales00202.jpg",
-    userName: "Boris Brown",
-    text: "Super fun quam et tortor euismod, vel ligula, sit amet lacinia justo cursus ac. Nulla sed elit faucibus, auctor mauris ac, fermentum velit. Quisque eget odio felis. Thanx!",
-    link: "bb_brown",
-  },
-  {
-    id: 4,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2021/06/sales00222.jpg",
-    userName: "Tiffany Swift",
-    text: "Awesome! +10K visitors at ornare ex, quis fringilla! Quisque eget odio felis. Suspendisse quis nulla tincidunt, cursus  tellus condimentum, consequat sapien at ornare ex, quis fringilla tortor.",
-    link: "tiffany_swift",
-  },
-  {
-    id: 5,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2021/06/sales00967.jpg",
-    userName: "Jessica Washington",
-    text: "Cool! Lorem quis fringilla tortor, auctor mauris fermentum velit. Quisque eget - odio tincidunt, cursus tellus  condimentum quis fringilla tortor.",
-    link: "j_washington",
-  },
-  {
-    id: 6,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2021/06/sales0060.jpg",
-    userName: "Anna White",
-    text: "Ut tempus metus dui, non tristique turpis euismod sed. Nunc fermentum quam et tortor euismod, vel maximus metus tristique. Cool!",
-    link: "j_washington",
-  },
-];
+import "./TestimonialSlider.styles.scss";
 
 const TestimonialSlider = () => {
   return (

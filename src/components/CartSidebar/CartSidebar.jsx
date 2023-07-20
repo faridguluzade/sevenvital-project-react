@@ -1,7 +1,11 @@
 import { UilTimes } from "@iconscout/react-unicons";
 import { UilShoppingBag } from "@iconscout/react-unicons";
 
+import SidebarProduct from "../SidebarProduct/SidebarProduct";
 import Button from "../UI/Button/Button";
+
+import { SidebarContext } from "../../context/sidebar-context";
+import { useContext } from "react";
 
 import "./CartSidebar.styles.scss";
 import { useState } from "react";
@@ -9,15 +13,15 @@ import { useState } from "react";
 const CartSidebar = () => {
   const [cartIsEmpty, setIsCartEmpty] = useState(true);
 
-  function handleCartEmpty() {
-    setIsCartEmpty(!cartIsEmpty);
-  }
+  const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
 
   return (
-    <div className="sidebar-cart">
+    <div
+      className={`sidebar-cart ${isSidebarOpen ? "sidebar-cart--open" : ""}`}
+    >
       <div className="sidebar-cart__header">
         <h3>Shopping Cart</h3>
-        <UilTimes onClick={handleCartEmpty} className="sidebar-cart__icon" />
+        <UilTimes onClick={setIsSidebarOpen} className="sidebar-cart__icon" />
       </div>
 
       {cartIsEmpty && (
@@ -30,51 +34,26 @@ const CartSidebar = () => {
         </div>
       )}
 
-      <div className="sidebar-product">
-        <figure className="sidebar-product__photo">
-          <img
-            src="https://the7.io/cbd/wp-content/uploads/sites/104/2022/11/vprod014.jpg"
-            alt=""
-          />
-        </figure>
-        <div className="sidebar-product__info">
-          <p className="sidebar-product__name">CBD Pain Relief Cream</p>
-          <div className="sidebar-product__quantity-box">
-            <input type="button" value={"-"} />
-            <input className="quantity" type="" value={1} step={1} />
-            <input type="button" value={"+"} />
-          </div>
-          <p className="sidebar-product__price">
-            <UilTimes size="14" /> <p> $40.00</p>
-          </p>
+      {!cartIsEmpty && (
+        <div className="sidebar-cart__product">
+          <SidebarProduct />
+          <SidebarProduct />
         </div>
-        <div className="remove-box">
-          <UilTimes className="sidebar-product__remove" />
-        </div>
-      </div>
+      )}
 
-      <div className="sidebar-product">
-        <figure className="sidebar-product__photo">
-          <img
-            src="https://the7.io/cbd/wp-content/uploads/sites/104/2022/11/vprod014.jpg"
-            alt=""
-          />
-        </figure>
-        <div className="sidebar-product__info">
-          <p className="sidebar-product__name">CBD Pain Relief Cream</p>
-          <div className="sidebar-product__quantity-box">
-            <input type="button" value={"-"} />
-            <input className="quantity" type="" value={1} step={1} />
-            <input type="button" value={"+"} />
+      {!cartIsEmpty && (
+        <div className="sidebar-cart__footer">
+          <div className="d-flex align-items-center justify-content-between">
+            <p>Subtotal:</p>
+            <span className="fs-3">$225.00</span>
           </div>
-          <p className="sidebar-product__price">
-            <UilTimes size="14" /> <p> $40.00</p>
-          </p>
+
+          <Button className="py-4">View Cart</Button>
+          <Button className="py-4" filled={true}>
+            Checkout
+          </Button>
         </div>
-        <div className="remove-box">
-          <UilTimes className="sidebar-product__remove" />
-        </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -1,7 +1,11 @@
 @import "../../scss/variables";
 
+.sticky .section-main-hero {
+  margin-top: 10rem;
+}
+
 .section-main-hero {
-  height: 75vh;
+  height: 65vh;
   background-image: linear-gradient(rgba(black, 0.3), rgba(black, 0.4)),
     url(https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/art-top-005.jpg);
   background-repeat: no-repeat;
@@ -9,7 +13,7 @@
   background-position: center;
 
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 
   @media (max-width: $md) {

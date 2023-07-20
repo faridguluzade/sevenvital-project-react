@@ -1,5 +1,9 @@
 @import "../../../scss/variables";
 
+.sticky .hero {
+  margin-top: 10rem;
+}
+
 .hero {
   background-color: $color-primary-main;
   padding: 6rem;
@@ -12,6 +16,5 @@
     font-size: 3.8rem;
     text-align: center;
     color: $color-white;
-    margin-top: 8.8rem;
   }
 }

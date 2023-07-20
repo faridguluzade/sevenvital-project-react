@@ -6,24 +6,41 @@
 // Spacing system (px)
 // 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
 
+// .header {
+//   background-color: $color-white;
+//   width: 100%;
+
+// }
+
 .header {
   background-color: $color-white;
-  width: 100%;
-  padding: 3rem 0;
   transition: all 0.3s;
-  position: fixed;
-  z-index: 999;
+  padding: 3rem 0;
+  height: 10rem;
+  position: relative;
 
   @media (max-width: $lg) {
     padding: 2.4rem 0;
   }
 }
 
-// STICKY NAV
-.sticky.header {
+// STICKY NAVIGATION
+
+.sticky .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 1.6rem 0;
-  z-index: 300;
+  height: 8rem;
+  z-index: 999;
 }
+
+// // STICKY NAV
+// .sticky.header {
+//   padding: 1.6rem 0;
+//   z-index: 300;
+// }
 
 .main-nav {
   padding: 0 1.6rem;

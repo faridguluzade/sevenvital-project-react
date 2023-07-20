@@ -1,0 +1,88 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+.product-detail {
+  margin-top: 3rem;
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    // row-gap: 1.2rem;
+    column-gap: 2.4rem;
+    padding: 3rem;
+  }
+
+  &__link--1 {
+  }
+  &__link--2 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  &__link--3 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  &__link--4 {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+  }
+
+  &__link--5 {
+    grid-column: 2 / 6;
+    grid-row: 1 / 5;
+    margin-bottom: 3.2rem;
+  }
+
+  &__photo {
+    width: 100%;
+  }
+
+  &__content-box {
+    padding: 3rem;
+    @include flex-column(2rem);
+  }
+
+  &__title {
+    font-size: 3.8rem;
+  }
+
+  &__price {
+    font-size: 2.2rem;
+  }
+
+  &__quantity-box {
+    border: 0.2px solid #dfe0e0;
+    padding: 1.2rem;
+
+    input {
+      background-color: $color-white;
+    }
+  }
+
+  &__quantity {
+    text-align: center;
+    width: 7.2rem;
+  }
+
+  &__quantity::-webkit-inner-spin-button,
+  &__quantity::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+
+  &__btn {
+    padding: 1.6rem 8rem;
+    text-align: center;
+  }
+
+  &__list {
+    @include flex-column(1.2rem);
+    color: $color-primary-light;
+    padding: 1.6rem;
+  }
+}

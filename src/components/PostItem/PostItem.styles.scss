@@ -1,0 +1,41 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+.post {
+  display: flex;
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+
+  &__photo {
+    cursor: pointer;
+    img {
+      height: 8rem;
+      width: 8rem;
+    }
+  }
+
+  &__content {
+    @include flex-column(1.2rem);
+  }
+
+  &__heading {
+    line-height: 1.4;
+    text-decoration: none;
+    color: $color-primary-dark;
+    transition: 0.3s;
+
+    &:hover {
+      color: $color-sale;
+    }
+  }
+
+  &__date {
+    font-size: 1.2rem;
+    color: $color-content-secondary;
+  }
+}

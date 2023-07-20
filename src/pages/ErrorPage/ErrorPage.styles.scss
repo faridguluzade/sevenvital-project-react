@@ -1,0 +1,40 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+.error {
+  color: $color-primary-dark;
+  margin: 8rem 0;
+  @include flex-column(2.4rem);
+  align-items: center;
+  text-align: center;
+
+  &__logo {
+    height: 9.6rem;
+    width: 9.6rem;
+  }
+
+  &__content {
+  }
+
+  &__status {
+    font-size: 8.6rem;
+  }
+
+  &__message {
+    font-family: $font-alegreya;
+    font-size: 3.6rem;
+  }
+
+  &__btn {
+    @include main-btn-size;
+  }
+}
+
+.sticky .error {
+  margin-top: 10rem;
+}

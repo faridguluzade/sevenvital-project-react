@@ -13,15 +13,13 @@ import { UilCheck } from "@iconscout/react-unicons";
 
 import "./MobileNavigation.styles.scss";
 
-const MobileNavigation = () => {
-  const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
-
+const MobileNavigation = ({ isMobileOpen, onToggleMobile }) => {
   return (
-    <div className={`side-nav ${isSidebarOpen ? "side-nav--open" : ""}`}>
-      <UilTimes onClick={setIsSidebarOpen} className="side-nav__close" />
+    <div className={`side-nav ${isMobileOpen ? "side-nav--open" : ""}`}>
+      <UilTimes onClick={onToggleMobile} className="side-nav__close" />
 
       <figure className="side-nav__logo">
-        <Link to="/" onClick={setIsSidebarOpen}>
+        <Link to="/" onClick={onToggleMobile}>
           <img
             src="https://the7.io/cbd/wp-content/uploads/sites/104/2021/05/vital-logo-seven.svg"
             alt=""
@@ -32,7 +30,7 @@ const MobileNavigation = () => {
         <ul className="side-nav__list">
           <li className="side-nav__item">
             <Link
-              onClick={setIsSidebarOpen}
+              onClick={onToggleMobile}
               to="/shop"
               className="side-nav__link"
             >
@@ -41,7 +39,7 @@ const MobileNavigation = () => {
           </li>
           <li className="side-nav__item">
             <Link
-              onClick={setIsSidebarOpen}
+              onClick={onToggleMobile}
               to="/account"
               className="side-nav__link"
             >
@@ -50,7 +48,7 @@ const MobileNavigation = () => {
           </li>
           <li className="side-nav__item">
             <Link
-              onClick={setIsSidebarOpen}
+              onClick={onToggleMobile}
               to="/magazine"
               className="side-nav__link"
             >
@@ -59,7 +57,7 @@ const MobileNavigation = () => {
           </li>
           <li className="side-nav__item">
             <Link
-              onClick={setIsSidebarOpen}
+              onClick={onToggleMobile}
               to="/contact"
               className="side-nav__link"
             >

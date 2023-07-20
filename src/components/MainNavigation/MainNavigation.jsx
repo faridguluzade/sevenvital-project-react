@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 
 import { SidebarContext } from "../../context/sidebar-context";
 import MobileNavigation from "../MobileNavigation/MobileNavigation";
+import CartSidebar from "../CartSidebar/CartSidebar";
 
 import { Link } from "react-router-dom";
 import { UilEstate } from "@iconscout/react-unicons";
@@ -17,8 +18,13 @@ import "./MainNavigation.styles.scss";
 
 const MainNavigation = () => {
   const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [stickyClass, setStickyClass] = useState("");
+
+  const handleToggleMobile = () => {
+    setIsMobileOpen((m) => !m);
+  };
 
   const toggleIconHandler = () => {
     setShow(!show);
@@ -28,7 +34,9 @@ const MainNavigation = () => {
     window.addEventListener("scroll", () => {
       if (window !== undefined) {
         let windowHeight = window.scrollY;
-        windowHeight > 100 ? setStickyClass("sticky") : setStickyClass("");
+        windowHeight > 100
+          ? document.body.classList.add("sticky")
+          : document.body.classList.remove("sticky");
       }
     });
   }, []);
@@ -38,9 +46,13 @@ const MainNavigation = () => {
   }, [isSidebarOpen]);
 
   return (
-    <header className={`header ${stickyClass}`}>
+    <header className="header">
       <div>
-        <MobileNavigation />
+        <MobileNavigation
+          isMobileOpen={isMobileOpen}
+          onToggleMobile={handleToggleMobile}
+        />
+
         <Container fluid="lg" className="main-nav">
           <Row className="align-items-center justify-content-between">
             <Col className="d-none d-lg-block" lg={5}>
@@ -78,7 +90,7 @@ const MainNavigation = () => {
             <Col xs={6} lg={3} className=" d-flex align-items-center gap-4">
               <div>
                 <UilAlignLeft
-                  onClick={setIsSidebarOpen}
+                  onClick={setIsMobileOpen}
                   className="d-block d-lg-none "
                   size="35"
                 />
@@ -97,7 +109,10 @@ const MainNavigation = () => {
             <Col className="ml-auto" xs={6} lg={4}>
               <div className="main-nav__icon-container">
                 <div className={`main-nav__icon-bar  ${!show ? "d-none" : ""}`}>
-                  <UilShoppingBag className="main-nav__icon" />
+                  <UilShoppingBag
+                    onClick={setIsSidebarOpen}
+                    className="main-nav__icon"
+                  />
                   <UilSearch
                     className="main-nav__icon"
                     onClick={toggleIconHandler}
@@ -127,6 +142,7 @@ const MainNavigation = () => {
             </Col>
           </Row>
         </Container>
+        <CartSidebar />
       </div>
     </header>
   );

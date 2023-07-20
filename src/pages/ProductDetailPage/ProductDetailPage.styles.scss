@@ -1,0 +1,23 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+.product-desc {
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  &__title {
+    font-size: 3.8rem;
+  }
+
+  &__content-box {
+    @include flex-column(1.2rem);
+    margin-top: 4.8rem;
+
+    h4 {
+      font-size: 1.8rem;
+      font-family: $font-inters;
+    }
+
+    p {
+    }
+  }
+}

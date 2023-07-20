@@ -1,0 +1,38 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+.product-card {
+  padding: 6.4rem 3rem;
+  background-image: linear-gradient(
+      rgba(rgba(0, 0, 0, 0.021), 0.3),
+      rgba(black, 0.4)
+    ),
+    url(https://the7.io/cbd/wp-content/uploads/sites/104/2022/11/vprod011.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  color: $color-white;
+
+  @include flex-column(2rem);
+  text-align: center;
+
+  align-items: center;
+
+  padding: 12rem 2.4rem;
+
+  &__subheading {
+  }
+
+  &__heading {
+    font-size: 3rem;
+  }
+
+  &__btn {
+    padding: 1.6rem 2.4rem;
+  }
+}

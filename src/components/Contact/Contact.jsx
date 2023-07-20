@@ -49,7 +49,7 @@ function Contact() {
             className="contact__heading"
           >
             <Input id="name" label="Name" type="text" placeholder="Name" />
-            <Input id="email" label="Email" type="email" placeholder="Name" />
+            <Input id="email" label="Email" type="email" placeholder="Email" />
             <div className="d-flex flex-column gap-4">
               <label htmlFor="message">Message</label>
               <textarea
