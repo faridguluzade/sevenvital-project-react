@@ -1,24 +1,27 @@
+import { useSelector } from "react-redux";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+import { getMagazines } from "../../store/magazines/magazinesSlice";
+
 import MagazineItem from "../MagazineItem/MagazineItem";
 import Button from "../UI/Button/Button";
 
-import { DUMMY_MAGAZINES } from "../../constants";
 import "./Magazine.styles.scss";
 
 const Magazine = () => {
-  const filteredMagazine = DUMMY_MAGAZINES.filter(
-    (magazineItem, index) => index < 6
-  );
+  const magazines = useSelector(getMagazines);
+
+  const filteredMagazine = magazines.filter((magazineItem, index) => index < 6);
 
   return (
     <Container fluid className="magazine px-5">
       <Row>
-        {filteredMagazine.map((magazineItem) => (
-          <Col key={magazineItem.id} className="mb-5" xs={12} sm={6} xl={4}>
-            <MagazineItem {...magazineItem} />
+        {filteredMagazine.map((magazine) => (
+          <Col key={magazine.id} className="mb-5" xs={12} sm={6} xl={4}>
+            <MagazineItem {...magazine} />
           </Col>
         ))}
       </Row>

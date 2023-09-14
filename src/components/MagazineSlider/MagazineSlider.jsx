@@ -1,23 +1,24 @@
-import React from "react";
+import { useSelector } from "react-redux";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
+import { getMagazines } from "../../store/magazines/magazinesSlice";
+import { useMagazines } from "../../hooks/useMagazines";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-
 import MagazineItem from "../MagazineItem/MagazineItem";
 import SectionHeader from "../UI/SectionHeader/SectionHeader";
 
-import { DUMMY_MAGAZINES } from "../../constants";
-
 import "./MagazineSlider.styles.scss";
-import { useEffect } from "react";
-import supabase from "../../services/supabase";
-import { useState } from "react";
 
 const MagazineSlider = () => {
+  useMagazines();
+  const magazines = useSelector(getMagazines);
+
   return (
     <>
       <SectionHeader title="New From Our Magazine" />
@@ -37,10 +38,10 @@ const MagazineSlider = () => {
           }}
         >
           <Row>
-            {DUMMY_MAGAZINES.map((magazineItem) => (
-              <Col key={magazineItem.id} xs={12} sm={6} xl={4}>
+            {magazines?.map((magazine) => (
+              <Col key={magazine.id} xs={12} sm={6} xl={4}>
                 <SwiperSlide>
-                  <MagazineItem {...magazineItem} />
+                  <MagazineItem {...magazine} />
                 </SwiperSlide>
               </Col>
             ))}

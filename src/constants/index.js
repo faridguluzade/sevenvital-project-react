@@ -7,54 +7,47 @@ import { UilMedicalSquare } from "@iconscout/react-unicons";
 
 export const DUMMY_MAGAZINES = [
   {
-    id: 1,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/vim0094.jpg",
+    image:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/magazine_images/magazine-1.jpg?t=2023-09-14T21%3A47%3A49.431Z",
     title: "Organic farming: best modern practices",
-    date: "December 2, 2022",
+    date: "2022-12-22",
   },
   {
-    id: 2,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/vim0096.jpg",
+    image:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/magazine_images/magazine-2.jpg?t=2023-09-14T21%3A50%3A09.052Z",
     title: "The science behind CBD products",
-    date: "December 2, 2022",
+    date: "2022-12-02",
   },
   {
-    id: 3,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/vim0097.jpg",
+    image:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/magazine_images/magazine-3.jpg?t=2023-09-14T21%3A50%3A32.020Z",
     title: "How to use CBD in everyday life",
-    date: "December 2, 2022",
+    date: "2022-12-02",
   },
   {
-    id: 4,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/vim0095.jpg",
+    image:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/magazine_images/magazine-4.jpg?t=2023-09-14T21%3A50%3A42.470Z",
     title: "Losing weight with CBD",
-    date: "December 2, 2022",
+    date: "2022-12-02",
   },
 
   {
-    id: 5,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/vim0090.jpg",
+    image:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/magazine_images/magazine-5.jpg",
     title: "How to choose a right CDB product",
-    date: "December 1, 2022",
+    date: "2022-12-01",
   },
   {
-    id: 6,
-    imgUrl:
-      "https://the7.io/cbd/wp-content/uploads/sites/104/2022/12/vim0091.jpg",
+    image:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/magazine_images/magazine-6.jpg",
     title: "Wellness and CBD: rest & relaxation",
-    date: "November 9, 2022",
+    date: "2022-11-09",
   },
   {
-    id: 7,
-    imgUrl:
-      "	https://the7.io/cbd/wp-content/uploads/sites/104/2022/11/vim0301.jpg",
+    image:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/magazine_images/magazine-7.jpg",
     title: "What to look for in quality CBD products",
-    date: "November 5, 2022",
+    date: "2022-11-05",
   },
 ];
 
