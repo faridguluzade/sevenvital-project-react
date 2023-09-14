@@ -1,20 +1,21 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
+import { useScroll } from "../hooks/useScroll";
 
 import MainNavigation from "../components/MainNavigation/MainNavigation";
 import Footer from "../components/Footer/Footer";
-import { useScroll } from "../hooks/useScroll";
 
-function Home() {
+function MainLayout() {
   useScroll();
 
   return (
     <>
       <MainNavigation />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
 }
 
-export default Home;
+export default MainLayout;

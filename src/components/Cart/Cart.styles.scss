@@ -1,0 +1,112 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
+
+.cart {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+
+  &__basket {
+    // display: grid;
+    // grid-template-columns: 1.5fr repeat(3, 1fr);
+    // grid-template-rows: repeat(2, 1fr);
+    // align-items: center;
+    // column-gap: 6.4rem;
+    // border-bottom: 1px solid $color-content-secondary;
+    // padding-bottom: 3.2rem;
+  }
+
+  &__titles {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+    border-bottom: 1px solid $color-content-secondary;
+    padding-bottom: 1.6rem;
+  }
+
+  &__titles p {
+    justify-self: center;
+  }
+
+  &__titles .first-child {
+    justify-self: flex-start;
+  }
+
+  &__product {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+    column-gap: 1.6rem;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+    border-bottom: 1px solid $color-content-secondary;
+  }
+
+  &__product div,
+  p {
+    align-self: center;
+    justify-self: center;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &__icon {
+    height: 4rem;
+    width: 4rem;
+    color: $color-content-secondary;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-content-base;
+    }
+  }
+
+  &__photo {
+    img {
+      width: 6.2rem;
+    }
+  }
+
+  &__name {
+  }
+
+  &__price {
+  }
+
+  &__quantity-box {
+    border: 0.2px solid #dfe0e0;
+    padding: 1.2rem;
+    justify-self: flex-start;
+
+    input {
+      background-color: $color-white;
+    }
+  }
+
+  &__quantity {
+    text-align: center;
+    width: 3.2rem;
+  }
+
+  &__subtotal {
+  }
+
+  &__quantity::-webkit-inner-spin-button,
+  &__quantity::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+
+  &__refresh {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 3.2rem;
+    cursor: pointer;
+  }
+}

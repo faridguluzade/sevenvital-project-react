@@ -207,54 +207,46 @@ export const DUMMY_PRODUCTS = [
 
 export const DUMMY_ACCORDION = [
   {
-    id: 1,
-    questions: "Is CBD safe?",
+    question: "Is CBD safe?",
     answer:
       "Etiam velit purus, vehicula quis imperdiet dignissim,  convallis vitae nisl. Nullam facilisi. Pellentesque non pulvinar justo. Nullam eget neque ut tellus ornare ullamcorper ulla ambco mattis for nulla glavrida egesed!",
   },
   {
-    id: 2,
-    questions: "What are cannabinoids?",
+    question: "What are cannabinoids?",
     answer:
       " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis!",
   },
 
   {
-    id: 3,
-    questions: "How does CBD work?",
+    question: "How does CBD work?",
     answer:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Etiam velit purus, vehicula quis imperdiet dignissim, convallis vitae nisl. Nullam facilisi. Pellentesque non pulvinar justo. Nullam eget neque!",
   },
 
   {
-    id: 4,
-    questions: "Are CBD products vegan friendly?",
+    question: "Are CBD products vegan friendly?",
     answer:
       "Dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Etiam velit purus, vehicula quis imperdiet dignissim, convallis vitae nisl. Nullam facilisi. Pellentesque non pulvinar justo. Nullam eget neque!",
   },
 
   {
-    id: 5,
-    questions: "Can I use CBD with medication?",
+    question: "Can I use CBD with medication?",
     answer:
       "Nullam eget neque ut tellus ornare ullamcorper ulla ambco mattis for nulla glavrida egesed! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Nullam eget neque ut tellus ornare ullamcorper ulla ambco mattis for nulla glavrida egesed!",
   },
 
   {
-    id: 6,
-    questions: "Does CBD have side effects?",
+    question: "Does CBD have side effects?",
     answer:
       "Etiam velit purus – vehicula quis imperdiet dignissim, convallis vitae nisl. Pellentesque non pulvinar justo. Nullam eget neque ut tellus ornare ullamcorper ulla ambco mattis for nulla glavrida egesed!",
   },
   {
-    id: 7,
-    questions: "Can children take CBD?",
+    question: "Can children take CBD?",
     answer:
       "Nullam eget neque ut tellus ornare ullamcorper ulla ambco mattis for nulla glavrida egesed!",
   },
   {
-    id: 8,
-    questions: "Will CBD get me high?",
+    question: "Will CBD get me high?",
     answer:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis!",
   },

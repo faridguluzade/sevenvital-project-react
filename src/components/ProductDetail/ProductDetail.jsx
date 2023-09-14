@@ -4,6 +4,8 @@ import Col from "react-bootstrap/Col";
 
 import Button from "../UI/Button/Button";
 
+import { UilShoppingBag } from "@iconscout/react-unicons";
+
 // Light Gallery library
 import LightGallery from "lightgallery/react";
 
@@ -98,6 +100,7 @@ const ProductDetail = () => {
                 <input type="button" value="+" />
               </div>
               <Button className="product-detail__btn" filled={true}>
+                <UilShoppingBag />
                 Add To Cart
               </Button>
             </div>

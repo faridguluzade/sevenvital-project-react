@@ -78,6 +78,11 @@
   &__btn {
     padding: 1.6rem 8rem;
     text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
   }
 
   &__list {

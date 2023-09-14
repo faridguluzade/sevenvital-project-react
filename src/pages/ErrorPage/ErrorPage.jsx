@@ -11,10 +11,6 @@ import "./ErrorPage.styles.scss";
 function ErrorPage() {
   const navigate = useNavigate();
 
-  function handleNavigateHome() {
-    navigate("/");
-  }
-
   return (
     <>
       <MainNavigation />
@@ -25,7 +21,7 @@ function ErrorPage() {
           <h4 className="error__message">Page not found</h4>
         </div>
 
-        <Button onClick={handleNavigateHome} className="error__btn">
+        <Button onClick={() => navigate("/")} className="error__btn">
           Visit Homepage
         </Button>
       </div>

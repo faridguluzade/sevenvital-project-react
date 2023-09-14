@@ -8,6 +8,7 @@ import { DUMMY_PRODUCTS } from "../constants";
 const ShopPage = () => {
   const { pathname } = useLocation();
   const inShopPage = pathname === "/shop";
+
   return (
     <>
       <Hero title={"Shop"} />

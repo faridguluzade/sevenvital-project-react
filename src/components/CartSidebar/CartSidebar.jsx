@@ -1,27 +1,27 @@
-import { UilTimes } from "@iconscout/react-unicons";
-import { UilShoppingBag } from "@iconscout/react-unicons";
+import { useState } from "react";
+
+import { UilTimes, UilShoppingBag } from "@iconscout/react-unicons";
+
+import { useSidebar } from "../../hooks/useSidebar";
 
 import SidebarProduct from "../SidebarProduct/SidebarProduct";
 import Button from "../UI/Button/Button";
 
-import { SidebarContext } from "../../context/sidebar-context";
-import { useContext } from "react";
-
 import "./CartSidebar.styles.scss";
-import { useState } from "react";
 
 const CartSidebar = () => {
+  const { isSidebarCartOpen, toggleSidebarCart } = useSidebar();
   const [cartIsEmpty, setIsCartEmpty] = useState(true);
-
-  const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
 
   return (
     <div
-      className={`sidebar-cart ${isSidebarOpen ? "sidebar-cart--open" : ""}`}
+      className={`sidebar-cart ${
+        isSidebarCartOpen ? "sidebar-cart--open" : ""
+      }`}
     >
       <div className="sidebar-cart__header">
         <h3>Shopping Cart</h3>
-        <UilTimes onClick={setIsSidebarOpen} className="sidebar-cart__icon" />
+        <UilTimes onClick={toggleSidebarCart} className="sidebar-cart__icon" />
       </div>
 
       {cartIsEmpty && (

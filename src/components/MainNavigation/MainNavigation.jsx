@@ -1,57 +1,37 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
+import {
+  UilEstate,
+  UilSearch,
+  UilShoppingBag,
+  UilTimes,
+  UilAlignLeft,
+} from "@iconscout/react-unicons";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { SidebarContext } from "../../context/sidebar-context";
+import { useSidebar } from "../../hooks/useSidebar";
+import { useSticky } from "../../hooks/useSticky";
+import { useOverflow } from "../../hooks/useOverflow";
+
 import MobileNavigation from "../MobileNavigation/MobileNavigation";
 import CartSidebar from "../CartSidebar/CartSidebar";
 
-import { Link } from "react-router-dom";
-import { UilEstate } from "@iconscout/react-unicons";
-import { UilSearch } from "@iconscout/react-unicons";
-import { UilShoppingBag } from "@iconscout/react-unicons";
-import { UilTimes } from "@iconscout/react-unicons";
-import { UilAlignLeft } from "@iconscout/react-unicons";
 import "./MainNavigation.styles.scss";
 
 const MainNavigation = () => {
-  const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [show, setShow] = useState(true);
-  const [stickyClass, setStickyClass] = useState("");
-
-  const handleToggleMobile = () => {
-    setIsMobileOpen((m) => !m);
-  };
-
-  const toggleIconHandler = () => {
-    setShow(!show);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window !== undefined) {
-        let windowHeight = window.scrollY;
-        windowHeight > 100
-          ? document.body.classList.add("sticky")
-          : document.body.classList.remove("sticky");
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflowY = isSidebarOpen ? "hidden" : "";
-  }, [isSidebarOpen]);
+  const { toggleMobileNav, toggleSidebarCart } = useSidebar();
+  useSticky();
+  useOverflow();
 
   return (
     <header className="header">
       <div>
-        <MobileNavigation
-          isMobileOpen={isMobileOpen}
-          onToggleMobile={handleToggleMobile}
-        />
+        <MobileNavigation />
 
         <Container fluid="lg" className="main-nav">
           <Row className="align-items-center justify-content-between">
@@ -90,7 +70,7 @@ const MainNavigation = () => {
             <Col xs={6} lg={3} className=" d-flex align-items-center gap-4">
               <div>
                 <UilAlignLeft
-                  onClick={setIsMobileOpen}
+                  onClick={toggleMobileNav}
                   className="d-block d-lg-none "
                   size="35"
                 />
@@ -110,12 +90,12 @@ const MainNavigation = () => {
               <div className="main-nav__icon-container">
                 <div className={`main-nav__icon-bar  ${!show ? "d-none" : ""}`}>
                   <UilShoppingBag
-                    onClick={setIsSidebarOpen}
+                    onClick={toggleSidebarCart}
                     className="main-nav__icon"
                   />
                   <UilSearch
                     className="main-nav__icon"
-                    onClick={toggleIconHandler}
+                    onClick={() => setShow((show) => !show)}
                   />
                 </div>
 
@@ -135,7 +115,7 @@ const MainNavigation = () => {
 
                   <UilTimes
                     className="main-nav__icon"
-                    onClick={toggleIconHandler}
+                    onClick={() => setShow((show) => !show)}
                   />
                 </div>
               </div>

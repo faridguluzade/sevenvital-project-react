@@ -1,19 +1,19 @@
 import React, { useState } from "react";
+import { UilAngleDown, UilAngleUp } from "@iconscout/react-unicons";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { UilAngleDown } from "@iconscout/react-unicons";
-import { UilAngleUp } from "@iconscout/react-unicons";
+import { useAccordions } from "../../hooks/useAccordions";
 
 import SectionHeader from "../UI/SectionHeader/SectionHeader";
-
-import { DUMMY_ACCORDION } from "../../constants";
 
 import "./Accordion.styles.scss";
 
 const Accordion = () => {
+  const { accordions } = useAccordions();
+
   const [selected, setSelected] = useState(null);
   const [scrollHeight, setScrollHeight] = useState(0);
 
@@ -38,14 +38,14 @@ const Accordion = () => {
       <Container fluid="lg" className="accordion px-5">
         <Row className="justify-content-center">
           <Col xs={12} lg={9}>
-            {DUMMY_ACCORDION.map((item, index) => {
+            {accordions.map((item, index) => {
               return (
-                <div key={item.id} className={`accordion__item`}>
+                <div key={item.id} className="accordion__item">
                   <div
                     className="accordion__select-box"
                     onClick={(e) => toggleHandler(e, index)}
                   >
-                    <h4 className="accordion__text">{item.questions}</h4>
+                    <h4 className="accordion__text">{item.question}</h4>
                     {selected === index ? (
                       <UilAngleUp size={30} className="accordion__icon--up" />
                     ) : (

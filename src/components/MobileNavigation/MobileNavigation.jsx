@@ -1,7 +1,7 @@
-import { memo, useContext } from "react";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
-import { SidebarContext } from "../../context/sidebar-context";
+import { useSidebar } from "../../hooks/useSidebar";
 
 import { UilTimes } from "@iconscout/react-unicons";
 import { UilFacebookF } from "@iconscout/react-unicons";
@@ -13,13 +13,15 @@ import { UilCheck } from "@iconscout/react-unicons";
 
 import "./MobileNavigation.styles.scss";
 
-const MobileNavigation = ({ isMobileOpen, onToggleMobile }) => {
+const MobileNavigation = () => {
+  const { isMobileNavOpen, toggleMobileNav } = useSidebar();
+
   return (
-    <div className={`side-nav ${isMobileOpen ? "side-nav--open" : ""}`}>
-      <UilTimes onClick={onToggleMobile} className="side-nav__close" />
+    <div className={`side-nav ${isMobileNavOpen ? "side-nav--open" : ""}`}>
+      <UilTimes onClick={toggleMobileNav} className="side-nav__close" />
 
       <figure className="side-nav__logo">
-        <Link to="/" onClick={onToggleMobile}>
+        <Link to="/" onClick={toggleMobileNav}>
           <img
             src="https://the7.io/cbd/wp-content/uploads/sites/104/2021/05/vital-logo-seven.svg"
             alt=""
@@ -30,7 +32,7 @@ const MobileNavigation = ({ isMobileOpen, onToggleMobile }) => {
         <ul className="side-nav__list">
           <li className="side-nav__item">
             <Link
-              onClick={onToggleMobile}
+              onClick={toggleMobileNav}
               to="/shop"
               className="side-nav__link"
             >
@@ -39,7 +41,7 @@ const MobileNavigation = ({ isMobileOpen, onToggleMobile }) => {
           </li>
           <li className="side-nav__item">
             <Link
-              onClick={onToggleMobile}
+              onClick={toggleMobileNav}
               to="/account"
               className="side-nav__link"
             >
@@ -48,7 +50,7 @@ const MobileNavigation = ({ isMobileOpen, onToggleMobile }) => {
           </li>
           <li className="side-nav__item">
             <Link
-              onClick={onToggleMobile}
+              onClick={toggleMobileNav}
               to="/magazine"
               className="side-nav__link"
             >
@@ -57,7 +59,7 @@ const MobileNavigation = ({ isMobileOpen, onToggleMobile }) => {
           </li>
           <li className="side-nav__item">
             <Link
-              onClick={onToggleMobile}
+              onClick={toggleMobileNav}
               to="/contact"
               className="side-nav__link"
             >

@@ -4,7 +4,6 @@ import Col from "react-bootstrap/Col";
 
 import { UisCheckCircle } from "@iconscout/react-unicons-solid";
 
-//components
 import ProductDetail from "../../components/ProductDetail/ProductDetail";
 import Guarantee from "../../components/Guarantee/Guarantee";
 import ProductSlider from "../../components/ProductSlider/ProductSlider";

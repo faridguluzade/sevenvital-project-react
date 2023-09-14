@@ -13,9 +13,9 @@ import Accordion from "../Accordion/Accordion";
 import MagazineSlider from "../MagazineSlider/MagazineSlider";
 import Help from "../Help/Help";
 
-import "./MainLayout.styles.scss";
+import "./Home.styles.scss";
 
-const MainLayout = () => {
+const Home = () => {
   return (
     <main>
       <section className="section-main-hero">
@@ -58,4 +58,4 @@ const MainLayout = () => {
   );
 };
 
-export default MainLayout;
+export default Home;

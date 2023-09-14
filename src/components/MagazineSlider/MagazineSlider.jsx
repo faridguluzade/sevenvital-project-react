@@ -13,6 +13,9 @@ import SectionHeader from "../UI/SectionHeader/SectionHeader";
 import { DUMMY_MAGAZINES } from "../../constants";
 
 import "./MagazineSlider.styles.scss";
+import { useEffect } from "react";
+import supabase from "../../services/supabase";
+import { useState } from "react";
 
 const MagazineSlider = () => {
   return (
