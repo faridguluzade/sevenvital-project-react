@@ -1,10 +1,14 @@
-import Button from "../UI/Button/Button";
-
+import { useLocation } from "react-router-dom";
 import { formatDate } from "../../utils/helper";
+import Button from "../UI/Button/Button";
 
 import "./MagazineItem.styles.scss";
 
-const MagazineItem = ({ image, title, date }) => {
+const MagazineItem = ({ id, image, title, date }) => {
+  const { pathname } = useLocation();
+
+  const to = pathname === "/magazine" ? `${id}` : `magazine/${id}`;
+
   return (
     <div className="magazine__card">
       <figure className="magazine__photo">
@@ -16,7 +20,7 @@ const MagazineItem = ({ image, title, date }) => {
       </div>
 
       <span className="magazine__date">{formatDate(date)}</span>
-      <Button filled={true} className="magazine__btn">
+      <Button to={to} filled={true} className="magazine__btn">
         Read Article
       </Button>
     </div>

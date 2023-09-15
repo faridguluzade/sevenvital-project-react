@@ -1,23 +1,21 @@
-import React from "react";
-
-import MainHero from "../MainHero/MainHero";
-import About from "../About/About";
-import Future from "../Future/Future";
-import TestimonialSlider from "../TestimonialSlider/TestimonialSlider";
-import ProductSection from "../ProductSection/ProductSection";
-import Guarantee from "../Guarantee/Guarantee";
-import Facts from "../Facts/Facts";
-import Benefits from "../Benefits/Benefits";
-import Testimonial from "../Testimonial/Testimonial";
-import Accordion from "../Accordion/Accordion";
-import MagazineSlider from "../MagazineSlider/MagazineSlider";
-import Help from "../Help/Help";
+import MainHero from "../../components/MainHero/MainHero";
+import About from "../../components/About/About";
+import Future from "../../components/Future/Future";
+import TestimonialSlider from "../../components/TestimonialSlider/TestimonialSlider";
+import ProductSection from "../../components/ProductSection/ProductSection";
+import Guarantee from "../../components/Guarantee/Guarantee";
+import Facts from "../../components/Facts/Facts";
+import Benefits from "../../components/Benefits/Benefits";
+import Testimonial from "../../components/Testimonial/Testimonial";
+import Accordion from "../../components/Accordion/Accordion";
+import MagazineSlider from "../../components/MagazineSlider/MagazineSlider";
+import Help from "../../components/Help/Help";
 
 import "./Home.styles.scss";
 
 const Home = () => {
   return (
-    <main>
+    <>
       <section className="section-main-hero">
         <MainHero />
       </section>
@@ -54,7 +52,7 @@ const Home = () => {
       <section className="section-help">
         <Help />
       </section>
-    </main>
+    </>
   );
 };
 

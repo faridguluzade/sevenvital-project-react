@@ -1,0 +1,10 @@
+@import "../../../scss/variables";
+
+.spinner-fullpage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-light-background;
+}

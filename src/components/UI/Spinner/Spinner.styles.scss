@@ -1,0 +1,20 @@
+@import "../../../scss/variables";
+
+@keyframes spinnerAnimate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.spinner {
+  margin: 0 auto;
+
+  width: 6.2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, $color-primary-main 94%, #0000)
+      top/8px 8px no-repeat,
+    conic-gradient(#0000 30%, $color-primary-main);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: spinnerAnimate 1s infinite linear;
+}

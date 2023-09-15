@@ -1,15 +1,20 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import MainLayout from "../pages/MainLayout";
-import Home from "../components/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import AccountPage from "../pages/AccountPage";
-import MagazinePage from "../pages/MagazinePage";
-import ShopPage from "../pages/ShopPage";
-import ContactPage from "../pages/ContactPage";
-import MagazineDetailPage from "../pages/MagazineDetailPage";
-import ProductDetailPage from "../pages/ProductDetailPage/ProductDetailPage";
-import CartPage from "../pages/CartPage";
+import SpinnerFullPage from "../components/UI/SpinnerFullPage/SpinnerFullPage";
+
+const Home = lazy(() => import("../pages/Home/Home"));
+const AccountPage = lazy(() => import("../pages/AccountPage"));
+const MagazinePage = lazy(() => import("../pages/MagazinePage"));
+const ShopPage = lazy(() => import("../pages/ShopPage"));
+const ContactPage = lazy(() => import("../pages/ContactPage"));
+const CartPage = lazy(() => import("../pages/CartPage"));
+const MagazineDetailPage = lazy(() => import("../pages/MagazineDetailPage"));
+const ProductDetailPage = lazy(() =>
+  import("../pages/ProductDetailPage/ProductDetailPage")
+);
 
 const router = createBrowserRouter([
   {
@@ -54,7 +59,11 @@ const router = createBrowserRouter([
 ]);
 
 const Root = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback={<SpinnerFullPage />}>
+      <RouterProvider router={router} />;
+    </Suspense>
+  );
 };
 
 export default Root;
