@@ -5,14 +5,19 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { getMagazines } from "../../store/magazines/magazinesSlice";
+import { useMagazines } from "../../hooks/useMagazines";
 
 import MagazineItem from "../MagazineItem/MagazineItem";
 import Button from "../UI/Button/Button";
+import Spinner from "../UI/Spinner/Spinner";
 
 import "./Magazine.styles.scss";
 
 const Magazine = () => {
-  const magazines = useSelector(getMagazines);
+  useMagazines();
+  const { magazines, status } = useSelector(getMagazines);
+
+  if (status === "loading") return <Spinner />;
 
   const filteredMagazine = magazines.filter((magazineItem, index) => index < 6);
 

@@ -17,7 +17,7 @@ import "./MagazineSlider.styles.scss";
 
 const MagazineSlider = () => {
   useMagazines();
-  const magazines = useSelector(getMagazines);
+  const { magazines } = useSelector(getMagazines);
 
   return (
     <>

@@ -1,15 +1,8 @@
-import { useLocation } from "react-router-dom";
-
 import Products from "../Products/Products";
 import SectionHeader from "../UI/SectionHeader/SectionHeader";
 import Button from "../UI/Button/Button";
 
-import { DUMMY_PRODUCTS } from "../../constants";
-
 const ProductSection = () => {
-  const { pathname } = useLocation();
-  const inShopPage = pathname === "/shop";
-
   return (
     <>
       <SectionHeader
@@ -19,10 +12,12 @@ const ProductSection = () => {
         }
       />
 
-      <Products products={DUMMY_PRODUCTS} inShopPage={inShopPage} />
+      <Products />
 
       <div className="text-center">
-        <Button className="products__link">View all products</Button>
+        <Button to="/shop" className="products__link">
+          View all products
+        </Button>
       </div>
     </>
   );

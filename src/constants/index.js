@@ -386,3 +386,142 @@ export const DUMMY_TESTIMONIALS = [
     link: "j_washington",
   },
 ];
+
+export const DUMMY_PRODUCTS2 = [
+  {
+    imageFront:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-1.1.jpg?t=2023-09-15T02%3A52%3A24.579Z",
+
+    imageBack:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-1.2.jpg?t=2023-09-15T02%3A52%3A53.635Z",
+    name: "CBD Products Full Set",
+    regularPrice: 260,
+    salePrice: 149.9,
+    onSale: true,
+    details: [
+      "Natural ingredients",
+      "No preservatives",
+      "Moisturising & antibacterial effect",
+      "Fast & long-lasting results",
+    ],
+  },
+  {
+    imageFront:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-2.1.jpg?t=2023-09-15T02%3A53%3A05.434Z",
+
+    imageBack:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-2.2.jpg?t=2023-09-15T02%3A53%3A20.015Z",
+    name: "CBD Products Starter Set",
+    regularPrice: 200,
+    salePrice: 149.9,
+    onSale: true,
+    details: [
+      "Skin regeneration",
+      "Moisturising",
+      "Antioxidant",
+      "Anti-age effect",
+    ],
+  },
+  {
+    imageFront:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-3.1.jpg",
+
+    imageBack:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-3.2.jpg?t=2023-09-15T02%3A53%3A47.274Z",
+    name: "CBD Products Starter Set",
+    regularPrice: 90,
+    salePrice: null,
+    onSale: false,
+    details: ["Moisturising", "Healing", "Long-lasting effect"],
+  },
+
+  {
+    imageFront:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-4.1.jpg?t=2023-09-15T02%3A54%3A06.068Z",
+
+    imageBack:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-4.2.jpg?t=2023-09-15T02%3A55%3A25.789Z",
+    name: "CBD Products Starter Set",
+    regularPrice: 40,
+    salePrice: null,
+    onSale: false,
+    details: [
+      "Skin regeneration",
+      "Moisturising",
+      "Antioxidant",
+      "Anti-age effect",
+    ],
+  },
+  {
+    imageFront:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-5.1.jpg?t=2023-09-15T02%3A55%3A38.731Z",
+
+    imageBack:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-5.2.jpg?t=2023-09-15T02%3A55%3A53.164Z",
+    name: "CBD Pain Relief Cream",
+    regularPrice: 40,
+    salePrice: null,
+    onSale: false,
+    details: [
+      "CBD oil",
+      "CBD gummies",
+      "pain relieve cream",
+      "healing cream",
+      "moisturising balm",
+    ],
+  },
+
+  {
+    imageFront:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-6.1.jpg?t=2023-09-15T02%3A56%3A06.584Z",
+
+    imageBack:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-6.2.jpg?t=2023-09-15T02%3A56%3A20.332Z",
+    name: "CBD Oil",
+    regularPrice: 45,
+    salePrice: null,
+    onSale: false,
+    details: [
+      "CBD oil",
+      "pain relieve cream",
+      "healing cream",
+      "100% vegan products",
+    ],
+  },
+
+  {
+    imageFront:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-7.1.jpg?t=2023-09-15T02%3A56%3A30.630Z",
+
+    imageBack:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-7.2.jpg?t=2023-09-15T02%3A56%3A43.244Z",
+    name: "Pain Relief CBD Salve",
+    regularPrice: 120,
+    salePrice: null,
+    onSale: false,
+    details: [
+      "100% vegan product",
+      " Only natural ingredients",
+      "No preservatives",
+      "Raspberry, lemon or apple flavour",
+    ],
+  },
+
+  {
+    imageFront:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-8.1.jpg?t=2023-09-15T02%3A56%3A56.671Z",
+
+    imageBack:
+      "https://jzampjjgnpadxhscexrm.supabase.co/storage/v1/object/public/product_images/product-8.2.jpg?t=2023-09-15T02%3A57%3A06.734Z",
+    name: "Collagen CBD Gummies",
+    regularPrice: 35,
+    salePrice: null,
+    onSale: false,
+    details: [
+      "Natural ingredients",
+      "No preservatives",
+      "Moisturising effect",
+      "Long-lasting results",
+    ],
+  },
+];

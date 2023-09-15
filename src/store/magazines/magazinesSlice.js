@@ -37,6 +37,6 @@ const magazinesSlice = createSlice({
 });
 
 // Selector function
-export const getMagazines = (state) => state.magazines.magazines;
+export const getMagazines = (state) => state.magazines;
 
 export default magazinesSlice.reducer;

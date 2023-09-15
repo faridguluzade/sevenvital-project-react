@@ -15,9 +15,8 @@ const sidebarReducer = (state, action) => {
     case "sidebar/navigation": {
       return { ...state, isMobileNavOpen: !state.isMobileNavOpen };
     }
-    default: {
-      return state;
-    }
+    default:
+      throw new Error("Unknown action type");
   }
 };
 

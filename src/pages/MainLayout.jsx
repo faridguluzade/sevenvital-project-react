@@ -10,7 +10,7 @@ function MainLayout() {
   return (
     <>
       <MainNavigation />
-      <main>
+      <main style={{ minHeight: "70rem" }}>
         <Outlet />
       </main>
       <Footer />

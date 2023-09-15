@@ -1,26 +1,26 @@
-import React from "react";
-
 import { UilShoppingBag } from "@iconscout/react-unicons";
+
+import { formatCurrency } from "../../utils/helper";
 
 import Button from "../UI/Button/Button";
 import "./ProductItem.styles.scss";
 
 function ProductItem({
-  imgFrontUrl,
-  imgRearUrl,
-  onSale,
-  inShopPage,
-  title,
-  price,
+  name,
+  regularPrice,
   salePrice,
+  onSale,
   details,
+  imageFront,
+  imageBack,
+  inShopPage,
 }) {
   return (
     <figure className="product">
       <div className="product__photo-box">
-        <img src={imgFrontUrl} alt="" className="product__photo" />
+        <img src={imageFront} alt="" className="product__photo" />
         <img
-          src={imgRearUrl}
+          src={imageBack}
           alt=""
           className="product__photo product__photo--rear"
         />
@@ -33,15 +33,19 @@ function ProductItem({
           inShopPage ? "align-items-start" : "align-items-center"
         }`}
       >
-        <p className="product__name">{title}</p>
+        <p className="product__name">{name}</p>
 
         <div className="product__price-box">
           <span
             className={`product__price ${onSale ? "product__price--sale" : ""}`}
           >
-            ${price}
+            {formatCurrency(regularPrice)}
           </span>
-          {onSale && <span className="product__sale-price">${salePrice}</span>}
+          {onSale && (
+            <span className="product__sale-price">
+              {formatCurrency(salePrice)}
+            </span>
+          )}
         </div>
 
         {inShopPage && (

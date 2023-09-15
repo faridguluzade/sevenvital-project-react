@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchMagazines } from "../store/magazines/magazinesSlice";
+import { fetchProducts } from "../store/products/productsSlice";
 
-export const useMagazines = () => {
+export const useProducts = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(fetchMagazines());
+    dispatch(fetchProducts());
   }, [dispatch]);
 };

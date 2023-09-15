@@ -61,7 +61,7 @@ const router = createBrowserRouter([
 const Root = () => {
   return (
     <Suspense fallback={<SpinnerFullPage />}>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </Suspense>
   );
 };

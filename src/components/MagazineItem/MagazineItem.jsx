@@ -12,7 +12,7 @@ const MagazineItem = ({ id, image, title, date }) => {
   return (
     <div className="magazine__card">
       <figure className="magazine__photo">
-        <img src={image} alt="" />
+        <img src={image} alt="" loading="lazy" />
       </figure>
 
       <div className="magazine__content">
