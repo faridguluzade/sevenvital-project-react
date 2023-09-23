@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+
 import { getTestimonials } from "../services/apiTestimonial";
 
 export const useTestimonials = () => {
@@ -10,7 +12,7 @@ export const useTestimonials = () => {
         let data = await getTestimonials();
         setTestimonials(data);
       } catch (error) {
-        console.log(error.message);
+        toast.error(error.message);
       }
     };
 

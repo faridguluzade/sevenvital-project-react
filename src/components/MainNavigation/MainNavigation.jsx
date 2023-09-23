@@ -122,6 +122,7 @@ const MainNavigation = () => {
             </Col>
           </Row>
         </Container>
+
         <CartSidebar />
       </div>
     </header>

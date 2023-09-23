@@ -1,19 +1,21 @@
-import React from "react";
-
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import SpinnerMini from "../SpinnerMini/SpinnerMini";
 
 import "./Button.styles.scss";
 
-const Button = ({ filled, children, className, to }) => {
+const Button = ({ filled, children, className, to, type, disabled }) => {
+  const navigate = useNavigate();
+
   return (
-    <Link
-      to={to}
+    <button
+      onClick={() => navigate(to)}
+      type={type}
       className={`button ${
         filled ? "button--filled" : "button--outline"
       } ${className}`}
     >
-      {children}
-    </Link>
+      {disabled ? <SpinnerMini /> : children}
+    </button>
   );
 };
 

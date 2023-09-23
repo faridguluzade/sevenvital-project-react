@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+
 import { getAccordions } from "../services/apiAccordion";
 
 export const useAccordions = () => {
@@ -7,10 +9,10 @@ export const useAccordions = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let data = await getAccordions();
+        const data = await getAccordions();
         setAccordions(data);
       } catch (error) {
-        console.log(error.message);
+        toast.error(error.message);
       }
     };
 

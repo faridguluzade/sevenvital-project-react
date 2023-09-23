@@ -1,0 +1,10 @@
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.spinner-mini {
+  text-align: center;
+  animation: rotate 1s infinite linear;
+}

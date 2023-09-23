@@ -6,8 +6,7 @@ import { UilHeadphones } from "@iconscout/react-unicons";
 import { UilEnvelopeAlt } from "@iconscout/react-unicons";
 import { UilLocationPoint } from "@iconscout/react-unicons";
 
-import Form from "../UI/Form/Form";
-import Input from "../UI/Input/Input";
+import ContactForm from "../ContactForm/ContactForm";
 
 import "./Contact.styles.scss";
 
@@ -43,24 +42,7 @@ function Contact() {
       </Row>
       <Row className="justify-content-center my-5">
         <Col xs={12} lg={9} className="my-5">
-          <Form
-            headingText="Questions? Drop us a line!"
-            btnText="Send Message"
-            className="contact__heading"
-          >
-            <Input id="name" label="Name" type="text" placeholder="Name" />
-            <Input id="email" label="Email" type="email" placeholder="Email" />
-            <div className="d-flex flex-column gap-4">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                cols="30"
-                rows="10"
-                placeholder="Message"
-                className="p-4"
-              ></textarea>
-            </div>
-          </Form>
+          <ContactForm />
         </Col>
       </Row>
     </Container>
