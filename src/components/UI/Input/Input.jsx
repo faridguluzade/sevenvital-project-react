@@ -6,8 +6,9 @@ const Input = ({
   type,
   placeholder,
   register,
-  required,
+  condition,
   disabled,
+  error,
 }) => {
   return (
     <div className="input-box">
@@ -18,9 +19,10 @@ const Input = ({
         id={id}
         type={type}
         placeholder={placeholder}
-        {...register(id, { required })}
+        {...register?.(id, { ...condition })}
         disabled={disabled}
       />
+      {error && <span className="input-error">{error}</span>}
     </div>
   );
 };

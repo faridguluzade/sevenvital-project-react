@@ -7,8 +7,8 @@ export const useContact = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const contact = async (contact) => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
       await insertContact(contact);
       toast.success("Message successfuly sended");
     } catch (error) {

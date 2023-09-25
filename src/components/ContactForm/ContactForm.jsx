@@ -5,7 +5,8 @@ import { useForm } from "react-hook-form";
 import { useContact } from "../../hooks/useContact";
 
 const ContactForm = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, formState } = useForm();
+  const { errors } = formState;
   const { contact, isLoading } = useContact();
 
   const onSubmit = (data) => {
@@ -27,7 +28,10 @@ const ContactForm = () => {
         placeholder="Name"
         disabled={isLoading}
         register={register}
-        required="This field is required"
+        condition={{
+          required: "This field is required",
+        }}
+        error={errors.name?.message}
       />
       <Input
         id="email"
@@ -36,7 +40,14 @@ const ContactForm = () => {
         placeholder="Email"
         disabled={isLoading}
         register={register}
-        required="This field is required"
+        condition={{
+          required: "This field is required",
+          pattern: {
+            value: /\S+@\S+\.\S+/,
+            message: "Please provide a valid email address",
+          },
+        }}
+        error={errors.email?.message}
       />
       <div className="d-flex flex-column gap-4">
         <label htmlFor="message">Message</label>
@@ -49,6 +60,11 @@ const ContactForm = () => {
           disabled={isLoading}
           {...register("message", { required: "This field is required" })}
         ></textarea>
+        {errors.message?.message && (
+          <span style={{ fontSize: "1.4rem", color: "#b91c1c" }}>
+            {errors.message.message}
+          </span>
+        )}
       </div>
     </Form>
   );

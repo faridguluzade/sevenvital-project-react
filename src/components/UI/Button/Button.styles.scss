@@ -1,9 +1,17 @@
 @import "../../../scss/variables";
 
 .button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.2rem;
   text-decoration: none;
   transition: all 0.3s;
+
+  span {
+    color: $color-white !important;
+  }
 }
 
 .button--filled {

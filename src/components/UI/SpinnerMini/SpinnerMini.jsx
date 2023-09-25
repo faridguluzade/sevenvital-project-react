@@ -5,7 +5,7 @@ import "./SpinnerMini.styles.scss";
 function SpinnerMini() {
   return (
     <div className="spinner-mini">
-      <UilSpinnerAlt size={20} />
+      <UilSpinnerAlt size={15} />
     </div>
   );
 }

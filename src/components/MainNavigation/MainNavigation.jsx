@@ -13,6 +13,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+import { useUser } from "../../hooks/useUser";
 import { useSidebar } from "../../hooks/useSidebar";
 import { useSticky } from "../../hooks/useSticky";
 import { useOverflow } from "../../hooks/useOverflow";
@@ -23,10 +24,12 @@ import CartSidebar from "../CartSidebar/CartSidebar";
 import "./MainNavigation.styles.scss";
 
 const MainNavigation = () => {
-  const [show, setShow] = useState(true);
-  const { toggleMobileNav, toggleSidebarCart } = useSidebar();
   useSticky();
   useOverflow();
+  const { user } = useUser();
+  const fullName = user?.user_metadata?.fullName;
+  const { toggleMobileNav, toggleSidebarCart } = useSidebar();
+  const [show, setShow] = useState(true);
 
   return (
     <header className="header">
@@ -61,6 +64,11 @@ const MainNavigation = () => {
                   <li>
                     <Link to="contact" className="main-nav__link">
                       Contact
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="" className="main-nav__link">
+                      {user ? fullName : ""}
                     </Link>
                   </li>
                 </ul>

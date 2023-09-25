@@ -21,7 +21,7 @@ const Help = () => {
             <span className="fs-1 fw-bold">001 234-567-890</span>
           </div>
 
-          <Button className="help__btn" filled={true}>
+          <Button to="/contact" className="help__btn" filled={true}>
             Contact us online &rarr;
           </Button>
         </div>
