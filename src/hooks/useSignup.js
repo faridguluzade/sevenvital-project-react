@@ -1,24 +1,14 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { signup as signupApi } from "../services/apiAuth";
-import toast from "react-hot-toast";
+import { signup as signupUser } from "../store/user/userSlice";
 
 export const useSignup = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const { status } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
-  const signup = async (data) => {
-    setIsLoading(true);
-    try {
-      await signupApi(data);
-      toast.success(
-        "Account successfuly created! Please verify the new account from the user's email address."
-      );
-    } catch (error) {
-      toast.error(error.message);
-    } finally {
-      setIsLoading(false);
-    }
+  const signup = (userData) => {
+    dispatch(signupUser(userData));
   };
 
-  return { signup, isLoading };
+  return { signup, isLoading: status === "loading" };
 };

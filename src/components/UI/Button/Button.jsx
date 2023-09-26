@@ -14,7 +14,7 @@ const Button = ({ filled, children, className, to, type, disabled }) => {
         filled ? "button--filled" : "button--outline"
       } ${className}`}
     >
-      {disabled && <SpinnerMini />} <span>{children}</span>
+      {disabled ? <SpinnerMini /> : children}
     </button>
   );
 };

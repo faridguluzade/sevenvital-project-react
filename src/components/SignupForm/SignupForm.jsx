@@ -12,7 +12,7 @@ const SignupForm = () => {
   const { register, handleSubmit, reset, formState, getValues } = useForm();
   const { errors } = formState;
 
-  const onSubmit = ({ fullName, newEmail, newPassword, confirmPassword }) => {
+  const onSubmit = ({ fullName, newEmail, newPassword }) => {
     signup({ fullName, email: newEmail, password: newPassword });
     reset();
   };
@@ -69,7 +69,7 @@ const SignupForm = () => {
         condition={{
           required: "This field is required",
           validate: (value) =>
-            value === getValues().password || "Passwords needs to match",
+            value === getValues().newPassword || "Passwords needs to match",
         }}
         error={errors.passwordConfirm?.message}
       />

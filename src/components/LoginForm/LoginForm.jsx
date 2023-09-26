@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
-import Form from "../UI/Form/Form";
-import Input from "../UI/Input/Input";
 
 import { useLogin } from "../../hooks/useLogin";
+
+import Form from "../UI/Form/Form";
+import Input from "../UI/Input/Input";
 
 const LoginForm = () => {
   const { login, isLoading } = useLogin();
@@ -26,6 +27,7 @@ const LoginForm = () => {
         label="Email address"
         type="email"
         register={register}
+        disabled={isLoading}
         condition={{
           required: "This field is required",
           pattern: {
@@ -39,6 +41,7 @@ const LoginForm = () => {
         id="password"
         label="Password"
         type="password"
+        disabled={isLoading}
         register={register}
         condition={{ required: "This field is required" }}
         error={errors.password?.message}

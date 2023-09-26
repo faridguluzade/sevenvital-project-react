@@ -1,25 +1,15 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { login as loginUser } from "../store/user/userSlice";
 import { useNavigate } from "react-router-dom";
 
-import { login as loginApi } from "../services/apiAuth";
-import toast from "react-hot-toast";
-
 export const useLogin = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const { status } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const login = async (data) => {
-    setIsLoading(true);
-    try {
-      const { user } = await loginApi(data);
-      navigate("/");
-      toast.success(`Welcome back ${user.user_metadata.fullName}!`);
-    } catch (error) {
-      toast.error(error.message);
-    } finally {
-      setIsLoading(false);
-    }
+  const login = (userData) => {
+    dispatch(loginUser(userData));
   };
 
-  return { login, isLoading };
+  return { login, isLoading: status === "loading" };
 };

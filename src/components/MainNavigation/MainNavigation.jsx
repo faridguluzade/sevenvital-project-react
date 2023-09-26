@@ -7,13 +7,15 @@ import {
   UilShoppingBag,
   UilTimes,
   UilAlignLeft,
+  UilSignout,
 } from "@iconscout/react-unicons";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { useUser } from "../../hooks/useUser";
+import SpinnerFullPage from "../UI/SpinnerFullPage/SpinnerFullPage";
+
 import { useSidebar } from "../../hooks/useSidebar";
 import { useSticky } from "../../hooks/useSticky";
 import { useOverflow } from "../../hooks/useOverflow";
@@ -22,14 +24,23 @@ import MobileNavigation from "../MobileNavigation/MobileNavigation";
 import CartSidebar from "../CartSidebar/CartSidebar";
 
 import "./MainNavigation.styles.scss";
+import { useEffect } from "react";
+import { getUser, logout } from "../../store/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const MainNavigation = () => {
   useSticky();
   useOverflow();
-  const { user } = useUser();
-  const fullName = user?.user_metadata?.fullName;
   const { toggleMobileNav, toggleSidebarCart } = useSidebar();
   const [show, setShow] = useState(true);
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.user);
+  const fullName = user?.user_metadata?.fullName;
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
 
   return (
     <header className="header">
@@ -66,11 +77,6 @@ const MainNavigation = () => {
                       Contact
                     </Link>
                   </li>
-                  <li>
-                    <Link to="" className="main-nav__link">
-                      {user ? fullName : ""}
-                    </Link>
-                  </li>
                 </ul>
               </nav>
             </Col>
@@ -97,6 +103,7 @@ const MainNavigation = () => {
             <Col className="ml-auto" xs={6} lg={4}>
               <div className="main-nav__icon-container">
                 <div className={`main-nav__icon-bar  ${!show ? "d-none" : ""}`}>
+                  <span> {user && fullName}</span>
                   <UilShoppingBag
                     onClick={toggleSidebarCart}
                     className="main-nav__icon"
@@ -105,6 +112,9 @@ const MainNavigation = () => {
                     className="main-nav__icon"
                     onClick={() => setShow((show) => !show)}
                   />
+                  {fullName && (
+                    <UilSignout onClick={() => dispatch(logout())} />
+                  )}
                 </div>
 
                 <div
