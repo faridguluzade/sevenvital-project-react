@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { addItem } from "../../store/cart/cartSlice";
 import { useSidebar } from "../../hooks/useSidebar";
@@ -8,6 +8,7 @@ import { UilShoppingBag } from "@iconscout/react-unicons";
 import Button from "../UI/Button/Button";
 
 import "./ProductItem.styles.scss";
+import toast from "react-hot-toast";
 
 function ProductItem({
   id,
@@ -22,8 +23,14 @@ function ProductItem({
 }) {
   const dispatch = useDispatch();
   const { isSidebarCartOpen, openSidebarCart } = useSidebar();
+  const user = useSelector((state) => state.user.user);
 
   const handleAddToCart = () => {
+    if (!user) {
+      toast.error("You must be logged in!");
+      return;
+    }
+
     const price = onSale ? salePrice : regularPrice;
 
     dispatch(

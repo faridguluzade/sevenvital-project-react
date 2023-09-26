@@ -16,8 +16,6 @@ const CartSidebar = () => {
   const cart = useSelector(getCart);
   const cartIsEmpty = !cart.length;
 
-  console.log(cart);
-
   return (
     <div
       className={`sidebar-cart ${
@@ -33,7 +31,12 @@ const CartSidebar = () => {
         <div className="empty-box">
           <UilShoppingBag className="empty-box__icon" />
           <span className="empty-box__text">Your cart is empty</span>
-          <Button className="empty-box__btn" filled={true}>
+          <Button
+            to="/shop"
+            onClick={toggleSidebarCart}
+            className="empty-box__btn"
+            filled={true}
+          >
             Browse products
           </Button>
         </div>
@@ -54,7 +57,9 @@ const CartSidebar = () => {
             <span className="fs-3">$225.00</span>
           </div>
 
-          <Button className="py-4">View Cart</Button>
+          <Button to="shop/cart" onClick={toggleSidebarCart} className="py-4">
+            View Cart
+          </Button>
           <Button className="py-4" filled={true}>
             Checkout
           </Button>
