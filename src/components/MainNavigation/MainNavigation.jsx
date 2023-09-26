@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import {
@@ -14,7 +15,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import SpinnerFullPage from "../UI/SpinnerFullPage/SpinnerFullPage";
+import { getUser, logout } from "../../store/user/userSlice";
 
 import { useSidebar } from "../../hooks/useSidebar";
 import { useSticky } from "../../hooks/useSticky";
@@ -24,9 +25,6 @@ import MobileNavigation from "../MobileNavigation/MobileNavigation";
 import CartSidebar from "../CartSidebar/CartSidebar";
 
 import "./MainNavigation.styles.scss";
-import { useEffect } from "react";
-import { getUser, logout } from "../../store/user/userSlice";
-import { useDispatch, useSelector } from "react-redux";
 
 const MainNavigation = () => {
   useSticky();

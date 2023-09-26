@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import { UilTimes, UilShoppingBag } from "@iconscout/react-unicons";
 
 import { useSidebar } from "../../hooks/useSidebar";
+import { getCart } from "../../store/cart/cartSlice";
 
 import SidebarProduct from "../SidebarProduct/SidebarProduct";
 import Button from "../UI/Button/Button";
@@ -11,7 +13,10 @@ import "./CartSidebar.styles.scss";
 
 const CartSidebar = () => {
   const { isSidebarCartOpen, toggleSidebarCart } = useSidebar();
-  const [cartIsEmpty, setIsCartEmpty] = useState(true);
+  const cart = useSelector(getCart);
+  const cartIsEmpty = !cart.length;
+
+  console.log(cart);
 
   return (
     <div
@@ -36,8 +41,9 @@ const CartSidebar = () => {
 
       {!cartIsEmpty && (
         <div className="sidebar-cart__product">
-          <SidebarProduct />
-          <SidebarProduct />
+          {cart.map((item) => (
+            <SidebarProduct key={item.id} item={item} />
+          ))}
         </div>
       )}
 

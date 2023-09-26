@@ -7,8 +7,9 @@
 // 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128;
 
 .sidebar-cart--open {
-  transform: translateX(0) !important;
-  overflow: hidden;
+  overflow: hidden !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .sidebar-cart {
@@ -22,7 +23,8 @@
   flex-direction: column;
   box-shadow: $shadow-sidebar;
 
-  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
 
   box-shadow: $shadow-sidebar;
   transition: all 0.4s;

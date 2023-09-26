@@ -1,11 +1,16 @@
-import { UilShoppingBag } from "@iconscout/react-unicons";
+import { useDispatch } from "react-redux";
 
+import { addItem } from "../../store/cart/cartSlice";
+import { useSidebar } from "../../hooks/useSidebar";
 import { formatCurrency } from "../../utils/helper";
 
+import { UilShoppingBag } from "@iconscout/react-unicons";
 import Button from "../UI/Button/Button";
+
 import "./ProductItem.styles.scss";
 
 function ProductItem({
+  id,
   name,
   regularPrice,
   salePrice,
@@ -15,6 +20,27 @@ function ProductItem({
   imageBack,
   inShopPage,
 }) {
+  const dispatch = useDispatch();
+  const { isSidebarCartOpen, openSidebarCart } = useSidebar();
+
+  const handleAddToCart = () => {
+    const price = onSale ? salePrice : regularPrice;
+
+    dispatch(
+      addItem({
+        id,
+        name,
+        image: imageFront,
+        price,
+        quantity: 1,
+        totalPrice: price * 1,
+      })
+    );
+
+    // Open the sidebar cart
+    if (!isSidebarCartOpen) openSidebarCart();
+  };
+
   return (
     <figure className="product">
       <div className="product__photo-box">
@@ -58,7 +84,11 @@ function ProductItem({
           </div>
         )}
 
-        <Button filled={true} className="product__card-btn">
+        <Button
+          onClick={handleAddToCart}
+          filled={true}
+          className="product__card-btn"
+        >
           <UilShoppingBag size="18" />
           Add to cart
         </Button>

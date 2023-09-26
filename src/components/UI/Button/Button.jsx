@@ -3,12 +3,27 @@ import SpinnerMini from "../SpinnerMini/SpinnerMini";
 
 import "./Button.styles.scss";
 
-const Button = ({ filled, children, className, to, type, disabled }) => {
+const Button = ({
+  filled,
+  children,
+  className,
+  to,
+  type,
+  disabled,
+  onClick,
+}) => {
   const navigate = useNavigate();
 
   return (
     <button
-      onClick={() => navigate(to)}
+      onClick={() => {
+        if (to) {
+          navigate(to);
+        }
+        if (onClick) {
+          onClick();
+        }
+      }}
       type={type}
       className={`button ${
         filled ? "button--filled" : "button--outline"

@@ -9,10 +9,13 @@ const initialState = {
 
 const sidebarReducer = (state, action) => {
   switch (action.type) {
-    case "sidebar/cart": {
+    case "sidebar/cart-toggle": {
       return { ...state, isSidebarCartOpen: !state.isSidebarCartOpen };
     }
-    case "sidebar/navigation": {
+    case "sidebar/cart-open": {
+      return { ...state, isSidebarCartOpen: true };
+    }
+    case "sidebar/navigation-toggle": {
       return { ...state, isMobileNavOpen: !state.isMobileNavOpen };
     }
     default:
@@ -27,11 +30,15 @@ export const SidebarProvider = ({ children }) => {
   );
 
   const toggleSidebarCart = () => {
-    dispatch({ type: "sidebar/cart" });
+    dispatch({ type: "sidebar/cart-toggle" });
+  };
+
+  const openSidebarCart = () => {
+    dispatch({ type: "sidebar/cart-open" });
   };
 
   const toggleMobileNav = () => {
-    dispatch({ type: "sidebar/navigation" });
+    dispatch({ type: "sidebar/navigation-toggle" });
   };
 
   const value = {
@@ -39,6 +46,7 @@ export const SidebarProvider = ({ children }) => {
     isMobileNavOpen,
     toggleSidebarCart,
     toggleMobileNav,
+    openSidebarCart,
   };
 
   return (
