@@ -16,7 +16,7 @@ export const getCartByUserId = async (userId) => {
 export const updateCartItem = async (userId, productId, obj) => {
   const { updatedCart, error } = await supabase
     .from("cart")
-    .update({ ...obj })
+    .update(obj)
     .eq("userId", userId)
     .eq("productId", productId)
     .select();
@@ -55,9 +55,9 @@ export const addItemToCart = async ({ productId, userId, price }) => {
     }
   }
 
-  // const data = await getCartByUserId(userId);
+  const data = await getCartByUserId(userId);
 
-  // return data;
+  return data;
 };
 
 export const deleteItem = async (id) => {
@@ -70,4 +70,16 @@ export const deleteItem = async (id) => {
   return data;
 };
 
-export const increaseCartItemQuantity = async (id) => {};
+// export const updateCartCount = async (id, obj) => {
+//   const { data, error } = await supabase
+//     .from("cart")
+//     .update(obj)
+//     .eq("id", id)
+//     .select();
+
+//   if (error) {
+//     throw new Error("Could not be updated count!");
+//   }
+
+//   return data;
+// };

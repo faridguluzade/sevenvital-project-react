@@ -7,18 +7,32 @@ import { UilTimes } from "@iconscout/react-unicons";
 //   decreaseItemQuantity,
 // } from "../../store/cart/cartSlice";
 import { formatCurrency } from "../../utils/helper";
-import { deleteCartItem } from "../../store/cart/cartSlice";
+import {
+  deleteCartItem,
+  increaseCartItemQuantity,
+  decreaseCartItemQuantity,
+} from "../../store/cart/cartSlice";
 
 import "./SidebarProduct.styles.scss";
 
 function SidebarProduct({ item }) {
   const dispatch = useDispatch();
-  const { id, name, price, imageFront, quantity } = item;
+  const {
+    id,
+    productId,
+    totalPrice,
+    userId,
+    name,
+    price,
+    imageFront,
+    quantity,
+  } = item;
+  console.log(item);
 
   return (
     <div className="sidebar-product">
       <figure className="sidebar-product__photo">
-        <img src={imageFront} alt={`Image of ${name}`} />
+        <img src={imageFront} alt="" />
       </figure>
       <div className="sidebar-product__info">
         <p className="sidebar-product__name">{name}</p>
@@ -26,7 +40,17 @@ function SidebarProduct({ item }) {
           <input
             type="button"
             value={"-"}
-            // onClick={() => dispatch(decreaseItemQuantity(id))}
+            onClick={() =>
+              dispatch(
+                decreaseCartItemQuantity({
+                  userId,
+                  productId,
+                  price,
+                  totalPrice,
+                  quantity,
+                })
+              )
+            }
           />
           <input
             className="sidebar-product__quantity"
@@ -37,7 +61,17 @@ function SidebarProduct({ item }) {
           <input
             type="button"
             value={"+"}
-            // onClick={() => dispatch(increaseItemQuantity(id))}
+            onClick={() =>
+              dispatch(
+                increaseCartItemQuantity({
+                  userId,
+                  productId,
+                  price,
+                  totalPrice,
+                  quantity,
+                })
+              )
+            }
           />
         </div>
         <p className="d-flex align-items-center">

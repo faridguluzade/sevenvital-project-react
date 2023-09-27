@@ -11,26 +11,24 @@ import {
 import { formatCurrency } from "../../utils/helper";
 
 import SidebarProduct from "../SidebarProduct/SidebarProduct";
-import Spinner from "../UI/Spinner/Spinner";
 import Button from "../UI/Button/Button";
 
 import "./CartSidebar.styles.scss";
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 
-const CartSidebar = () => {
+const CartSidebar = ({ user }) => {
+  const dispatch = useDispatch();
   const cart = useSelector(getCart);
   const totalPrice = useSelector(getTotalPrice);
-  const { isSidebarCartOpen, toggleSidebarCart } = useSidebar();
   const cartIsEmpty = !cart?.length;
 
-  const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user);
+  const { isSidebarCartOpen, toggleSidebarCart } = useSidebar();
 
   useEffect(() => {
-    if (user.id) {
+    if (user?.id) {
       dispatch(getCartById(user.id));
     }
-  }, [dispatch, user]);
+  }, [dispatch, user?.id]);
 
   return (
     <div
@@ -66,11 +64,11 @@ const CartSidebar = () => {
         </div>
       )}
 
-      {!cartIsEmpty && (
+      {
         <div className="sidebar-cart__footer">
           <div className="d-flex align-items-center justify-content-between">
             <p>Subtotal:</p>
-            <span className="fs-3"> {formatCurrency(totalPrice)}</span>
+            <span className="fs-3">{formatCurrency(totalPrice)} </span>
           </div>
 
           <Button to="shop/cart" onClick={toggleSidebarCart} className="py-4">
@@ -80,9 +78,9 @@ const CartSidebar = () => {
             Checkout
           </Button>
         </div>
-      )}
+      }
     </div>
   );
 };
 
-export default CartSidebar;
+export default memo(CartSidebar);

@@ -144,7 +144,7 @@ const MainNavigation = () => {
           </Row>
         </Container>
 
-        <CartSidebar />
+        <CartSidebar user={user} />
       </div>
     </header>
   );

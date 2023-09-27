@@ -9,6 +9,7 @@ import {
   addItemToCart as addItemToCartApi,
   getCartByUserId,
   deleteItem as deleteItemApi,
+  updateCartItem,
 } from "../../services/apiCart";
 
 const initialState = {
@@ -18,11 +19,11 @@ const initialState = {
 };
 
 export const addItemToCart = createAsyncThunk(
-  "cart/addItem",
-  async (cartData, { dispatch }) => {
-    await addItemToCartApi(cartData);
-
-    dispatch(cartSlice.actions.addItem(cartData));
+  "cart/addItemToCart",
+  async (cartData) => {
+    const data = await addItemToCartApi(cartData);
+    return data;
+    // dispatch(cartSlice.actions.addItem(cartData));
   }
 );
 
@@ -35,10 +36,38 @@ export const getCartById = createAsyncThunk(
 );
 
 export const deleteCartItem = createAsyncThunk(
-  "cart/deleteItem",
+  "cart/deleteCartItem",
   async (id, { dispatch }) => {
-    await deleteItemApi(id);
     dispatch(cartSlice.actions.deleteItem(id));
+    await deleteItemApi(id);
+  }
+);
+
+export const increaseCartItemQuantity = createAsyncThunk(
+  "cart/increaseCartItemQuantity",
+  async ({ userId, productId, price, quantity }, { dispatch }) => {
+    const updatedObj = {
+      quantity: quantity + 1,
+      totalPrice: price * quantity,
+    };
+
+    dispatch(cartSlice.actions.increaseItemQuantity(productId));
+
+    await updateCartItem(userId, productId, updatedObj);
+  }
+);
+
+export const decreaseCartItemQuantity = createAsyncThunk(
+  "cart/decreaseCartItemQuantity",
+  async ({ userId, productId, price, quantity }, { dispatch }) => {
+    const updatedObj = {
+      quantity: quantity - 1,
+      totalPrice: price * quantity,
+    };
+
+    dispatch(cartSlice.actions.decreaseItemQuantity(productId));
+
+    await updateCartItem(userId, productId, updatedObj);
   }
 );
 
@@ -63,6 +92,25 @@ const cartSlice = createSlice({
       // payload = product id
       state.cart = state.cart.filter((item) => item.id !== action.payload);
     },
+    increaseItemQuantity(state, action) {
+      // payload = product id
+      const item = state.cart.find((item) => item.productId === action.payload);
+
+      item.quantity++;
+      item.totalPrice = item.quantity * item.price;
+    },
+    decreaseItemQuantity(state, action) {
+      // payload = product id
+      const item = state.cart.find((item) => item.productId === action.payload);
+
+      item.quantity--;
+      item.totalPrice = item.quantity * item.price;
+
+      if (item.quantity === 0) cartSlice.caseReducers.deleteItem(state, action);
+    },
+    clearCart(state) {
+      state.cart = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -86,7 +134,7 @@ const cartSlice = createSlice({
       })
       .addCase(addItemToCart.fulfilled, (state, action) => {
         state.status = "idle";
-        // state.cart = action.payload;
+        state.cart = action.payload;
       })
       .addCase(addItemToCart.rejected, (state, action) => {
         state.status = "error";

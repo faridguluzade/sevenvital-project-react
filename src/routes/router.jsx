@@ -5,16 +5,25 @@ import MainLayout from "../pages/MainLayout";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import SpinnerFullPage from "../components/UI/SpinnerFullPage/SpinnerFullPage";
 
-const Home = lazy(() => import("../pages/Home/Home"));
-const AccountPage = lazy(() => import("../pages/AccountPage"));
-const MagazinePage = lazy(() => import("../pages/MagazinePage"));
-const ShopPage = lazy(() => import("../pages/ShopPage"));
-const ContactPage = lazy(() => import("../pages/ContactPage"));
-const CartPage = lazy(() => import("../pages/CartPage"));
-const MagazineDetailPage = lazy(() => import("../pages/MagazineDetailPage"));
-const ProductDetailPage = lazy(() =>
-  import("../pages/ProductDetailPage/ProductDetailPage")
-);
+// const Home = lazy(() => import("../pages/Home/Home"));
+// const AccountPage = lazy(() => import("../pages/AccountPage"));
+// const MagazinePage = lazy(() => import("../pages/MagazinePage"));
+// const ShopPage = lazy(() => import("../pages/ShopPage"));
+// const ContactPage = lazy(() => import("../pages/ContactPage"));
+// const CartPage = lazy(() => import("../pages/CartPage"));
+// const MagazineDetailPage = lazy(() => import("../pages/MagazineDetailPage"));
+// const ProductDetailPage = lazy(() =>
+//   import("../pages/ProductDetailPage/ProductDetailPage")
+// );
+
+import Home from "../pages/Home/Home";
+import AccountPage from "../pages/AccountPage";
+import MagazinePage from "../pages/MagazinePage";
+import ShopPage from "../pages/ShopPage";
+import ContactPage from "../pages/ContactPage";
+import CartPage from "../pages/CartPage";
+import MagazineDetailPage from "../pages/MagazineDetailPage";
+import ProductDetailPage from "../pages/ProductDetailPage/ProductDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -60,9 +69,10 @@ const router = createBrowserRouter([
 
 const Root = () => {
   return (
-    <Suspense fallback={<SpinnerFullPage />}>
-      <RouterProvider router={router} />
-    </Suspense>
+    // <Suspense fallback={<SpinnerFullPage />}>
+    <RouterProvider router={router} />
+
+    // </Suspense>
   );
 };
 

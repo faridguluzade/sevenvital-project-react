@@ -80,7 +80,7 @@ const userSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.status = "succeeded";
         state.user = null;
-        toast.success(`Logged out!`);
+        toast.success(`Logged out successfully!`);
       })
       .addCase(logout.rejected, (state, action) => {
         state.status = "idle";

@@ -25,7 +25,7 @@ const CartItem = ({ item }) => {
         />
 
         <figure className="cart__photo">
-          <img src={image} alt={`Image of ${image}`} />
+          <img src={image} alt={""} />
         </figure>
         <p className="cart__name">{name}</p>
       </div>
