@@ -1,12 +1,11 @@
 import { useDispatch } from "react-redux";
 import { UilTimes } from "@iconscout/react-unicons";
 
-// import {
-//   increaseItemQuantity,
-//   decreaseItemQuantity,
-//   deleteItem,
-// } from "../../store/cart/cartSlice";
-import { deleteCartItem } from "../../store/cart/cartSlice";
+import {
+  deleteCartItem,
+  increaseItemQuantity,
+  decreaseItemQuantity,
+} from "../../store/cart/cartSlice";
 
 import { formatCurrency } from "../../utils/helper";
 
@@ -14,7 +13,8 @@ import "../Cart/Cart.styles.scss";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
-  const { id, name, image, price, totalPrice, quantity } = item;
+  const { id, name, imageFront, price, totalPrice, quantity } = item;
+  const obj = { id, price, quantity };
 
   return (
     <div className="cart__product">
@@ -25,7 +25,7 @@ const CartItem = ({ item }) => {
         />
 
         <figure className="cart__photo">
-          <img src={image} alt={""} />
+          <img src={imageFront} alt={""} />
         </figure>
         <p className="cart__name">{name}</p>
       </div>
@@ -34,7 +34,7 @@ const CartItem = ({ item }) => {
         <input
           type="button"
           value="-"
-          // onClick={() => dispatch(decreaseItemQuantity(id))}
+          onClick={() => dispatch(decreaseItemQuantity(obj))}
         />
         <input
           className="cart__quantity"
@@ -45,7 +45,7 @@ const CartItem = ({ item }) => {
         <input
           type="button"
           value="+"
-          // onClick={() => dispatch(increaseItemQuantity(id))}
+          onClick={() => dispatch(increaseItemQuantity(obj))}
         />
       </div>
       <p className="cart__subtotal">{formatCurrency(totalPrice)}</p>

@@ -10,6 +10,7 @@ import {
   getCartByUserId,
   deleteItem as deleteItemApi,
   updateCartItem,
+  deleteAll,
 } from "../../services/apiCart";
 
 const initialState = {
@@ -43,31 +44,41 @@ export const deleteCartItem = createAsyncThunk(
   }
 );
 
-export const increaseCartItemQuantity = createAsyncThunk(
-  "cart/increaseCartItemQuantity",
-  async ({ userId, productId, price, quantity }, { dispatch }) => {
-    const updatedObj = {
-      quantity: quantity + 1,
-      totalPrice: price * quantity,
-    };
+export const increaseItemQuantity = createAsyncThunk(
+  "cart/increaseItemQuantity",
+  async (obj, { dispatch }) => {
+    const updatedData = { ...obj };
+    updatedData.quantity++;
+    updatedData.totalPrice = updatedData.quantity * updatedData.price;
 
-    dispatch(cartSlice.actions.increaseItemQuantity(productId));
+    const data = await updateCartItem({ id: updatedData.id, updatedData });
 
-    await updateCartItem(userId, productId, updatedObj);
+    dispatch(cartSlice.actions.updateItem(...data));
   }
 );
 
-export const decreaseCartItemQuantity = createAsyncThunk(
-  "cart/decreaseCartItemQuantity",
-  async ({ userId, productId, price, quantity }, { dispatch }) => {
-    const updatedObj = {
-      quantity: quantity - 1,
-      totalPrice: price * quantity,
-    };
+export const decreaseItemQuantity = createAsyncThunk(
+  "cart/decreaseItemQuantity",
+  async (obj, { dispatch }) => {
+    const updatedData = { ...obj };
+    updatedData.quantity--;
+    updatedData.totalPrice = updatedData.quantity * updatedData.price;
 
-    dispatch(cartSlice.actions.decreaseItemQuantity(productId));
+    if (updatedData.quantity === 0) {
+      dispatch(cartSlice.actions.deleteItem(updatedData.id));
+      await deleteItemApi(updatedData.id);
+    } else {
+      const data = await updateCartItem({ id: updatedData.id, updatedData });
+      dispatch(cartSlice.actions.updateItem(...data));
+    }
+  }
+);
 
-    await updateCartItem(userId, productId, updatedObj);
+export const deleteAllCart = createAsyncThunk(
+  "cart/deleteAllCart",
+  async (userId, { dispatch }) => {
+    await deleteAll(userId);
+    dispatch(cartSlice.actions.clearCart());
   }
 );
 
@@ -92,22 +103,21 @@ const cartSlice = createSlice({
       // payload = product id
       state.cart = state.cart.filter((item) => item.id !== action.payload);
     },
-    increaseItemQuantity(state, action) {
-      // payload = product id
-      const item = state.cart.find((item) => item.productId === action.payload);
 
-      item.quantity++;
-      item.totalPrice = item.quantity * item.price;
+    updateItem(state, action) {
+      // Find the index of the updated product in the state and update it
+      const updatedItemIndex = state.cart.findIndex(
+        (product) => product.id === action.payload.id
+      );
+
+      if (updatedItemIndex !== -1) {
+        state.cart[updatedItemIndex] = {
+          ...state.cart[updatedItemIndex],
+          ...action.payload,
+        };
+      }
     },
-    decreaseItemQuantity(state, action) {
-      // payload = product id
-      const item = state.cart.find((item) => item.productId === action.payload);
 
-      item.quantity--;
-      item.totalPrice = item.quantity * item.price;
-
-      if (item.quantity === 0) cartSlice.caseReducers.deleteItem(state, action);
-    },
     clearCart(state) {
       state.cart = [];
     },

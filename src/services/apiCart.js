@@ -13,24 +13,25 @@ export const getCartByUserId = async (userId) => {
   return cart;
 };
 
-export const updateCartItem = async (userId, productId, obj) => {
-  const { updatedCart, error } = await supabase
+export const updateCartItem = async ({ id, updatedData }) => {
+  const { data, error } = await supabase
     .from("cart")
-    .update(obj)
-    .eq("userId", userId)
-    .eq("productId", productId)
-    .select();
+    .update(updatedData)
+    .eq("id", id)
+    .select("id, quantity, totalPrice");
 
-  if (error) throw new Error("Product could not be added to the cart!");
+  if (error) {
+    throw new Error("Could not be updated count!");
+  }
 
-  return updatedCart;
+  return data;
 };
 
 export const addItemToCart = async ({ productId, userId, price }) => {
   // 1. Check IF the product EXIST in the CART
   const { data: existingItem } = await supabase
     .from("cart")
-    .select("price, totalPrice, quantity")
+    .select("id, price, totalPrice, quantity")
     .eq("userId", userId)
     .eq("productId", productId)
     .single();
@@ -40,7 +41,7 @@ export const addItemToCart = async ({ productId, userId, price }) => {
     existingItem.totalPrice = existingItem.price * existingItem.quantity;
 
     // UPDATE Cart
-    await updateCartItem(userId, productId, existingItem);
+    await updateCartItem({ id: existingItem.id, updatedData: existingItem });
   } else {
     // 2. If there is NO product ADD to the CART
     const { error } = await supabase
@@ -70,16 +71,15 @@ export const deleteItem = async (id) => {
   return data;
 };
 
-// export const updateCartCount = async (id, obj) => {
-//   const { data, error } = await supabase
-//     .from("cart")
-//     .update(obj)
-//     .eq("id", id)
-//     .select();
+export const deleteAll = async (userId) => {
+  const { data, error } = await supabase
+    .from("cart")
+    .delete()
+    .eq("userId", userId);
 
-//   if (error) {
-//     throw new Error("Could not be updated count!");
-//   }
+  if (error) {
+    throw new Error("Products could not be deleted");
+  }
 
-//   return data;
-// };
+  return data;
+};

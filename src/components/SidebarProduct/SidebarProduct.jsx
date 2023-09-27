@@ -1,33 +1,20 @@
 import { useDispatch } from "react-redux";
 import { UilTimes } from "@iconscout/react-unicons";
 
-// import {
-//   deleteItem,
-//   increaseItemQuantity,
-//   decreaseItemQuantity,
-// } from "../../store/cart/cartSlice";
-import { formatCurrency } from "../../utils/helper";
 import {
-  deleteCartItem,
-  increaseCartItemQuantity,
-  decreaseCartItemQuantity,
+  increaseItemQuantity,
+  decreaseItemQuantity,
 } from "../../store/cart/cartSlice";
+
+import { formatCurrency } from "../../utils/helper";
+import { deleteCartItem } from "../../store/cart/cartSlice";
 
 import "./SidebarProduct.styles.scss";
 
 function SidebarProduct({ item }) {
   const dispatch = useDispatch();
-  const {
-    id,
-    productId,
-    totalPrice,
-    userId,
-    name,
-    price,
-    imageFront,
-    quantity,
-  } = item;
-  console.log(item);
+  const { id, name, price, imageFront, quantity } = item;
+  const obj = { id, price, quantity };
 
   return (
     <div className="sidebar-product">
@@ -40,17 +27,7 @@ function SidebarProduct({ item }) {
           <input
             type="button"
             value={"-"}
-            onClick={() =>
-              dispatch(
-                decreaseCartItemQuantity({
-                  userId,
-                  productId,
-                  price,
-                  totalPrice,
-                  quantity,
-                })
-              )
-            }
+            onClick={() => dispatch(decreaseItemQuantity(obj))}
           />
           <input
             className="sidebar-product__quantity"
@@ -61,17 +38,7 @@ function SidebarProduct({ item }) {
           <input
             type="button"
             value={"+"}
-            onClick={() =>
-              dispatch(
-                increaseCartItemQuantity({
-                  userId,
-                  productId,
-                  price,
-                  totalPrice,
-                  quantity,
-                })
-              )
-            }
+            onClick={() => dispatch(increaseItemQuantity(obj))}
           />
         </div>
         <p className="d-flex align-items-center">

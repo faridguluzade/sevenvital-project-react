@@ -64,7 +64,7 @@ const CartSidebar = ({ user }) => {
         </div>
       )}
 
-      {
+      {!cartIsEmpty && (
         <div className="sidebar-cart__footer">
           <div className="d-flex align-items-center justify-content-between">
             <p>Subtotal:</p>
@@ -78,7 +78,7 @@ const CartSidebar = ({ user }) => {
             Checkout
           </Button>
         </div>
-      }
+      )}
     </div>
   );
 };
