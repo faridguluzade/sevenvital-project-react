@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux";
 import { UilTimes } from "@iconscout/react-unicons";
 
-import {
-  increaseItemQuantity,
-  decreaseItemQuantity,
-  deleteItem,
-} from "../../store/cart/cartSlice";
+// import {
+//   increaseItemQuantity,
+//   decreaseItemQuantity,
+//   deleteItem,
+// } from "../../store/cart/cartSlice";
+import { deleteCartItem } from "../../store/cart/cartSlice";
 
 import { formatCurrency } from "../../utils/helper";
 
@@ -20,8 +21,7 @@ const CartItem = ({ item }) => {
       <div className="cart__header">
         <UilTimes
           className="cart__icon"
-          size={60}
-          onClick={() => dispatch(deleteItem(id))}
+          onClick={() => dispatch(deleteCartItem(id))}
         />
 
         <figure className="cart__photo">
@@ -34,7 +34,7 @@ const CartItem = ({ item }) => {
         <input
           type="button"
           value="-"
-          onClick={() => dispatch(decreaseItemQuantity(id))}
+          // onClick={() => dispatch(decreaseItemQuantity(id))}
         />
         <input
           className="cart__quantity"
@@ -45,7 +45,7 @@ const CartItem = ({ item }) => {
         <input
           type="button"
           value="+"
-          onClick={() => dispatch(increaseItemQuantity(id))}
+          // onClick={() => dispatch(increaseItemQuantity(id))}
         />
       </div>
       <p className="cart__subtotal">{formatCurrency(totalPrice)}</p>

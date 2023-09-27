@@ -16,6 +16,7 @@ const initialState = {
 
 export const getUser = createAsyncThunk("user/getUser", async () => {
   const data = await getCurrentUser();
+
   return data;
 });
 
@@ -78,8 +79,8 @@ const userSlice = createSlice({
       })
       .addCase(logout.fulfilled, (state) => {
         state.status = "succeeded";
-        state.user = {};
-        toast.success(`Success`);
+        state.user = null;
+        toast.success(`Logged out!`);
       })
       .addCase(logout.rejected, (state, action) => {
         state.status = "idle";

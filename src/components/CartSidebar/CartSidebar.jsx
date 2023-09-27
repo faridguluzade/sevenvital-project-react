@@ -1,20 +1,36 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { UilTimes, UilShoppingBag } from "@iconscout/react-unicons";
 
 import { useSidebar } from "../../hooks/useSidebar";
-import { getCart } from "../../store/cart/cartSlice";
+import {
+  getCart,
+  getTotalPrice,
+  getCartById,
+} from "../../store/cart/cartSlice";
+import { formatCurrency } from "../../utils/helper";
 
 import SidebarProduct from "../SidebarProduct/SidebarProduct";
+import Spinner from "../UI/Spinner/Spinner";
 import Button from "../UI/Button/Button";
 
 import "./CartSidebar.styles.scss";
+import { useEffect } from "react";
 
 const CartSidebar = () => {
-  const { isSidebarCartOpen, toggleSidebarCart } = useSidebar();
   const cart = useSelector(getCart);
-  const cartIsEmpty = !cart.length;
+  const totalPrice = useSelector(getTotalPrice);
+  const { isSidebarCartOpen, toggleSidebarCart } = useSidebar();
+  const cartIsEmpty = !cart?.length;
+
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (user.id) {
+      dispatch(getCartById(user.id));
+    }
+  }, [dispatch, user]);
 
   return (
     <div
@@ -54,7 +70,7 @@ const CartSidebar = () => {
         <div className="sidebar-cart__footer">
           <div className="d-flex align-items-center justify-content-between">
             <p>Subtotal:</p>
-            <span className="fs-3">$225.00</span>
+            <span className="fs-3"> {formatCurrency(totalPrice)}</span>
           </div>
 
           <Button to="shop/cart" onClick={toggleSidebarCart} className="py-4">

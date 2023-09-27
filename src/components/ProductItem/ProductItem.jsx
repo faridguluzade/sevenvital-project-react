@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { addItem } from "../../store/cart/cartSlice";
+import { addItemToCart } from "../../store/cart/cartSlice";
 import { useSidebar } from "../../hooks/useSidebar";
 import { formatCurrency } from "../../utils/helper";
 
+import SpinnerMini from "../UI/SpinnerMini/SpinnerMini";
 import { UilShoppingBag } from "@iconscout/react-unicons";
 import Button from "../UI/Button/Button";
 
@@ -24,6 +25,7 @@ function ProductItem({
   const dispatch = useDispatch();
   const { isSidebarCartOpen, openSidebarCart } = useSidebar();
   const user = useSelector((state) => state.user.user);
+  const { status } = useSelector((state) => state.cart);
 
   const handleAddToCart = () => {
     if (!user) {
@@ -34,13 +36,10 @@ function ProductItem({
     const price = onSale ? salePrice : regularPrice;
 
     dispatch(
-      addItem({
-        id,
-        name,
-        image: imageFront,
+      addItemToCart({
+        productId: id,
+        userId: user.id,
         price,
-        quantity: 1,
-        totalPrice: price * 1,
       })
     );
 
@@ -96,7 +95,11 @@ function ProductItem({
           filled={true}
           className="product__card-btn"
         >
-          <UilShoppingBag size="18" />
+          {status === "loading" ? (
+            <SpinnerMini />
+          ) : (
+            <UilShoppingBag size="18" />
+          )}
           Add to cart
         </Button>
       </figcaption>

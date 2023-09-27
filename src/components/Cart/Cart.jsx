@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { UilSync } from "@iconscout/react-unicons";
 
-import { getCart, clearCart } from "../../store/cart/cartSlice";
+// import { getCart, clearCart } from "../../store/cart/cartSlice";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -12,8 +12,8 @@ import "./Cart.styles.scss";
 import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
-  const cart = useSelector(getCart);
-  const dispatch = useDispatch();
+  // const cart = useSelector(getCart);
+  // const dispatch = useDispatch();
 
   return (
     <Container className="cart">
@@ -26,11 +26,12 @@ const Cart = () => {
               <p>Quantity</p>
               <p>Subtotal</p>
             </div>
-            {cart.map((item) => (
+            {/* {cart.map((item) => (
               <CartItem key={item.id} item={item} />
-            ))}
+            ))} */}
           </div>
-          <p className="cart__refresh" onClick={() => dispatch(clearCart())}>
+          {/* <p className="cart__refresh" onClick={() => dispatch(clearCart())}> */}
+          <p className="cart__refresh">
             <UilSync />
             Refresh Cart
           </p>

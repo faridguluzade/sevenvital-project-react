@@ -16,6 +16,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { getUser, logout } from "../../store/user/userSlice";
+// import { clearCart } from "../../store/cart/cartSlice";
 
 import { useSidebar } from "../../hooks/useSidebar";
 import { useSticky } from "../../hooks/useSticky";
@@ -29,10 +30,9 @@ import "./MainNavigation.styles.scss";
 const MainNavigation = () => {
   useSticky();
   useOverflow();
+  const dispatch = useDispatch();
   const { toggleMobileNav, toggleSidebarCart } = useSidebar();
   const [show, setShow] = useState(true);
-  const dispatch = useDispatch();
-
   const { user } = useSelector((state) => state.user);
   const fullName = user?.user_metadata?.fullName;
 
@@ -111,7 +111,12 @@ const MainNavigation = () => {
                     onClick={() => setShow((show) => !show)}
                   />
                   {fullName && (
-                    <UilSignout onClick={() => dispatch(logout())} />
+                    <UilSignout
+                      onClick={() => {
+                        dispatch(logout());
+                        // dispatch(clearCart());
+                      }}
+                    />
                   )}
                 </div>
 
