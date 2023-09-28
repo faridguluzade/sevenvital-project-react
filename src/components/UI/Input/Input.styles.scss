@@ -7,6 +7,21 @@
   input {
     padding: 1.4rem;
     border: 0.1px solid rgba(208, 205, 205, 0.428);
+
+    &::file-selector-button {
+      font: inherit;
+      padding: 1.2rem;
+      margin-right: 1.2rem;
+      border: none;
+      color: $color-white;
+      background-color: $color-primary-main;
+      cursor: pointer;
+      transition: color 0.2s, background-color 0.2s;
+
+      &:hover {
+        background-color: $color-primary-dark;
+      }
+    }
   }
 }
 

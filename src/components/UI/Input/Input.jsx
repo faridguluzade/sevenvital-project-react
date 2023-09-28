@@ -9,11 +9,14 @@ const Input = ({
   condition,
   disabled,
   error,
+  value,
+  required,
+  onChange,
 }) => {
   return (
     <div className="input-box">
       <label htmlFor={id}>
-        {label} <span>*</span>
+        {label} {required ? <span>*</span> : ""}
       </label>
       <input
         id={id}
@@ -21,6 +24,8 @@ const Input = ({
         placeholder={placeholder}
         {...register?.(id, { ...condition })}
         disabled={disabled}
+        value={value}
+        onChange={onChange}
       />
       {error && <span className="input-error">{error}</span>}
     </div>

@@ -30,6 +30,7 @@ const SignupForm = () => {
         type="text"
         disabled={isLoading}
         register={register}
+        required
         condition={{
           required: "This field is required",
         }}
@@ -39,6 +40,7 @@ const SignupForm = () => {
         id="newEmail"
         label="Email address"
         type="text"
+        required
         disabled={isLoading}
         register={register}
         condition={{
@@ -55,6 +57,7 @@ const SignupForm = () => {
         id="newPassword"
         label="New Password"
         type="password"
+        required
         disabled={isLoading}
         register={register}
         condition={{ required: "This field is required" }}
@@ -64,6 +67,7 @@ const SignupForm = () => {
         id="passwordConfirm"
         label="Confirm Password"
         type="password"
+        required
         disabled={isLoading}
         register={register}
         condition={{

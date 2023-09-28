@@ -129,7 +129,6 @@ const cartSlice = createSlice({
   extraReducers: (builder) => {
     builder
       // get Item from cart
-      .addCase(getCartById.pending, (state) => {})
       .addCase(getCartById.fulfilled, (state, action) => {
         state.cart = action.payload;
       })

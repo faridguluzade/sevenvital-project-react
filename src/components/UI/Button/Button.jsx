@@ -14,17 +14,20 @@ const Button = ({
 }) => {
   const navigate = useNavigate();
 
+  const handleClick = () => {
+    if (to) {
+      navigate(to);
+    }
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
     <button
-      onClick={() => {
-        if (to) {
-          navigate(to);
-        }
-        if (onClick) {
-          onClick();
-        }
-      }}
+      onClick={handleClick}
       type={type}
+      disabled={disabled}
       className={`button ${
         filled ? "button--filled" : "button--outline"
       } ${className}`}

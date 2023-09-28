@@ -26,6 +26,7 @@ const LoginForm = () => {
         id="email"
         label="Email address"
         type="email"
+        required
         placeholder={"you@example.com"}
         register={register}
         disabled={isLoading}
@@ -43,6 +44,7 @@ const LoginForm = () => {
         label="Password"
         type="password"
         placeholder={"*********"}
+        required
         disabled={isLoading}
         register={register}
         condition={{ required: "This field is required" }}

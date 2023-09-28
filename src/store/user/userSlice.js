@@ -6,6 +6,7 @@ import {
   signup as signupApi,
   login as loginApi,
   logout as logoutApi,
+  updateCurrentUser as updateCurrentUserApi,
 } from "../../services/apiAuth";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   loginLoading: false,
   signupLoading: false,
   logoutLoading: false,
+  updateLoading: false,
 };
 
 export const getUser = createAsyncThunk("user/getUser", async () => {
@@ -34,6 +36,14 @@ export const login = createAsyncThunk("user/login", async (userData) => {
 export const logout = createAsyncThunk("user/logout", async () => {
   await logoutApi();
 });
+
+export const updateCurrentUser = createAsyncThunk(
+  "user/updateCurrentUser",
+  async (updateData) => {
+    const data = await updateCurrentUserApi(updateData);
+    return data.user;
+  }
+);
 
 const userSlice = createSlice({
   name: "user",
@@ -93,9 +103,23 @@ const userSlice = createSlice({
         state.user = action.payload;
       })
       .addCase(getUser.rejected, (state, action) => {
-        state.status = "idle";
         state.error = action.error.message;
         toast.error(state.error);
+      })
+
+      // 4. Update the user
+      .addCase(updateCurrentUser.pending, (state) => {
+        state.updateLoading = true;
+      })
+      .addCase(updateCurrentUser.fulfilled, (state, action) => {
+        state.updateLoading = false;
+        state.user = action.payload;
+        toast.success("User account successfully updated");
+      })
+      .addCase(updateCurrentUser.rejected, (state, action) => {
+        state.updateLoading = false;
+        state.error = action.error.message;
+        toast.error(action.error.message);
       });
   },
 });
