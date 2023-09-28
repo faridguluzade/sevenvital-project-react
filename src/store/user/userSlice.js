@@ -23,8 +23,7 @@ export const getUser = createAsyncThunk("user/getUser", async () => {
 });
 
 export const signup = createAsyncThunk("user/signup", async (userData) => {
-  const data = await signupApi(userData);
-  return data.user;
+  await signupApi(userData);
 });
 
 export const login = createAsyncThunk("user/login", async (userData) => {
@@ -46,9 +45,9 @@ const userSlice = createSlice({
       .addCase(signup.pending, (state) => {
         state.signupLoading = true;
       })
-      .addCase(signup.fulfilled, (state, action) => {
+      .addCase(signup.fulfilled, (state, _) => {
         state.signupLoading = false;
-        state.user = action.payload;
+        // state.user = action.payload;
         toast.success(
           "Account successfuly created! Please verify the new account from the user's email address."
         );

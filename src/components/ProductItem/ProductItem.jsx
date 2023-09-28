@@ -25,9 +25,9 @@ function ProductItem({
   const dispatch = useDispatch();
   const { isSidebarCartOpen, openSidebarCart } = useSidebar();
   const user = useSelector((state) => state.user.user);
-  const { status } = useSelector((state) => state.cart);
+  const { loadingProducts } = useSelector((state) => state.cart);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     if (!user) {
       toast.error("You must be logged in!");
       return;
@@ -35,7 +35,7 @@ function ProductItem({
 
     const price = onSale ? salePrice : regularPrice;
 
-    dispatch(
+    await dispatch(
       addItemToCart({
         productId: id,
         userId: user.id,
@@ -95,11 +95,7 @@ function ProductItem({
           filled={true}
           className="product__card-btn"
         >
-          {status === "loading" ? (
-            <SpinnerMini />
-          ) : (
-            <UilShoppingBag size="18" />
-          )}
+          {loadingProducts[id] ? <SpinnerMini /> : <UilShoppingBag size="18" />}
           Add to cart
         </Button>
       </figcaption>

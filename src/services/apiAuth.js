@@ -22,7 +22,7 @@ export const login = async ({ email, password }) => {
     password,
   });
 
-  if (error) throw new Error("Provided email or password are incorrect");
+  if (error) throw new Error(error.message);
 
   return data;
 };

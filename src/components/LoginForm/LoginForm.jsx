@@ -42,7 +42,7 @@ const LoginForm = () => {
         id="password"
         label="Password"
         type="password"
-        placeholder={"********"}
+        placeholder={"*********"}
         disabled={isLoading}
         register={register}
         condition={{ required: "This field is required" }}

@@ -15,7 +15,7 @@ import {
 
 const initialState = {
   cart: [],
-  status: "idle",
+  loadingProducts: {},
   error: null,
 };
 
@@ -129,43 +129,39 @@ const cartSlice = createSlice({
   extraReducers: (builder) => {
     builder
       // get Item from cart
-      .addCase(getCartById.pending, (state) => {
-        state.status = "loading";
-      })
+      .addCase(getCartById.pending, (state) => {})
       .addCase(getCartById.fulfilled, (state, action) => {
-        state.status = "idle";
         state.cart = action.payload;
       })
       .addCase(getCartById.rejected, (state, action) => {
-        state.status = "error";
         state.error = action.error.message;
         toast.error(action.error.message);
       })
 
       // Add item to the cart
-      .addCase(addItemToCart.pending, (state) => {
-        state.status = "loading";
+      .addCase(addItemToCart.pending, (state, action) => {
+        const productId = action.meta.arg.productId;
+        state.loadingProducts[productId] = true;
       })
       .addCase(addItemToCart.fulfilled, (state, action) => {
-        state.status = "idle";
+        const productId = action.meta.arg.productId;
+        state.loadingProducts[productId] = false;
+
         if (action.payload) {
           state.cart.push(action.payload);
         }
       })
       .addCase(addItemToCart.rejected, (state, action) => {
-        state.status = "error";
+        const productId = action.meta.arg.productId;
+        state.loadingProducts[productId] = false;
+
         state.error = action.error.message;
         toast.error(state.error);
       })
       // Delete item from cart
-      .addCase(deleteCartItem.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(deleteCartItem.fulfilled, (state, action) => {
-        state.status = "idle";
-      })
+      .addCase(deleteCartItem.pending, (state) => {})
+      .addCase(deleteCartItem.fulfilled, (state, action) => {})
       .addCase(deleteCartItem.rejected, (state, action) => {
-        state.status = "error";
         state.error = action.error.message;
         toast.error(state.error);
       });
