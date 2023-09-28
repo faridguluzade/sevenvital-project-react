@@ -6,6 +6,12 @@
   transition: all 0.3s;
 }
 
+.button-text {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
 .button--filled {
   background-color: $color-primary-main;
   color: $color-white;

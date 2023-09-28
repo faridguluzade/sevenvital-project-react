@@ -6,7 +6,7 @@ const App = () => {
     <>
       <Root />
       <Toaster
-        position="top-right"
+        position="top-center"
         gutter={12}
         containerStyle={{ margin: "12px" }}
         toastOptions={{

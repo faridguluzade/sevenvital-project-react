@@ -20,12 +20,13 @@ const LoginForm = () => {
       onSubmit={handleSubmit(onSubmit)}
       disabled={isLoading}
       headingText="Login"
-      btnText="Login"
+      btnText={!isLoading ? "Log in" : "Logging in"}
     >
       <Input
         id="email"
         label="Email address"
         type="email"
+        placeholder={"you@example.com"}
         register={register}
         disabled={isLoading}
         condition={{
@@ -41,6 +42,7 @@ const LoginForm = () => {
         id="password"
         label="Password"
         type="password"
+        placeholder={"********"}
         disabled={isLoading}
         register={register}
         condition={{ required: "This field is required" }}

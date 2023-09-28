@@ -16,7 +16,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { getUser, logout } from "../../store/user/userSlice";
-// import { clearCart } from "../../store/cart/cartSlice";
+import { clearCart } from "../../store/cart/cartSlice";
 
 import { useSidebar } from "../../hooks/useSidebar";
 import { useSticky } from "../../hooks/useSticky";
@@ -24,6 +24,7 @@ import { useOverflow } from "../../hooks/useOverflow";
 
 import MobileNavigation from "../MobileNavigation/MobileNavigation";
 import CartSidebar from "../CartSidebar/CartSidebar";
+import SpinnerMini from "../UI/SpinnerMini/SpinnerMini";
 
 import "./MainNavigation.styles.scss";
 
@@ -33,12 +34,18 @@ const MainNavigation = () => {
   const dispatch = useDispatch();
   const { toggleMobileNav, toggleSidebarCart } = useSidebar();
   const [show, setShow] = useState(true);
-  const { user } = useSelector((state) => state.user);
+  const { user, logoutLoading } = useSelector((state) => state.user);
   const fullName = user?.user_metadata?.fullName;
 
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    // clear cart from state
+    dispatch(clearCart());
+  };
 
   return (
     <header className="header">
@@ -110,14 +117,12 @@ const MainNavigation = () => {
                     className="main-nav__icon"
                     onClick={() => setShow((show) => !show)}
                   />
-                  {fullName && (
-                    <UilSignout
-                      onClick={() => {
-                        dispatch(logout());
-                        // dispatch(clearCart());
-                      }}
-                    />
-                  )}
+                  {fullName &&
+                    (!logoutLoading ? (
+                      <UilSignout onClick={handleLogout} />
+                    ) : (
+                      <SpinnerMini />
+                    ))}
                 </div>
 
                 <div

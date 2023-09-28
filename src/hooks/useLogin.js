@@ -3,7 +3,7 @@ import { login as loginUser } from "../store/user/userSlice";
 import { useNavigate } from "react-router-dom";
 
 export const useLogin = () => {
-  const { status } = useSelector((state) => state.user);
+  const { loginLoading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -11,5 +11,5 @@ export const useLogin = () => {
     dispatch(loginUser(userData));
   };
 
-  return { login, isLoading: status === "loading" };
+  return { login, isLoading: loginLoading };
 };

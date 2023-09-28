@@ -12,6 +12,7 @@ import MagazineSlider from "../../components/MagazineSlider/MagazineSlider";
 import Help from "../../components/Help/Help";
 
 import "./Home.styles.scss";
+
 const Home = () => {
   return (
     <>

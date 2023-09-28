@@ -21,10 +21,25 @@ const initialState = {
 
 export const addItemToCart = createAsyncThunk(
   "cart/addItemToCart",
-  async (cartData) => {
-    const data = await addItemToCartApi(cartData);
-    return data;
-    // dispatch(cartSlice.actions.addItem(cartData));
+  async (cartData, { getState, dispatch }) => {
+    // cartData = new item or existing item
+    const item = getState().cart.cart.find(
+      (item) => item.productId === cartData.productId
+    );
+
+    if (item) {
+      const quantity = item.quantity + 1;
+      const updatedData = {
+        quantity,
+        totalPrice: quantity * item.price,
+      };
+
+      const data = await updateCartItem(item.id, updatedData);
+      dispatch(cartSlice.actions.updateItem(data));
+    } else {
+      const data = await addItemToCartApi(cartData);
+      return data;
+    }
   }
 );
 
@@ -36,41 +51,39 @@ export const getCartById = createAsyncThunk(
   }
 );
 
-export const deleteCartItem = createAsyncThunk(
-  "cart/deleteCartItem",
-  async (id, { dispatch }) => {
-    dispatch(cartSlice.actions.deleteItem(id));
-    await deleteItemApi(id);
-  }
-);
-
 export const increaseItemQuantity = createAsyncThunk(
   "cart/increaseItemQuantity",
   async (obj, { dispatch }) => {
-    const updatedData = { ...obj };
-    updatedData.quantity++;
-    updatedData.totalPrice = updatedData.quantity * updatedData.price;
+    obj.quantity++;
+    obj.totalPrice = obj.quantity * obj.price;
 
-    const data = await updateCartItem({ id: updatedData.id, updatedData });
+    const data = await updateCartItem(obj.id, obj);
 
-    dispatch(cartSlice.actions.updateItem(...data));
+    dispatch(cartSlice.actions.updateItem(data));
   }
 );
 
 export const decreaseItemQuantity = createAsyncThunk(
   "cart/decreaseItemQuantity",
   async (obj, { dispatch }) => {
-    const updatedData = { ...obj };
-    updatedData.quantity--;
-    updatedData.totalPrice = updatedData.quantity * updatedData.price;
+    obj.quantity--;
+    obj.totalPrice = obj.quantity * obj.price;
 
-    if (updatedData.quantity === 0) {
-      dispatch(cartSlice.actions.deleteItem(updatedData.id));
-      await deleteItemApi(updatedData.id);
+    if (obj.quantity === 0) {
+      dispatch(cartSlice.actions.deleteItem(obj.id));
+      await deleteItemApi(obj.id);
     } else {
-      const data = await updateCartItem({ id: updatedData.id, updatedData });
-      dispatch(cartSlice.actions.updateItem(...data));
+      const data = await updateCartItem(obj.id, obj);
+      dispatch(cartSlice.actions.updateItem(data));
     }
+  }
+);
+
+export const deleteCartItem = createAsyncThunk(
+  "cart/deleteCartItem",
+  async (id, { dispatch }) => {
+    await deleteItemApi(id);
+    dispatch(cartSlice.actions.deleteItem(id));
   }
 );
 
@@ -87,18 +100,9 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      // payload = new item or existing item
-      const item = state.cart.find(
-        (item) => item.productId === action.payload.productId
-      );
-
-      if (item) {
-        item.quantity++;
-        item.totalPrice = item.price * item.quantity;
-      } else {
-        state.cart.push(action.payload);
-      }
+      state.cart.push(action.payload);
     },
+
     deleteItem(state, action) {
       // payload = product id
       state.cart = state.cart.filter((item) => item.id !== action.payload);
@@ -144,7 +148,9 @@ const cartSlice = createSlice({
       })
       .addCase(addItemToCart.fulfilled, (state, action) => {
         state.status = "idle";
-        state.cart = action.payload;
+        if (action.payload) {
+          state.cart.push(action.payload);
+        }
       })
       .addCase(addItemToCart.rejected, (state, action) => {
         state.status = "error";
@@ -165,6 +171,8 @@ const cartSlice = createSlice({
       });
   },
 });
+
+export const { clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
 

@@ -21,7 +21,7 @@ const SignupForm = () => {
     <Form
       onSubmit={handleSubmit(onSubmit)}
       headingText="Register"
-      btnText="Register"
+      btnText={!isLoading ? "Register" : "Registering"}
       disabled={isLoading}
     >
       <Input

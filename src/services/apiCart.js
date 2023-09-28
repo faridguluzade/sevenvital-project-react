@@ -13,12 +13,13 @@ export const getCartByUserId = async (userId) => {
   return cart;
 };
 
-export const updateCartItem = async ({ id, updatedData }) => {
+export const updateCartItem = async (id, updatedData) => {
   const { data, error } = await supabase
     .from("cart")
     .update(updatedData)
     .eq("id", id)
-    .select("id, quantity, totalPrice");
+    .select("id, quantity, totalPrice")
+    .single();
 
   if (error) {
     throw new Error("Could not be updated count!");
@@ -28,35 +29,17 @@ export const updateCartItem = async ({ id, updatedData }) => {
 };
 
 export const addItemToCart = async ({ productId, userId, price }) => {
-  // 1. Check IF the product EXIST in the CART
-  const { data: existingItem } = await supabase
+  const { data, error } = await supabase
     .from("cart")
-    .select("id, price, totalPrice, quantity")
-    .eq("userId", userId)
-    .eq("productId", productId)
+    .insert([{ productId, userId, price, quantity: 1, totalPrice: price * 1 }])
+    .select("*, products(name, imageFront)")
     .single();
 
-  if (existingItem) {
-    existingItem.quantity++;
-    existingItem.totalPrice = existingItem.price * existingItem.quantity;
+  console.log(data);
 
-    // UPDATE Cart
-    await updateCartItem({ id: existingItem.id, updatedData: existingItem });
-  } else {
-    // 2. If there is NO product ADD to the CART
-    const { error } = await supabase
-      .from("cart")
-      .insert([
-        { productId, userId, price, quantity: 1, totalPrice: price * 1 },
-      ])
-      .select();
-
-    if (error) {
-      throw new Error("Product could not be added to the cart!");
-    }
+  if (error) {
+    throw new Error("Product could not be added to the cart!");
   }
-
-  const data = await getCartByUserId(userId);
 
   return data;
 };
@@ -65,7 +48,7 @@ export const deleteItem = async (id) => {
   const { data, error } = await supabase.from("cart").delete().eq("id", id);
 
   if (error) {
-    throw new Error("Product could not be deleted");
+    throw new Error("Product could not be deleted!");
   }
 
   return data;
@@ -78,7 +61,7 @@ export const deleteAll = async (userId) => {
     .eq("userId", userId);
 
   if (error) {
-    throw new Error("Products could not be deleted");
+    throw new Error("Products could not be deleted!");
   }
 
   return data;

@@ -29,7 +29,14 @@ const Button = ({
         filled ? "button--filled" : "button--outline"
       } ${className}`}
     >
-      {disabled ? <SpinnerMini /> : children}
+      {disabled ? (
+        <span className="button-text">
+          <SpinnerMini />
+          {children}
+        </span>
+      ) : (
+        children
+      )}
     </button>
   );
 };

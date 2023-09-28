@@ -22,6 +22,8 @@ const CartSidebar = ({ user }) => {
   const totalPrice = useSelector(getTotalPrice);
   const cartIsEmpty = !cart?.length;
 
+  console.log(cart);
+
   const { isSidebarCartOpen, toggleSidebarCart } = useSidebar();
 
   useEffect(() => {
