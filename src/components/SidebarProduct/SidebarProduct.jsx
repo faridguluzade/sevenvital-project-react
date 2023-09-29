@@ -45,7 +45,7 @@ function SidebarProduct({ item }) {
           <UilTimes size="14" /> <p className="fs-4">{formatCurrency(price)}</p>
         </p>
       </div>
-      <div className="ms-auto" onClick={() => dispatch(deleteCartItem(id))}>
+      <div className="" onClick={() => dispatch(deleteCartItem(id))}>
         <UilTimes className="sidebar-product__remove" />
       </div>
     </div>
