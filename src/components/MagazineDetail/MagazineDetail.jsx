@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import { UilCalendarAlt } from "@iconscout/react-unicons";
 
 import "./MagazineDetail.styles.scss";
+import { useParams } from "react-router-dom";
 
 function MagazineDetail() {
   return (

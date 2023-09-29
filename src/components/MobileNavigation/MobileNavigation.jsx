@@ -31,6 +31,11 @@ const MobileNavigation = () => {
       <nav className="sidebar">
         <ul className="side-nav__list">
           <li className="side-nav__item">
+            <Link onClick={toggleMobileNav} to="/" className="side-nav__link">
+              Home
+            </Link>
+          </li>
+          <li className="side-nav__item">
             <Link
               onClick={toggleMobileNav}
               to="/shop"
