@@ -10,6 +10,10 @@
   margin-top: 10rem;
   margin-bottom: 10rem;
 
+  @media (max-width: $xs) {
+    font-size: 80%;
+  }
+
   &__basket {
     // display: grid;
     // grid-template-columns: 1.5fr repeat(3, 1fr);
@@ -47,7 +51,6 @@
   &__product div,
   p {
     align-self: center;
-    justify-self: center;
   }
 
   &__header {
@@ -70,22 +73,34 @@
   &__photo {
     img {
       width: 6.2rem;
+
+      @media (max-width: $xs) {
+        width: 5rem;
+      }
     }
   }
 
   &__name {
+    @media (max-width: $xs) {
+      font-size: 1rem;
+    }
   }
 
   &__price {
+    justify-self: center;
   }
 
   &__quantity-box {
     border: 0.2px solid #dfe0e0;
     padding: 1.2rem;
-    justify-self: flex-start;
+    justify-self: center;
 
     input {
       background-color: $color-white;
+    }
+
+    @media (max-width: $xs) {
+      padding: 0.8rem;
     }
   }
 
@@ -95,6 +110,7 @@
   }
 
   &__subtotal {
+    justify-self: center;
   }
 
   &__quantity::-webkit-inner-spin-button,
@@ -106,7 +122,11 @@
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    margin-top: 3.2rem;
     cursor: pointer;
+  }
+
+  &__totals {
+    font-size: 3rem;
+    font-family: $font-alegreya;
   }
 }
