@@ -71,6 +71,10 @@
       transition: all 0.3s;
 
       width: 20rem;
+
+      @media (max-width: $xs) {
+        width: 18rem;
+      }
     }
   }
 
@@ -87,11 +91,20 @@
     align-items: center;
     gap: 1.8rem;
     animation: smoothFromLeft 0.2s ease-out;
+
+    @media (max-width: $xs) {
+      gap: 0.8rem;
+    }
   }
 
   &__icon {
     transition: 0.3s;
     margin-left: 0.8rem;
+
+    @media (max-width: $xs) {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
 
     &:hover {
       color: $color-primary-dark;

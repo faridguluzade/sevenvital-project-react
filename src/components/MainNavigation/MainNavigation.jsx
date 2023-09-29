@@ -122,7 +122,10 @@ const MainNavigation = () => {
                   />
                   {fullName &&
                     (!logoutLoading ? (
-                      <UilSignout onClick={handleLogout} />
+                      <UilSignout
+                        className="main-nav__icon"
+                        onClick={handleLogout}
+                      />
                     ) : (
                       <SpinnerMini />
                     ))}
