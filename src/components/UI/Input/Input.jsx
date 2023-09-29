@@ -13,6 +13,10 @@ const Input = ({
   required,
   onChange,
 }) => {
+  let attrs = !onChange
+    ? { ...register?.(id, { ...condition }) }
+    : (onChange = { onChange });
+
   return (
     <div className="input-box">
       <label htmlFor={id}>
@@ -22,11 +26,11 @@ const Input = ({
         id={id}
         type={type}
         placeholder={placeholder}
-        {...register?.(id, { ...condition })}
         disabled={disabled}
         value={value}
-        onChange={onChange}
+        {...attrs}
       />
+
       {error && <span className="input-error">{error}</span>}
     </div>
   );

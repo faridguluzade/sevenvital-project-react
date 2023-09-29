@@ -64,7 +64,7 @@ const SignupForm = () => {
         error={errors.newPassword?.message}
       />
       <Input
-        id="passwordConfirm"
+        id="newPasswordConfirm"
         label="Confirm Password"
         type="password"
         required
@@ -75,7 +75,7 @@ const SignupForm = () => {
           validate: (value) =>
             value === getValues().newPassword || "Passwords needs to match",
         }}
-        error={errors.passwordConfirm?.message}
+        error={errors.newPasswordConfirm?.message}
       />
     </Form>
   );

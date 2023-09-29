@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
 import Form from "../UI/Form/Form";
 import Input from "../UI/Input/Input";
 
-import { useDispatch } from "react-redux";
 import { updateCurrentUser } from "../../store/user/userSlice";
 
 const UpdateUserDataForm = ({ user }) => {
@@ -19,7 +20,7 @@ const UpdateUserDataForm = ({ user }) => {
     if (!fullName) return;
     await dispatch(updateCurrentUser({ fullName, avatar }));
 
-    setAvatar(currentFullName);
+    setAvatar(null);
   };
 
   return (

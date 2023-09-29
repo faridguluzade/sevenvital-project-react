@@ -10,7 +10,7 @@ const UpdatePasswordForm = () => {
   const { errors } = formState;
   const dispatch = useDispatch();
 
-  const onSubmit = async ({ password }) => {
+  const onSubmit = async ({ updatePassword: password }) => {
     await dispatch(updateCurrentUser({ password }));
     reset();
   };
@@ -22,7 +22,7 @@ const UpdatePasswordForm = () => {
       btnText={"Update password"}
     >
       <Input
-        id="password"
+        id="updatePassword"
         label="New Password (min 8 chars)"
         type="password"
         register={register}
@@ -33,19 +33,19 @@ const UpdatePasswordForm = () => {
             message: "Password needs a minimum of 8 characters",
           },
         }}
-        error={errors.password?.message}
+        error={errors.updatePassword?.message}
       />
       <Input
-        id="passwordConfirm"
+        id="confirmUpdatePassword"
         label="Confirm Password"
         type="password"
         register={register}
         condition={{
           required: "This field is required",
           validate: (value) =>
-            value === getValues().password || "Passwords needs to match",
+            value === getValues().updatePassword || "Passwords needs to match",
         }}
-        error={errors.passwordConfirm?.message}
+        error={errors.confirmUpdatePassword?.message}
       />
     </Form>
   );

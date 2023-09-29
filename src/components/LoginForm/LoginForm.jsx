@@ -10,6 +10,7 @@ const LoginForm = () => {
   const { register, handleSubmit, reset, formState } = useForm();
   const { errors } = formState;
 
+  console.log(errors);
   const onSubmit = ({ email, password }) => {
     login({ email, password });
     reset();
@@ -44,7 +45,6 @@ const LoginForm = () => {
         label="Password"
         type="password"
         placeholder={"*********"}
-        required
         disabled={isLoading}
         register={register}
         condition={{ required: "This field is required" }}

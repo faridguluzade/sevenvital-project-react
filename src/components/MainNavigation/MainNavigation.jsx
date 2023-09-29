@@ -24,6 +24,7 @@ import { useOverflow } from "../../hooks/useOverflow";
 
 import MobileNavigation from "../MobileNavigation/MobileNavigation";
 import CartSidebar from "../CartSidebar/CartSidebar";
+import UserAvatar from "../UserAvatar/UserAvatar";
 import SpinnerMini from "../UI/SpinnerMini/SpinnerMini";
 
 import "./MainNavigation.styles.scss";
@@ -108,7 +109,9 @@ const MainNavigation = () => {
             <Col className="ml-auto" xs={6} lg={4}>
               <div className="main-nav__icon-container">
                 <div className={`main-nav__icon-bar  ${!show ? "d-none" : ""}`}>
-                  <span> {user && fullName}</span>
+                  {/* IF USER EXIST SHOW THE AVATAR AND NAME */}
+                  {user && <UserAvatar user={user} />}
+
                   <UilShoppingBag
                     onClick={toggleSidebarCart}
                     className="main-nav__icon"
