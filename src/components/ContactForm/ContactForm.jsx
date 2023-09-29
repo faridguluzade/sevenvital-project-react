@@ -10,7 +10,6 @@ const ContactForm = () => {
   const { contact, isLoading } = useContact();
 
   const onSubmit = (data) => {
-    console.log(data);
     contact(data);
     reset();
   };

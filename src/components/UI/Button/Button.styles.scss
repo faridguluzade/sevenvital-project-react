@@ -9,7 +9,9 @@
 .button-text {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.2rem;
+  color: $color-white !important;
 }
 
 .button--filled {

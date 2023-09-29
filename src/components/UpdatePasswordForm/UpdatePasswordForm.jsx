@@ -3,15 +3,16 @@ import Input from "../UI/Input/Input";
 
 import { useForm } from "react-hook-form";
 import { updateCurrentUser } from "../../store/user/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const UpdatePasswordForm = () => {
+  const { isUpdatingPassword } = useSelector((state) => state.user);
   const { register, handleSubmit, reset, formState, getValues } = useForm();
   const { errors } = formState;
   const dispatch = useDispatch();
 
   const onSubmit = async ({ updatePassword: password }) => {
-    await dispatch(updateCurrentUser({ password }));
+    await dispatch(updateCurrentUser({ password, formIdentifier: "password" }));
     reset();
   };
 
@@ -20,12 +21,14 @@ const UpdatePasswordForm = () => {
       onSubmit={handleSubmit(onSubmit)}
       headingText="Update password"
       btnText={"Update password"}
+      disabled={isUpdatingPassword}
     >
       <Input
         id="updatePassword"
         label="New Password (min 8 chars)"
         type="password"
         register={register}
+        disabled={isUpdatingPassword}
         condition={{
           required: "This field is required",
           minLength: {
@@ -40,6 +43,7 @@ const UpdatePasswordForm = () => {
         label="Confirm Password"
         type="password"
         register={register}
+        disabled={isUpdatingPassword}
         condition={{
           required: "This field is required",
           validate: (value) =>

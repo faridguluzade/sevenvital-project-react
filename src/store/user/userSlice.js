@@ -15,7 +15,8 @@ const initialState = {
   loginLoading: false,
   signupLoading: false,
   logoutLoading: false,
-  updateLoading: false,
+  isUpdatingFullName: false,
+  isUpdatingPassword: false,
 };
 
 export const getUser = createAsyncThunk("user/getUser", async () => {
@@ -39,9 +40,9 @@ export const logout = createAsyncThunk("user/logout", async () => {
 
 export const updateCurrentUser = createAsyncThunk(
   "user/updateCurrentUser",
-  async (updateData) => {
-    const data = await updateCurrentUserApi(updateData);
-    return data.user;
+  async ({ fullName, avatar, formIdentifier }) => {
+    const data = await updateCurrentUserApi({ fullName, avatar });
+    return { user: data.user, formIdentifier };
   }
 );
 
@@ -108,16 +109,31 @@ const userSlice = createSlice({
       })
 
       // 4. Update the user
-      .addCase(updateCurrentUser.pending, (state) => {
-        state.updateLoading = true;
+      .addCase(updateCurrentUser.pending, (state, action) => {
+        if (action.meta.arg.formIdentifier === "fullName") {
+          state.isUpdatingFullName = true;
+        } else if (action.meta.arg.formIdentifier === "password") {
+          state.isUpdatingPassword = true;
+        }
       })
       .addCase(updateCurrentUser.fulfilled, (state, action) => {
-        state.updateLoading = false;
-        state.user = action.payload;
+        state.user = action.payload.user;
+
+        if (action.meta.arg.formIdentifier === "fullName") {
+          state.isUpdatingFullName = false;
+        } else if (action.meta.arg.formIdentifier === "password") {
+          state.isUpdatingPassword = false;
+        }
+
         toast.success("User account successfully updated");
       })
       .addCase(updateCurrentUser.rejected, (state, action) => {
-        state.updateLoading = false;
+        if (action.meta.arg.formIdentifier === "fullName") {
+          state.isUpdatingFullName = false;
+        } else if (action.meta.arg.formIdentifier === "password") {
+          state.isUpdatingPassword = false;
+        }
+
         state.error = action.error.message;
         toast.error(action.error.message);
       });
