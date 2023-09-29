@@ -73,7 +73,7 @@
       width: 20rem;
 
       @media (max-width: $xs) {
-        width: 18rem;
+        width: 16rem;
       }
     }
   }
@@ -93,7 +93,7 @@
     animation: smoothFromLeft 0.2s ease-out;
 
     @media (max-width: $xs) {
-      gap: 0.8rem;
+      gap: 0.7rem;
     }
   }
 
@@ -136,8 +136,9 @@
     outline: none;
     z-index: 100;
 
-    @media (max-width: $md) {
-      width: 75 vw;
+    @media (max-width: $xs) {
+      width: 80vw;
+      height: 4rem;
     }
   }
 }
