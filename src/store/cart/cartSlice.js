@@ -158,8 +158,6 @@ const cartSlice = createSlice({
         toast.error(state.error);
       })
       // Delete item from cart
-      .addCase(deleteCartItem.pending, (state) => {})
-      .addCase(deleteCartItem.fulfilled, (state, action) => {})
       .addCase(deleteCartItem.rejected, (state, action) => {
         state.error = action.error.message;
         toast.error(state.error);

@@ -35,8 +35,6 @@ export const addItemToCart = async ({ productId, userId, price }) => {
     .select("*, products(name, imageFront)")
     .single();
 
-  console.log(data);
-
   if (error) {
     throw new Error("Product could not be added to the cart!");
   }

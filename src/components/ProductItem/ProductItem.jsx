@@ -10,6 +10,7 @@ import Button from "../UI/Button/Button";
 
 import "./ProductItem.styles.scss";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function ProductItem({
   id,
@@ -23,13 +24,16 @@ function ProductItem({
   inShopPage,
 }) {
   const dispatch = useDispatch();
-  const { isSidebarCartOpen, openSidebarCart } = useSidebar();
   const user = useSelector((state) => state.user.user);
   const { loadingProducts } = useSelector((state) => state.cart);
+  const { isSidebarCartOpen, openSidebarCart } = useSidebar();
+  const navigate = useNavigate();
 
   const handleAddToCart = async () => {
     if (!user) {
       toast.error("You must be logged in!");
+      navigate("/account");
+
       return;
     }
 

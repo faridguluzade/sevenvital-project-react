@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { useProducts } from "../../hooks/useProducts";
 import { getProducts } from "../../store/products/productsSlice";
 
 import Container from "react-bootstrap/Container";
@@ -14,10 +13,9 @@ import Spinner from "../UI/Spinner/Spinner";
 import "./Products.styles.scss";
 
 const Products = () => {
-  useProducts();
-  const { pathname } = useLocation();
   const { products, status } = useSelector(getProducts);
 
+  const { pathname } = useLocation();
   const inShopPage = pathname === "/shop";
 
   if (status === "loading") return <Spinner />;

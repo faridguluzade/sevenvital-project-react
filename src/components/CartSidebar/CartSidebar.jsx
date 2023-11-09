@@ -1,20 +1,20 @@
+import { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { UilTimes, UilShoppingBag } from "@iconscout/react-unicons";
-
-import { useSidebar } from "../../hooks/useSidebar";
 import {
   getCart,
   getTotalPrice,
   getCartById,
 } from "../../store/cart/cartSlice";
+
+import { useSidebar } from "../../hooks/useSidebar";
 import { formatCurrency } from "../../utils/helper";
+import { UilTimes, UilShoppingBag } from "@iconscout/react-unicons";
 
 import SidebarProduct from "../SidebarProduct/SidebarProduct";
 import Button from "../UI/Button/Button";
 
 import "./CartSidebar.styles.scss";
-import { memo, useEffect } from "react";
 
 const CartSidebar = ({ user }) => {
   const dispatch = useDispatch();

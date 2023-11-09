@@ -19,7 +19,9 @@ const Accordion = () => {
 
   const toggleHandler = (e, index) => {
     const clicked = e.target.closest(".accordion__select-box");
+
     if (!clicked) return;
+
     const hiddenContent = clicked.nextElementSibling;
     setScrollHeight(hiddenContent.scrollHeight + "px");
 

@@ -4,10 +4,10 @@ import { UilTimes } from "@iconscout/react-unicons";
 import {
   increaseItemQuantity,
   decreaseItemQuantity,
+  deleteCartItem,
 } from "../../store/cart/cartSlice";
 
 import { formatCurrency } from "../../utils/helper";
-import { deleteCartItem } from "../../store/cart/cartSlice";
 
 import "./SidebarProduct.styles.scss";
 

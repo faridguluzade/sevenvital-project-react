@@ -87,11 +87,11 @@ const MainNavigation = () => {
               </nav>
             </Col>
 
-            <Col xs={6} lg={3} className=" d-flex align-items-center gap-4">
+            <Col xs={6} lg={3} className="d-flex align-items-center gap-4">
               <div>
                 <UilAlignLeft
                   onClick={toggleMobileNav}
-                  className="d-block d-lg-none "
+                  className="d-block d-lg-none"
                   size="35"
                 />
               </div>
