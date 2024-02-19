@@ -33,7 +33,6 @@ function ProductItem({
     if (!user) {
       toast.error("You must be logged in!");
       navigate("/account");
-
       return;
     }
 

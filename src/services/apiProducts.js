@@ -9,3 +9,16 @@ export const getProducts = async () => {
 
   return data;
 };
+
+export const getSearchedProducts = async (searchValue) => {
+  let { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .ilike("name", `%${searchValue}%`);
+
+  if (error) {
+    throw new Error("Products not found");
+  }
+
+  return data;
+};

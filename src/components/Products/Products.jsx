@@ -1,7 +1,4 @@
-import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-
-import { getProducts } from "../../store/products/productsSlice";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -12,18 +9,18 @@ import Spinner from "../UI/Spinner/Spinner";
 
 import "./Products.styles.scss";
 
-const Products = () => {
-  const { products, status } = useSelector(getProducts);
+const Products = ({ productsData }) => {
+  const { products, status } = productsData;
 
   const { pathname } = useLocation();
-  const inShopPage = pathname === "/shop";
+  const inShopPage = pathname !== "/";
 
   if (status === "loading") return <Spinner />;
 
   return (
     <Container fluid="lg" className="products">
       <Row>
-        {products.map((product) => (
+        {products?.map((product) => (
           <Col key={product.id} xs={12} sm={6} md={4} lg={3}>
             <ProductItem inShopPage={inShopPage} {...product} />
           </Col>

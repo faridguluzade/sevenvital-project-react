@@ -11,19 +11,11 @@ const MagazinePage = lazy(() => import("../pages/MagazinePage"));
 const ShopPage = lazy(() => import("../pages/ShopPage"));
 const ContactPage = lazy(() => import("../pages/ContactPage"));
 const CartPage = lazy(() => import("../pages/CartPage"));
+const SearchPage = lazy(() => import("../pages/SearchPage/SearchPage"));
 const MagazineDetailPage = lazy(() => import("../pages/MagazineDetailPage"));
 const ProductDetailPage = lazy(() =>
   import("../pages/ProductDetailPage/ProductDetailPage")
 );
-
-// import Home from "../pages/Home/Home";
-// import AccountPage from "../pages/AccountPage";
-// import MagazinePage from "../pages/MagazinePage";
-// import ShopPage from "../pages/ShopPage";
-// import ContactPage from "../pages/ContactPage";
-// import CartPage from "../pages/CartPage";
-// import MagazineDetailPage from "../pages/MagazineDetailPage";
-// import ProductDetailPage from "../pages/ProductDetailPage/ProductDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactPage />,
+      },
+      {
+        path: "/search",
+        element: <SearchPage />,
       },
     ],
   },

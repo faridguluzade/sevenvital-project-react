@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   UilEstate,
@@ -32,7 +32,9 @@ import "./MainNavigation.styles.scss";
 const MainNavigation = () => {
   useSticky();
   useOverflow();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const searchRef = useRef();
   const { toggleMobileNav, toggleSidebarCart } = useSidebar();
   const [show, setShow] = useState(true);
   const { user, logoutLoading } = useSelector((state) => state.user);
@@ -46,6 +48,16 @@ const MainNavigation = () => {
     dispatch(logout());
     // clear cart from state
     dispatch(clearCart());
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    const searchValue = searchRef.current.value.trim().toLowerCase();
+
+    navigate(`/search?name=${searchValue}&type=product`);
+
+    searchRef.current.value = "";
   };
 
   return (
@@ -136,9 +148,16 @@ const MainNavigation = () => {
                     show ? "d-none" : ""
                   }`}
                 >
-                  <form className="main-nav__search-form">
-                    <UilSearch className="main-nav__icon" />
+                  <form
+                    onSubmit={handleSearch}
+                    className="main-nav__search-form"
+                  >
+                    <UilSearch
+                      onClick={handleSearch}
+                      className="main-nav__icon"
+                    />
                     <input
+                      ref={searchRef}
                       className="main-nav__search-input "
                       type="text"
                       placeholder="Search..."
