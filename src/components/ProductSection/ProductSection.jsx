@@ -1,13 +1,10 @@
-import { useSelector } from "react-redux";
-
-import { getProducts } from "../../store/products/productsSlice";
-
 import Products from "../Products/Products";
 import SectionHeader from "../UI/SectionHeader/SectionHeader";
 import Button from "../UI/Button/Button";
+import { useProducts } from "../../hooks/useProducts";
 
 const ProductSection = () => {
-  const productsData = useSelector(getProducts);
+  useProducts();
 
   return (
     <>
@@ -18,7 +15,7 @@ const ProductSection = () => {
         }
       />
 
-      <Products productsData={productsData} />
+      <Products />
 
       <div className="text-center">
         <Button to="/shop" className="products__link">

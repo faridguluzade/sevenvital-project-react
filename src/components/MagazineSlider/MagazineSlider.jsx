@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import { getMagazines } from "../../store/magazines/magazinesSlice";
-import { useMagazines } from "../../hooks/useMagazines";
+import { getMagazines } from "../../services/apiMagazines";
+import { useFetch } from "../../hooks/useFetch";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -16,8 +16,7 @@ import SectionHeader from "../UI/SectionHeader/SectionHeader";
 import "./MagazineSlider.styles.scss";
 
 const MagazineSlider = () => {
-  useMagazines();
-  const { magazines } = useSelector(getMagazines);
+  const { data: magazines } = useFetch(getMagazines);
 
   return (
     <>

@@ -22,7 +22,7 @@ const MainHero = () => {
           <div className="main-hero__text-box">
             <h1 className="main-hero__heading">Seven Vital</h1>
             <h3 className="main-hero__description">Premium CBD Products</h3>
-            <Button filled={true} className="main-hero__link">
+            <Button filled={true} to="/shop" className="main-hero__link">
               View Popular Products
             </Button>
           </div>

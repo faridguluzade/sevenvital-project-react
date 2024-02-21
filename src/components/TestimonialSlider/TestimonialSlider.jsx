@@ -1,14 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
+import { useFetch } from "../../hooks/useFetch";
+import { getTestimonials } from "../../services/apiTestimonial";
+
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 
-import { useTestimonials } from "../../hooks/useTestimonials";
 import TestimonialItem from "../TestimonialItem/TestimonialItem";
 
 const TestimonialSlider = () => {
-  const { testimonials } = useTestimonials();
+  const { data: testimonials } = useFetch(getTestimonials);
 
   return (
     <Container fluid className="py-5">

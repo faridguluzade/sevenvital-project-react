@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { UilAngleDown, UilAngleUp } from "@iconscout/react-unicons";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { useAccordions } from "../../hooks/useAccordions";
+import { useFetch } from "../../hooks/useFetch";
+import { getAccordions } from "../../services/apiAccordion";
 
 import SectionHeader from "../UI/SectionHeader/SectionHeader";
 
 import "./Accordion.styles.scss";
 
 const Accordion = () => {
-  const { accordions } = useAccordions();
+  const { data: accordions } = useFetch(getAccordions);
 
   const [selected, setSelected] = useState(null);
   const [scrollHeight, setScrollHeight] = useState(0);

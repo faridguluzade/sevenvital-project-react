@@ -65,9 +65,9 @@ export const DUMMY_PRODUCTS = [
     onSale: true,
     details: [
       "Natural ingredients",
-      "  No preservatives",
+      "No preservatives",
       "Moisturising & antibacterial effect",
-      " Fast & long-lasting results",
+      "Fast & long-lasting results",
     ],
   },
   {

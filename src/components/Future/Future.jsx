@@ -1,6 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,23 +5,16 @@ import Col from "react-bootstrap/Col";
 import SectionHeader from "../UI/SectionHeader/SectionHeader";
 import Button from "../UI/Button/Button";
 
-import { UilFlask } from "@iconscout/react-unicons";
-import { UilProcess } from "@iconscout/react-unicons";
-import { UilCheckCircle } from "@iconscout/react-unicons";
-import { UilBullseye } from "@iconscout/react-unicons";
-import { UilFlower } from "@iconscout/react-unicons";
-import { UilTemperatureEmpty } from "@iconscout/react-unicons";
+import {
+  UilFlask,
+  UilProcess,
+  UilCheckCircle,
+  UilBullseye,
+  UilFlower,
+  UilTemperatureEmpty,
+} from "@iconscout/react-unicons";
 
 import "./Future.styles.scss";
-
-// const DUMMY_FUTURE = [
-//   {
-//     id: 1,
-//     icon: "",
-//     title: "",
-//     description: "",
-//   },
-// ];
 
 const Future = () => {
   return (
@@ -102,7 +92,9 @@ const Future = () => {
           </Col>
           <Row>
             <Col xs={12}>
-              <Button className="future__link">Browse Popular Products</Button>
+              <Button className="future__link" to="#product">
+                Browse Popular Products
+              </Button>
             </Col>
           </Row>
         </Row>

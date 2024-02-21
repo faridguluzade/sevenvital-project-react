@@ -1,0 +1,31 @@
+.filter {
+  border: 1px solid #a6ad9f;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+  padding: 0.4rem;
+  display: flex;
+  gap: 0.4rem;
+
+  &__btn {
+    background-color: #fff;
+    border: none;
+
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 1.5rem;
+    /* To give the same height as select */
+    padding: 0.44rem 0.8rem;
+    transition: all 0.3s;
+
+    &:hover:not(:disabled) {
+      background-color: #586d43;
+      color: #f3f4ef;
+    }
+  }
+
+  &__btn--active {
+    background-color: #586d43;
+    color: #f3f4ef;
+  }
+}

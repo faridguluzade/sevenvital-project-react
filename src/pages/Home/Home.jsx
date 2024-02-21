@@ -28,7 +28,7 @@ const Home = () => {
       <section className="section-testimonial-slider">
         <TestimonialSlider />
       </section>
-      <section className="section-products">
+      <section className="section-products" id="product">
         <ProductSection />
       </section>
       <section className="section-guarantee">
