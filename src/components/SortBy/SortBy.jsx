@@ -8,6 +8,7 @@ function SortBy({ options, ...props }) {
 
   function handleChange(e) {
     searchParams.set("sortBy", e.target.value);
+    searchParams.set("page", 1);
     setSearchParams(searchParams);
   }
 

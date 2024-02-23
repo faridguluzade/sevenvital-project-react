@@ -40,8 +40,12 @@ export const logout = createAsyncThunk("user/logout", async () => {
 
 export const updateCurrentUser = createAsyncThunk(
   "user/updateCurrentUser",
-  async ({ fullName, avatar, formIdentifier }) => {
-    const data = await updateCurrentUserApi({ fullName, avatar });
+  async ({ fullName, avatar, password, formIdentifier }) => {
+    const data = await updateCurrentUserApi({
+      fullName,
+      avatar,
+      password,
+    });
     return { user: data.user, formIdentifier };
   }
 );

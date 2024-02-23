@@ -26,12 +26,14 @@ export const fetchFilteredProducts = createAsyncThunk(
   "product/fetchFilteredProducts",
   async (filterData) => {
     const products = await getFilteredProducts(filterData);
+
     return products;
   }
 );
 
 const initialState = {
   products: [],
+  count: 0,
   status: "idle",
   error: "",
 };
@@ -74,9 +76,13 @@ const productsSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchFilteredProducts.fulfilled, (state, action) => {
+        console.log("SLICE", action.payload.data, action.payload.count);
+
         state.error = "";
         state.status = "succeeded";
-        state.products = action.payload;
+
+        state.products = action.payload.data;
+        state.count = action.payload.count;
       })
       .addCase(fetchFilteredProducts.rejected, (state, action) => {
         state.status = "";

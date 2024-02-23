@@ -3,7 +3,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination, Navigation, Scrollbar } from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { getProducts } from "../../store/products/productsSlice";
 
@@ -9,28 +9,16 @@ import Col from "react-bootstrap/Col";
 
 import ProductItem from "../ProductItem/ProductItem";
 import Spinner from "../UI/Spinner/Spinner";
-import Button from "../UI/Button/Button";
 
 import "./Products.styles.scss";
 
 const Products = () => {
-  const { products, status, error } = useSelector(getProducts);
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const pageSize = Number(searchParams.get("page") || 1);
-
   const { pathname } = useLocation();
+  const { products, status, error } = useSelector(getProducts);
+
   const inShopPage = pathname !== "/";
 
   if (status === "loading") return <Spinner />;
-
-  function handleLoadMore() {
-    const newPageSize = pageSize + 1;
-
-    searchParams.set("page", newPageSize.toString());
-
-    setSearchParams(searchParams);
-  }
 
   return (
     <Container fluid="lg" className="products">
@@ -44,16 +32,6 @@ const Products = () => {
             </Col>
           ))}
       </Row>
-
-      {inShopPage && (
-        <Row className="text-center">
-          <Col xs={12}>
-            <Button onClick={handleLoadMore} className="products__link">
-              Load More products...
-            </Button>
-          </Col>
-        </Row>
-      )}
     </Container>
   );
 };
