@@ -55,17 +55,19 @@ const FilteredProducts = ({ filter, sortBy }) => {
             </Col>
           ))}
       </Row>
-      {/* {status === "loading" && <Spinner />} */}
-      <Row className="">
-        <Col xs={6} className="d-flex gap-3">
-          <Button onClick={handlePrev} className="products__link">
-            <UisPrevious />
-          </Button>
-          <Button onClick={handleNext} className="products__link">
-            <UisStepForward />
-          </Button>
-        </Col>
-      </Row>
+
+      {pageCount <= 1 ? null : (
+        <Row className="">
+          <Col xs={6} className="d-flex gap-3">
+            <Button onClick={handlePrev} className="products__link">
+              <UisPrevious />
+            </Button>
+            <Button onClick={handleNext} className="products__link">
+              <UisStepForward />
+            </Button>
+          </Col>
+        </Row>
+      )}
     </Container>
   );
 };

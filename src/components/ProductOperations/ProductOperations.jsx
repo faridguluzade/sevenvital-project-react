@@ -12,7 +12,7 @@ function ProductOperations() {
   return (
     <Container fluid="lg" className="p-4 mb-4">
       <Row>
-        <Col xs={12} md={5}>
+        <Col xs={12} md={5} className="mb-3">
           <Filter
             filterField="status"
             options={[
