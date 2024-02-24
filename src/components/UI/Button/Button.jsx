@@ -30,7 +30,7 @@ const Button = ({
       disabled={disabled}
       className={`button ${
         filled ? "button--filled" : "button--outline"
-      } ${className}`}
+      }  ${className}`}
     >
       {disabled ? (
         <span className="button-text">

@@ -1,0 +1,19 @@
+@import "../../scss/variables.scss";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-left: auto;
+  padding: 1.8rem;
+
+  justify-content: center;
+
+  &__btn {
+    padding: 0.7rem 1.6rem;
+  }
+
+  .disabled {
+    cursor: not-allowed;
+  }
+}

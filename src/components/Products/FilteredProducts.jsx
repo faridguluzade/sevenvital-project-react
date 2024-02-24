@@ -1,6 +1,6 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import { useSelector } from "react-redux";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { getProducts } from "../../store/products/productsSlice";
 
@@ -8,38 +8,17 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { UisPrevious } from "@iconscout/react-unicons-solid";
-import { UisStepForward } from "@iconscout/react-unicons-solid";
-import { PAGE_SIZE } from "../../services/apiProducts";
-
 import ProductItem from "../ProductItem/ProductItem";
 import Spinner from "../UI/Spinner/Spinner";
-import Button from "../UI/Button/Button";
 
 import "./Products.styles.scss";
+import Pagination from "../Pagination/Pagination";
 
-const FilteredProducts = ({ filter, sortBy }) => {
+const FilteredProducts = () => {
   const { pathname } = useLocation();
-  const { products, count, status, error } = useSelector(getProducts);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { products, status, error } = useSelector(getProducts);
 
   const inShopPage = pathname !== "/";
-  const currentPage = Number(searchParams.get("page") || 1);
-  const pageCount = Math.ceil(count / PAGE_SIZE);
-
-  function handlePrev() {
-    const prev = currentPage === 1 ? currentPage : currentPage - 1;
-
-    searchParams.set("page", prev);
-    setSearchParams(searchParams);
-  }
-
-  function handleNext() {
-    const next = currentPage === pageCount ? currentPage : currentPage + 1;
-
-    searchParams.set("page", next);
-    setSearchParams(searchParams);
-  }
 
   if (status === "loading") return <Spinner />;
 
@@ -55,19 +34,9 @@ const FilteredProducts = ({ filter, sortBy }) => {
             </Col>
           ))}
       </Row>
-
-      {pageCount <= 1 ? null : (
-        <Row className="">
-          <Col xs={6} className="d-flex gap-3">
-            <Button onClick={handlePrev} className="products__link">
-              <UisPrevious />
-            </Button>
-            <Button onClick={handleNext} className="products__link">
-              <UisStepForward />
-            </Button>
-          </Col>
-        </Row>
-      )}
+      <Row>
+        <Pagination />
+      </Row>
     </Container>
   );
 };

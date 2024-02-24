@@ -1,0 +1,11 @@
+.product-operations {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  padding: 1.8rem;
+
+  @media (max-width: 36em) {
+    flex-direction: column;
+  }
+}
